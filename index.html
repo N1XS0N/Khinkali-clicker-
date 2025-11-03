@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Khinakli Clicker</title>
+  <title>Document</title>
 </head>
 
 <body>
@@ -22,7 +22,7 @@
   </div>
   <br>
   <br>
-  <div class="div1">
+  <div class="div3">
     <div class="div2">
       <input type="text" placeholder="Enter Cheat codes!" for="btn">
       <button onclick="Cheat()" name="btn">Enter</button>
@@ -61,7 +61,6 @@
 
     })
     function Cheat() {
-      document.body.style.color = "navy"
       let string = input.value
       string = string.trim()
       string = string.toUpperCase()
@@ -92,10 +91,6 @@
         case "ZERO":
           clicks = 0
           clicks1 = 2
-          input.value = ""
-          break;
-        case "SPBOSS48BIT":
-          document.body.style.color = "black"
           input.value = ""
           break;
       }
@@ -191,14 +186,6 @@
       ;
     }
 
-    #idX:hover {
-      opacity: 100%;
-    }
-
-    button:hover {
-      color: rgb(63, 62, 62);
-    }
-
     #Count {
       font-size: 40px;
     }
@@ -208,6 +195,13 @@
       align-items: center;
     }
 
+    .div3 {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      background-color: brown;
+    }
+
     .div2 {
       display: flex;
       justify-items: center;
@@ -215,6 +209,5 @@
     }
   </style>
 </body>
-
 
 </html>
