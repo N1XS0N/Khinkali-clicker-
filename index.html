@@ -33,7 +33,6 @@
   </div>
   <script>
     const title = document.querySelector("#title")
-    const realtitle = document.querySelector("title")
     const input = document.querySelector("input")
     const btn = document.querySelector("button")
     const num = document.querySelector("#Count")
@@ -42,7 +41,6 @@
     const img = document.querySelector("img")
     const p2 = document.querySelector("#PlusC")
     img.addEventListener("click", function () {
-      realtitle.value = "Clicks:${clicks}"
       clicks += 1
       if (clicks >= clicks1 / 2) {
         clicks += clicks1 / 2
@@ -211,6 +209,4 @@
   </style>
 </body>
 
-
 </html>
-
