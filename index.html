@@ -18,7 +18,7 @@
     <p id="PlusC">+1</p>
   </div>
   <div class="div1">
-    <img src="https://cdn3.emoji.gg/emojis/5742-khinkali.png">
+    <img src="Khinkali.png">
   </div>
   <br>
   <br>
@@ -31,7 +31,9 @@
   <div class="div1">
     <p id="idX">Created by : N.K (N1XS0N) </p>
   </div>
+  <audio id="myAudio" src="Tap.wav"></audio>
   <script>
+    const audio = document.querySelector("#myAudio")
     const title = document.querySelector("#title")
     const input = document.querySelector("input")
     const btn = document.querySelector("button")
@@ -42,6 +44,7 @@
     const p2 = document.querySelector("#PlusC")
     img.addEventListener("click", function () {
       clicks += 1
+      audio.play()
       if (clicks >= clicks1 / 2) {
         clicks += clicks1 / 2
         clicks1 += 2
