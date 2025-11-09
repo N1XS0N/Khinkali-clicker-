@@ -12,6 +12,9 @@
     <p id="title">Khinkali clicker !</p>
   </div>
   <div class="div1">
+    <p id="Record">Previos record:</p>
+  </div>
+  <div class="div1">
     <p id="Count">0</p>
   </div>
   <div class="div1">
@@ -31,9 +34,8 @@
   <div class="div1">
     <p id="idX">Created by : N.K (N1XS0N) </p>
   </div>
-  <audio id="myAudio" src="Tap.wav"></audio>
   <script>
-    const audio = document.querySelector("#myAudio")
+    const Rec = document.querySelector("#Record")
     const title = document.querySelector("#title")
     const input = document.querySelector("input")
     const btn = document.querySelector("button")
@@ -43,8 +45,9 @@
     const img = document.querySelector("img")
     const p2 = document.querySelector("#PlusC")
     img.addEventListener("click", function () {
+      let Record2 = localStorage.getItem("Record")
+      Rec.innerHTML = `Previos record:${Record2}`
       clicks += 1
-      audio.play()
       if (clicks >= clicks1 / 2) {
         clicks += clicks1 / 2
         clicks1 += 2
@@ -68,7 +71,7 @@
       string = string.trim()
       string = string.toUpperCase()
       switch (string) {
-        case "KHINKALI3030":
+        case "KHINKALIEATER":
           clicks = clicks + 100
           clicks1 = clicks1 + 102
           input.value = ""
@@ -112,18 +115,17 @@
           title.innerHTML = "PILMENI CLICKER!"
           input.value = ""
           break;
-        case "CHEATLIST64":
-          alert("1.KHINKALI3030 2.KHACHAPURI 3.HACKER 4.NIXSONGANG 5.ZERO 6.GVEZELI 7. CHEATLIST64 8.PILMENI 9.RESET 10.RECIPE")
+        case "LIST":
+          alert("1.KHINKALIEATER 2.KHACHAPURI 3.HACKER 4.NIXSONGANG 5.ZERO 6.GVEZELI 7.LIST 8.PILMENI")
           input.value = ""
           break;
-        case "RESET":
-          img.src = "Khinkali.png"
-          p2.style.fontSize = "25px"
-          input.value = ""
-        case "RECIPE":
-          window.open('https://www.travelcookrepeat.com/khinkali-georgian-dumplings/', '_blank');
-
       }
+    }
+    window.onbeforeunload = function (e) {
+      let local_rec = localStorage.setItem("Record", 0)
+      local_rec = localStorage.setItem("Record", clicks)
+      e.preventDefault()
+
     }
   </script>
   <style>
@@ -233,6 +235,10 @@
     .div2 {
       display: flex;
       justify-items: center;
+    }
+
+    #Record {
+      font-size: 25px;
     }
   </style>
 </body>
