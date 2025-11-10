@@ -9,7 +9,7 @@
 
 <body>
   <div class="div1">
-    <p id="title">Khinkali clicker !</p>
+    <p id="title">Khinkali clicker</p>
   </div>
   <div class="div1">
     <p id="Record">Previos record:</p>
@@ -46,7 +46,10 @@
     const p2 = document.querySelector("#PlusC")
     img.addEventListener("click", function () {
       let Record2 = localStorage.getItem("Record")
-      Rec.innerHTML = `Previos record:${Record2}`
+      if (Record2 == null) { Rec.innerHTML = `Previos record:0` }
+      else {
+        Rec.innerHTML = `Previos record:${Record2}`
+      }
       clicks += 1
       if (clicks >= clicks1 / 2) {
         clicks += clicks1 / 2
@@ -77,6 +80,7 @@
           input.value = ""
           break;
         case "KHACHAPURI":
+          title.style.fontSize = "30px"
           img.src = "Khachapuri.png"
           img.style.width = "100px"
           img.style.height = "100px"
@@ -101,6 +105,7 @@
           break;
         case "GVEZELI":
           img.src = "Gvezeli.png"
+          title.style.fontSize = "30px"
           img.style.width = "200px"
           img.style.height = "200px"
           p2.style.fontSize = "25px"
@@ -109,8 +114,9 @@
           break;
         case "PILMENI":
           img.src = "PILMENI.png"
-          img.style.width = "200px"
-          img.style.height = "200px"
+          title.style.fontSize = "30px"
+          img.style.width = "150px"
+          img.style.height = "150px"
           p2.style.fontSize = "25px"
           title.innerHTML = "PILMENI CLICKER!"
           input.value = ""
@@ -130,7 +136,7 @@
   </script>
   <style>
     #idX {
-      font-size: 20px;
+      font-size: 15px;
       opacity: 50%;
       font-family: monospace;
     }
@@ -213,12 +219,12 @@
     }
 
     #title {
-      font-size: 45px;
+      font-size: 40px;
       ;
     }
 
     #Count {
-      font-size: 40px;
+      font-size: 35px;
     }
 
     .div1 {
@@ -238,7 +244,7 @@
     }
 
     #Record {
-      font-size: 25px;
+      font-size: 20px;
     }
   </style>
 </body>
