@@ -36,10 +36,12 @@
   </div>
   <script>
     const Rec = document.querySelector("#Record")
+    const body = document.querySelector("body")
     const title = document.querySelector("#title")
     const input = document.querySelector("input")
     const btn = document.querySelector("button")
     const num = document.querySelector("#Count")
+    let boom = false
     let clicks = 0
     let clicks1 = 2
     const img = document.querySelector("img")
@@ -57,7 +59,7 @@
         num.innerHTML = `${clicks}`
         p2.innerHTML = `+${clicks1 / 2}`
       }
-      if (img.classList != "p") {
+      if (img.classList != "p" && !boom == true) {
         img.classList.add("p")
       }
       setTimeout(function () { img.classList.remove("p") }, 100)
@@ -67,7 +69,13 @@
       setTimeout(function () {
         p2.classList.remove('plus')
       }, 300)
-
+      if (img.classList != "boom" && boom == true) {
+        img.classList.add("boom")
+        setTimeout(function () {
+          body.style.display = "none"
+          setTimeout(function () { window.location.reload() }, 300)
+        }, 3000)
+      }
     })
     function Cheat() {
       let string = input.value
@@ -89,10 +97,19 @@
           input.value = ""
           break;
         case "HACKER":
-          clicks += 1000
-          clicks1 += 1002
+          clicks += 250
+          clicks1 += 252
           input.value = ""
           break;
+        case "RESET":
+          img.src = "Khinkali.png"
+          title.style.fontSize = "40px"
+          img.style.width = "150px"
+          img.style.height = "150px"
+          p2.style.fontSize = "25px"
+          title.innerHTML = "Khinkali clicker"
+          input.value = ""
+          break
         case "NIXSONGANG":
           clicks += 200
           clicks1 += 202
@@ -109,16 +126,16 @@
           img.style.width = "200px"
           img.style.height = "200px"
           p2.style.fontSize = "25px"
-          title.innerHTML = "GVEZELI CLICKER"
+          title.innerHTML = "Gvezeli clicker"
           input.value = ""
           break;
         case "PIZZA":
           img.src = "Pizza.png"
-          title.style.fontSize = "30px"
-          img.style.width = "150px"
-          img.style.height = "150px"
+          title.style.fontSize = "40px"
+          img.style.width = "200px"
+          img.style.height = "200px"
           p2.style.fontSize = "25px"
-          title.innerHTML = "PIZZA CLICKER"
+          title.innerHTML = "Pizza clicker"
           input.value = ""
           break;
         case "HAMBURGER":
@@ -127,7 +144,7 @@
           img.style.width = "200px"
           img.style.height = "200px"
           p2.style.fontSize = "25px"
-          title.innerHTML = "HAMBURGER CLICKER"
+          title.innerHTML = "Hamburger clicker"
           input.value = ""
           break;
         case "PILMENI":
@@ -136,11 +153,29 @@
           img.style.width = "150px"
           img.style.height = "150px"
           p2.style.fontSize = "25px"
-          title.innerHTML = "PILMENI CLICKER"
+          title.innerHTML = "Pilmeni clicker"
           input.value = ""
           break;
         case "LIST":
-          alert("1.KHINKALIEATER 2.KHACHAPURI 3.HACKER 4.NIXSONGANG 5.ZERO 6.GVEZELI 7.LIST 8.PILMENI 9.PIZZA 10.HAMBURGER")
+          alert("1.KHINKALIEATER 2.KHACHAPURI 3.HACKER 4.NIXSONGANG 5.ZERO 6.GVEZELI 7.LIST 8.PILMENI 9.PIZZA 10.HAMBURGER 11.RESET")
+          input.value = ""
+          break;
+        case "KHARCHO":
+          img.src = "kharcho.png"
+          title.style.fontSize = "40px"
+          img.style.width = "250px"
+          img.style.height = "190px"
+          p2.style.fontSize = "25px"
+          title.innerHTML = "Kharcho clicker"
+          input.value = ""
+          break;
+        case "GHOMI":
+          img.src = "Ghomi.png"
+          title.style.fontSize = "40px"
+          img.style.width = "200px"
+          img.style.height = "200px"
+          p2.style.fontSize = "25px"
+          title.innerHTML = "Ghomi clicker"
           input.value = ""
           break;
       }
@@ -149,14 +184,13 @@
       let local_rec = localStorage.setItem("Record", 0)
       local_rec = localStorage.setItem("Record", clicks)
       e.preventDefault()
-
     }
   </script>
   <style>
     #idX {
       font-size: 15px;
       opacity: 50%;
-      font-family: monospace;
+      font-family: monospace, 'Courier New', Courier;
     }
 
     img {
@@ -171,14 +205,14 @@
 
     body {
       font-weight: bold;
-      font-family: Verdana;
+      font-family: Verdana, monospace, sans-serif;
       background-color: white;
     }
 
     button {
       font-size: 15px;
       border-radius: 7%;
-      font-family: Verdana;
+      font-family: Verdana, monospace, sans-serif;
       border: 2px solid black;
       background-color: white;
     }
@@ -186,7 +220,7 @@
     input {
       font-size: 15px;
       border: 2px solid black;
-      font-family: Verdana;
+      font-family: Verdana, monospace, sans-serif;
     }
 
     .p {
