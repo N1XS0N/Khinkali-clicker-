@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Khinkali clicker!</title>
+  <title>Khinkali clicker</title>
+  <link rel="shortcut icon" href="Khinkali.png" type="image/x-icon">
 </head>
 
 <body>
@@ -12,7 +13,7 @@
     <p id="title">Khinkali clicker</p>
   </div>
   <div class="div1">
-    <p id="Record">Previos record:</p>
+    <p id="Record">Previos score:</p>
   </div>
   <div class="div1">
     <p id="Count">0</p>
@@ -36,8 +37,10 @@
   </div>
   <script>
     const Rec = document.querySelector("#Record")
+    const DOCT = document.querySelector("title")
     const body = document.querySelector("body")
     const title = document.querySelector("#title")
+    const Logo = document.querySelector("link")
     const input = document.querySelector("input")
     const btn = document.querySelector("button")
     const num = document.querySelector("#Count")
@@ -46,9 +49,14 @@
     let clicks1 = 2
     const img = document.querySelector("img")
     const p2 = document.querySelector("#PlusC")
+    window.onbeforeunload = function (e) {
+      let local_rec = localStorage.setItem("Prescore", 0)
+      local_rec = localStorage.setItem("Prescore", clicks)
+      e.preventDefault()
+    }
     img.addEventListener("click", function () {
-      let Record2 = localStorage.getItem("Record")
-      if (Record2 == null) { Rec.innerHTML = `Previos record:0` }
+      let Record2 = localStorage.getItem("Prescore")
+      if (Record2 == null) { Rec.innerHTML = `Previos score:0` }
       else {
         Rec.innerHTML = `Previos record:${Record2}`
       }
@@ -90,10 +98,12 @@
         case "KHACHAPURI":
           title.style.fontSize = "30px"
           img.src = "Khachapuri.png"
+          Logo.href = "Khachapuri.png"
           img.style.width = "100px"
           img.style.height = "100px"
           p2.style.fontSize = "15px"
-          title.innerHTML = "KHACHAPURI CLICKER"
+          title.innerHTML = "Khachapuri clicker"
+          DOCT.innerHTML = "Khachapuri clicker"
           input.value = ""
           break;
         case "HACKER":
@@ -101,9 +111,11 @@
           clicks1 += 252
           input.value = ""
           break;
-        case "RESET":
+        case "KHINKALI":
           img.src = "Khinkali.png"
+          Logo.href = "Khinkali.png"
           title.style.fontSize = "40px"
+          DOCT.innerHTML = "Khinkali clicker"
           img.style.width = "150px"
           img.style.height = "150px"
           p2.style.fontSize = "25px"
@@ -127,6 +139,8 @@
           img.style.height = "200px"
           p2.style.fontSize = "25px"
           title.innerHTML = "Gvezeli clicker"
+          DOCT.innerHTML = "Gvezeli clicker"
+          Logo.href = "Gvezeli.png"
           input.value = ""
           break;
         case "PIZZA":
@@ -136,6 +150,8 @@
           img.style.height = "200px"
           p2.style.fontSize = "25px"
           title.innerHTML = "Pizza clicker"
+          DOCT.innerHTML = "Pizza clicker"
+          Logo.href = "Pizza.png"
           input.value = ""
           break;
         case "HAMBURGER":
@@ -145,6 +161,8 @@
           img.style.height = "200px"
           p2.style.fontSize = "25px"
           title.innerHTML = "Hamburger clicker"
+          DOCT.innerHTML = "Hamburger clicker"
+          Logo.href = "HamB.png"
           input.value = ""
           break;
         case "PILMENI":
@@ -154,10 +172,12 @@
           img.style.height = "150px"
           p2.style.fontSize = "25px"
           title.innerHTML = "Pilmeni clicker"
+          DOCT.innerHTML = "Pilmeni clicker"
+          Logo.href = "PILMENI.png"
           input.value = ""
           break;
         case "LIST":
-          alert("1.KHINKALIEATER 2.KHACHAPURI 3.HACKER 4.NIXSONGANG 5.ZERO 6.GVEZELI 7.LIST 8.PILMENI 9.PIZZA 10.HAMBURGER 11.RESET")
+          alert("1.KHINKALIEATER 2.KHACHAPURI 3.HACKER 4.NIXSONGANG 5.ZERO 6.GVEZELI 7.LIST 8.PILMENI 9.PIZZA 10.HAMBURGER 11.KHINKALI 12.KHARCHO 13.GHOMI 14.VALERI")
           input.value = ""
           break;
         case "KHARCHO":
@@ -166,7 +186,9 @@
           img.style.width = "250px"
           img.style.height = "190px"
           p2.style.fontSize = "25px"
+          DOCT.innerHTML = "Kharcho clicker"
           title.innerHTML = "Kharcho clicker"
+          Logo.href = "Kharcho.png"
           input.value = ""
           break;
         case "GHOMI":
@@ -176,14 +198,22 @@
           img.style.height = "200px"
           p2.style.fontSize = "25px"
           title.innerHTML = "Ghomi clicker"
+          DOCT.innerHTML = "Ghomi clicker"
+          Logo.href = "Ghomi.png"
+          input.value = ""
+          break;
+        case "VALERI":
+          img.src = "Rachuli.png"
+          title.style.fontSize = "40px"
+          img.style.width = "250px"
+          img.style.height = "120px"
+          p2.style.fontSize = "25px"
+          title.innerHTML = "Lori clicker"
+          DOCT.innerHTML = "Lori clicker"
+          Logo.href = "Rachuli.png"
           input.value = ""
           break;
       }
-    }
-    window.onbeforeunload = function (e) {
-      let local_rec = localStorage.setItem("Record", 0)
-      local_rec = localStorage.setItem("Record", clicks)
-      e.preventDefault()
     }
   </script>
   <style>
