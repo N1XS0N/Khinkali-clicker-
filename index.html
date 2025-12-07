@@ -32,6 +32,13 @@
       <button onclick="Cheat()" name="btn">Enter</button>
     </div>
   </div>
+  <br>
+  <div class="div3">
+    <div class="div2">
+      <label id="c" for="c">Shaders</label>
+      <input type="checkbox" name="c" id="check">
+    </div>
+  </div>
   <div class="div1">
     <p id="idX">Created by : N.K (N1XS0N) </p>
   </div>
@@ -41,9 +48,11 @@
     const body = document.querySelector("body")
     const title = document.querySelector("#title")
     const Logo = document.querySelector("link")
+    let checkbox = document.querySelector("#check")
     const input = document.querySelector("input")
     const btn = document.querySelector("button")
     const num = document.querySelector("#Count")
+    let Ischecked = false
     let boom = false
     let clicks = 0
     let clicks1 = 2
@@ -61,6 +70,38 @@
         Rec.innerHTML = `Previos record:${Record2}`
       }
       clicks += 1
+      if (Ischecked) {
+        if (clicks > 1000000 && clicks < 10000000) {
+          img.classList.remove("fiftymillion")
+          img.classList.remove("tenmillion")
+          img.classList.remove("onehundreadmillion")
+          img.classList.add("million")
+        }
+        else if (clicks > 10000000 && clicks < 50000000) {
+          img.classList.remove("fiftymillion")
+          img.classList.remove("onehundreadmillion")
+          img.classList.remove("million")
+          img.classList.add("tenmillion")
+        }
+        else if (clicks > 50000000 && clicks < 100000000) {
+          img.classList.remove("million")
+          img.classList.remove("tenmillion")
+          img.classList.remove("onehundreadmillion")
+          img.classList.add("fiftymillion")
+        }
+        else if (clicks > 100000000 && clicks < 1000000000) {
+          img.classList.remove("million")
+          img.classList.remove("tenmillion")
+          img.classList.remove("fiftymillion")
+          img.classList.add("onehundreadmillion")
+        }
+      }
+      else {
+        img.classList.remove("million")
+        img.classList.remove("tenmillion")
+        img.classList.remove("fiftymillion")
+        img.classList.remove("onehundreadmillion")
+      }
       if (clicks >= clicks1 / 2) {
         clicks += clicks1 / 2
         clicks1 += 2
@@ -215,6 +256,15 @@
           break;
       }
     }
+    checkbox.addEventListener("change", function () {
+      if (!Ischecked) {
+        Ischecked = true
+      }
+      else {
+        Ischecked = false
+      }
+    })
+    //code by N.K A.K.A N1XS0N , 2025
   </script>
   <style>
     #idX {
@@ -327,6 +377,30 @@
 
     #Record {
       font-size: 20px;
+    }
+
+    .million {
+      filter: hue-rotate(290deg)
+    }
+
+    .tenmillion {
+      filter: hue-rotate(140deg);
+    }
+
+    .fiftymillion {
+      filter: hue-rotate(80deg)
+    }
+
+    .onehundreadmillion {
+      filter: hue-rotate(0deg) grayscale(100%);
+    }
+
+    .c {
+      font-family: monospace, 'Courier New', Courier, ;
+    }
+
+    #check {
+      accent-color: black;
     }
   </style>
 </body>
