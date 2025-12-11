@@ -29,16 +29,13 @@
   <div class="div3">
     <div class="div2">
       <input type="text" placeholder="Enter Cheat codes!" for="btn">
-      <button onclick="Cheat()" name="btn">Enter</button>
+      <br>
+      <button onclick="Cheat()" name="btn" class="btn">Enter</button>
+
     </div>
   </div>
   <br>
-  <div class="div3">
-    <div class="div2">
-      <label id="c" for="c">Shaders</label>
-      <input type="checkbox" name="c" id="check">
-    </div>
-  </div>
+  <div class="div1"> <button onclick="" class="shop">Shop</button></div>
   <div class="div1">
     <p id="idX">Created by : N.K (N1XS0N) </p>
   </div>
@@ -48,95 +45,26 @@
     const body = document.querySelector("body")
     const title = document.querySelector("#title")
     const Logo = document.querySelector("link")
-    let checkbox = document.querySelector("#check")
     const input = document.querySelector("input")
-    const btn = document.querySelector("button")
+    const btn = document.querySelector(".btn")
+    const shop = document.querySelector(".shop")
     const num = document.querySelector("#Count")
-    let Ischecked = false
-    let boom = false
     let clicks = 0
     let clicks1 = 2
     const img = document.querySelector("img")
     const p2 = document.querySelector("#PlusC")
+    let CIMG = localStorage.setItem("CIMG", "Khinkali.png")
+    let CIMGV = localStorage.getItem("CIMG")
     window.onbeforeunload = function (e) {
       let local_rec = localStorage.setItem("Prescore", 0)
       local_rec = localStorage.setItem("Prescore", clicks)
       e.preventDefault()
     }
     img.addEventListener("click", function () {
-      let Record2 = localStorage.getItem("Prescore")
-      if (Record2 == null) { Rec.innerHTML = `Previos score:0` }
-      else {
-        Rec.innerHTML = `Previos record:${Record2}`
-      }
-      clicks += 1
-      if (Ischecked) {
-        if (clicks > 1000000 && clicks < 10000000) {
-          img.classList.remove("fiftymillion")
-          img.classList.remove("tenmillion")
-          img.classList.remove("onehundreadmillion")
-          img.classList.add("million")
-        }
-        else if (clicks > 10000000 && clicks < 50000000) {
-          img.classList.remove("fiftymillion")
-          img.classList.remove("onehundreadmillion")
-          img.classList.remove("million")
-          img.classList.add("tenmillion")
-        }
-        else if (clicks > 50000000 && clicks < 100000000) {
-          img.classList.remove("million")
-          img.classList.remove("tenmillion")
-          img.classList.remove("onehundreadmillion")
-          img.classList.add("fiftymillion")
-        }
-        else if (clicks > 100000000 && clicks < 1000000000) {
-          img.classList.remove("million")
-          img.classList.remove("tenmillion")
-          img.classList.remove("fiftymillion")
-          img.classList.add("onehundreadmillion")
-        }
-      }
-      else {
-        img.classList.remove("million")
-        img.classList.remove("tenmillion")
-        img.classList.remove("fiftymillion")
-        img.classList.remove("onehundreadmillion")
-      }
-      if (clicks >= clicks1 / 2) {
-        clicks += clicks1 / 2
-        clicks1 += 2
-        num.innerHTML = `${clicks}`
-        p2.innerHTML = `+${clicks1 / 2}`
-      }
-      if (img.classList != "p" && !boom == true) {
-        img.classList.add("p")
-      }
-      setTimeout(function () { img.classList.remove("p") }, 100)
-      if (p2.classList != "plus") {
-        p2.classList.add("plus")
-      }
-      setTimeout(function () {
-        p2.classList.remove('plus')
-      }, 300)
-      if (img.classList != "boom" && boom == true) {
-        img.classList.add("boom")
-        setTimeout(function () {
-          body.style.display = "none"
-          setTimeout(function () { window.location.reload() }, 300)
-        }, 3000)
-      }
-    })
-    function Cheat() {
-      let string = input.value
-      string = string.trim()
-      string = string.toUpperCase()
-      switch (string) {
-        case "KHINKALIEATER":
-          clicks = clicks + 100
-          clicks1 = clicks1 + 102
-          input.value = ""
-          break;
-        case "KHACHAPURI":
+      CIMGV = localStorage.getItem("CIMG")
+      img.src = CIMGV
+      switch (CIMGV) {
+        case "Khachapuri.png":
           title.style.fontSize = "30px"
           img.src = "Khachapuri.png"
           Logo.href = "Khachapuri.png"
@@ -146,13 +74,9 @@
           title.innerHTML = "Khachapuri clicker"
           DOCT.innerHTML = "Khachapuri clicker"
           input.value = ""
+          CIM = localStorage.setItem("CIMG", "Khachapuri.png")
           break;
-        case "HACKER":
-          clicks += 250
-          clicks1 += 252
-          input.value = ""
-          break;
-        case "KHINKALI":
+        case "Khinkali.png":
           img.src = "Khinkali.png"
           Logo.href = "Khinkali.png"
           title.style.fontSize = "40px"
@@ -163,17 +87,7 @@
           title.innerHTML = "Khinkali clicker"
           input.value = ""
           break
-        case "NIXSONGANG":
-          clicks += 200
-          clicks1 += 202
-          input.value = ""
-          break;
-        case "ZERO":
-          clicks = 0
-          clicks1 = 2
-          input.value = ""
-          break;
-        case "GVEZELI":
+        case "Gvezeli.png":
           img.src = "Gvezeli.png"
           title.style.fontSize = "30px"
           img.style.width = "200px"
@@ -184,7 +98,18 @@
           Logo.href = "Gvezeli.png"
           input.value = ""
           break;
-        case "PIZZA":
+        case "Cheese.png":
+          img.src = "Cheese.png"
+          title.style.fontSize = "30px"
+          img.style.width = "130px"
+          img.style.height = "130px"
+          p2.style.fontSize = "25px"
+          title.innerHTML = "Ghuda clicker"
+          DOCT.innerHTML = "Ghuda clicker"
+          Logo.href = "Cheese.png"
+          input.value = ""
+          break;
+        case "Pizza.png":
           img.src = "Pizza.png"
           title.style.fontSize = "40px"
           img.style.width = "200px"
@@ -195,7 +120,7 @@
           Logo.href = "Pizza.png"
           input.value = ""
           break;
-        case "HAMBURGER":
+        case "HamB.png":
           img.src = "HamB.png"
           title.style.fontSize = "30px"
           img.style.width = "200px"
@@ -206,7 +131,7 @@
           Logo.href = "HamB.png"
           input.value = ""
           break;
-        case "PILMENI":
+        case "PILMENI.png":
           img.src = "PILMENI.png"
           title.style.fontSize = "30px"
           img.style.width = "150px"
@@ -217,11 +142,7 @@
           Logo.href = "PILMENI.png"
           input.value = ""
           break;
-        case "LIST":
-          alert("1.KHINKALIEATER 2.KHACHAPURI 3.HACKER 4.NIXSONGANG 5.ZERO 6.GVEZELI 7.LIST 8.PILMENI 9.PIZZA 10.HAMBURGER 11.KHINKALI 12.KHARCHO 13.GHOMI 14.VALERI")
-          input.value = ""
-          break;
-        case "KHARCHO":
+        case "kharcho.png":
           img.src = "kharcho.png"
           title.style.fontSize = "40px"
           img.style.width = "250px"
@@ -232,7 +153,29 @@
           Logo.href = "Kharcho.png"
           input.value = ""
           break;
-        case "GHOMI":
+        case "Shawarma.png":
+          img.src = "Shawarma.png"
+          title.style.fontSize = "40px"
+          img.style.width = "200px"
+          img.style.height = "150px"
+          p2.style.fontSize = "25px"
+          DOCT.innerHTML = "Shawarma clicker"
+          title.innerHTML = "Shawarma clicker"
+          Logo.href = "Shawarma.png"
+          input.value = ""
+          break;
+        case "Sushi.png":
+          img.src = "Sushi.png"
+          title.style.fontSize = "40px"
+          img.style.width = "150px"
+          img.style.height = "150px"
+          p2.style.fontSize = "25px"
+          DOCT.innerHTML = "Sushi clicker"
+          title.innerHTML = "Sushi clicker"
+          Logo.href = "Sushi.png"
+          input.value = ""
+          break;
+        case "Ghomi.png":
           img.src = "Ghomi.png"
           title.style.fontSize = "40px"
           img.style.width = "200px"
@@ -243,7 +186,7 @@
           Logo.href = "Ghomi.png"
           input.value = ""
           break;
-        case "VALERI":
+        case "Rachuli.png":
           img.src = "Rachuli.png"
           title.style.fontSize = "40px"
           img.style.width = "250px"
@@ -255,16 +198,72 @@
           input.value = ""
           break;
       }
-    }
-    checkbox.addEventListener("change", function () {
-      if (!Ischecked) {
-        Ischecked = true
-      }
+      let Record2 = localStorage.getItem("Prescore")
+      if (Record2 == null) { Rec.innerHTML = `Previos score:0` }
       else {
-        Ischecked = false
+        Rec.innerHTML = `Previos record:${Record2}`
       }
+      clicks += 1
+      cur_clicks = localStorage.setItem("Clicks", clicks)
+      if (clicks >= clicks1 / 2) {
+        clicks += clicks1 / 2
+        clicks1 += 2
+        num.innerHTML = `${clicks}`
+        p2.innerHTML = `+${clicks1 / 2}`
+      }
+      if (img.classList != "p") {
+        img.classList.add("p")
+      }
+      setTimeout(function () { img.classList.remove("p") }, 100)
+      if (p2.classList != "plus") {
+        p2.classList.add("plus")
+      }
+      setTimeout(function () {
+        p2.classList.remove('plus')
+      }, 300)
+    }
+    )
+    function Cheat() {
+      let string = input.value
+      string = string.trim()
+      string = string.toUpperCase()
+      switch (string) {
+        case "KHINKALIEATER":
+          clicks = clicks + 100
+          clicks1 = clicks1 + 102
+          input.value = ""
+          break;
+        case "HACKER":
+          clicks += 250
+          clicks1 += 252
+          input.value = ""
+          break;
+        case "NIXSONGANG":
+          clicks += 200
+          clicks1 += 202
+          input.value = ""
+          break;
+        case "ULTIMATE":
+          clicks += 500
+          clicks1 += 502
+          input.value = ""
+          break;
+        case "GIFT":
+          clicks += 350
+          clicks1 += 352
+        case "ZERO":
+          clicks = 0
+          clicks1 = 2
+          input.value = ""
+          break;
+      }
+    }
+    shop.addEventListener("click", function () {
+      let cur_clicks = localStorage.setItem("Clicks", clicks)
+      window.open(
+        "shop.html", "_blank")
     })
-    //code by N.K A.K.A N1XS0N , 2025
+    //code by N.K (N1XS0N) , 2025
   </script>
   <style>
     #idX {
@@ -286,7 +285,7 @@
     body {
       font-weight: bold;
       font-family: Verdana, monospace, sans-serif;
-      background-color: white;
+      background-color: beige;
     }
 
     button {
@@ -395,8 +394,9 @@
       filter: hue-rotate(0deg) grayscale(100%);
     }
 
-    .c {
+    #c {
       font-family: monospace, 'Courier New', Courier, ;
+      font-size: 13px;
     }
 
     #check {

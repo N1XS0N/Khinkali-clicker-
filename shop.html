@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="shortcut icon" href="Khinkali.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="D1">
+        <h1>Nixson Food Shop</h1>
+    </div>
+    <hr>
+    <div class="D1">
+        <div class="D2">
+            <p class="KNum">Khinkali</p><img src="Khinkali.png" alt="" class="Khinkali">
+        </div>
+        <div class="D2">
+            <p class="KANum">30000 clicks</p><img src="Khachapuri.png" alt="" class="Khachapuri">
+        </div>
+    </div>
+    <div class="D1">
+        <div class="D2">
+            <p class="PILNum">8000 clicks</p><img src="PILMENI.png" alt="" class="Pilmeni">
+        </div>
+        <div class="D2">
+            <p class="GVENum">3000 clicks</p><img src="Gvezeli.png" alt="" class="Gvezeli">
+        </div>
+    </div>
+    <div class="D1">
+        <div class="D2">
+            <p class="LORINum">80000 clicks</p><img src="Rachuli.png" alt="" class="Lori">
+        </div>
+        <div class="D2">
+            <p class="GHONum">120000 clicks</p><img src="Ghomi.png" alt="" class="Ghomi">
+        </div>
+    </div>
+    <div class="D1">
+        <div class="D2">
+            <p class="HAMNum">1000000 clicks</p><img src="HamB.png" alt="" class="Hamburger">
+        </div>
+        <div class="D2">
+            <p class="PNum">800000 clicks</p><img src="Pizza.png" alt="" class="Pizza">
+        </div>
+    </div>
+    <div class="D1">
+        <div class="D2">
+            <p class="KHARNum">100000 clicks</p><img src="kharcho.png" alt="" class="Kharcho">
+        </div>
+        <div class="D2">
+            <p class="SUSHINum">5000000 clicks</p><img src="Sushi.png" alt="" class="Sushi">
+        </div>
+    </div>
+    <div class="D1">
+        <div class="D2">
+            <p class="GHUNum">2000000 clicks</p><img src="Cheese.png" alt="" class="Ghuda">
+        </div>
+        <div class="D2">
+            <p class="SHANum">3000000 clicks</p><img src="Shawarma.png" alt="" class="Shawarma">
+        </div>
+    </div>
+</body>
+<script>
+    const Khinkali = document.querySelector(".Khinkali")
+    const Khachapuri = document.querySelector(".Khachapuri")
+    const Kharcho = document.querySelector(".Kharcho")
+    const Gvezeli = document.querySelector(".Gvezeli")
+    const Pilmeni = document.querySelector(".Pilmeni")
+    const Ghomi = document.querySelector(".Ghomi")
+    const Rachuli = document.querySelector(".Lori")
+    const Pizza = document.querySelector(".Pizza")
+    const HamB = document.querySelector(".Hamburger")
+    const PizzaN = document.querySelector(".PNum")
+    const HamBN = document.querySelector(".HAMNum")
+    const Shawarma = document.querySelector(".Shawarma")
+    const Sushi = document.querySelector(".Sushi")
+    const Ghuda = document.querySelector(".Ghuda")
+    const GhudaN = document.querySelector(".GHUNum")
+    const ShawarmaN = document.querySelector(".SHANum")
+    const SushiN = document.querySelector(".SUSHINum")
+    const KhinkaliN = document.querySelector(".KNum")
+    const KhachapuriN = document.querySelector(".KANum")
+    const KharchoN = document.querySelector(".KHARNum")
+    const GvezeliN = document.querySelector(".GVENum")
+    const PilmeniN = document.querySelector(".PILNum")
+    const GhomiN = document.querySelector(".GHONum")
+    const RachuliN = document.querySelector(".LORINum")
+    let local_clicks = undefined
+    const currentImg = undefined
+    Khachapuri.addEventListener("click", function () {
+        local_clicks = localStorage.getItem("Clicks")
+        if (Number(local_clicks) > 30000) {
+            KhachapuriN.innerHTML = "Khachapuri"
+            localStorage.setItem("CIMG", "Khachapuri.png")
+        }
+        else {
+            KhachapuriN.innerHTML = "30000 clicks"
+            localStorage.setItem("CIMG", "Khinkali.png")
+        }
+    })
+    Pilmeni.addEventListener("click", function () {
+        local_clicks = localStorage.getItem("Clicks")
+        if (Number(local_clicks) > 8000) {
+            PilmeniN.innerHTML = "Pilmeni"
+            localStorage.setItem("CIMG", "PILMENI.png")
+        }
+        else {
+            PilmeniN.innerHTML = "8000 clicks"
+            localStorage.setItem("CIMG", "Khinkali.png")
+        }
+    })
+    Gvezeli.addEventListener("click", function () {
+        local_clicks = localStorage.getItem("Clicks")
+        if (Number(local_clicks) > 8000) {
+            GvezeliN.innerHTML = "Gvezeli"
+            localStorage.setItem("CIMG", "Gvezeli.png")
+        }
+        else {
+            PilmeniN.innerHTML = "3000 clicks"
+            localStorage.setItem("CIMG", "Khinkali.png")
+        }
+    })
+    Rachuli.addEventListener("click", function () {
+        local_clicks = localStorage.getItem("Clicks")
+        if (Number(local_clicks) > 80000) {
+            RachuliN.innerHTML = "Lori"
+            localStorage.setItem("CIMG", "Rachuli.png")
+        }
+        else {
+            RachuliN.innerHTML = "3000 clicks"
+            localStorage.setItem("CIMG", "Khinkali.png")
+        }
+    })
+    Ghomi.addEventListener("click", function () {
+        local_clicks = localStorage.getItem("Clicks")
+        if (Number(local_clicks) > 120000) {
+            GhomiN.innerHTML = "Ghomi"
+            localStorage.setItem("CIMG", "Ghomi.png")
+        }
+        else {
+            GhomiN.innerHTML = "120000 clicks"
+            localStorage.setItem("CIMG", "Khinkali.png")
+        }
+    })
+    Kharcho.addEventListener("click", function () {
+        local_clicks = localStorage.getItem("Clicks")
+        if (Number(local_clicks) > 100000) {
+            KharchoN.innerHTML = "Kharcho"
+            localStorage.setItem("CIMG", "kharcho.png")
+        }
+        else {
+            KharchoN.innerHTML = "100000 clicks"
+            localStorage.setItem("CIMG", "Khinkali.png")
+        }
+    })
+    Pizza.addEventListener("click", function () {
+        local_clicks = localStorage.getItem("Clicks")
+        if (Number(local_clicks) > 800000) {
+            PizzaN.innerHTML = "Pizza"
+            localStorage.setItem("CIMG", "Pizza.png")
+        }
+        else {
+            PizzaN.innerHTML = "800000 clicks"
+            localStorage.setItem("CIMG", "Khinkali.png")
+        }
+    })
+    HamB.addEventListener("click", function () {
+        local_clicks = localStorage.getItem("Clicks")
+        if (Number(local_clicks) > 1000000) {
+            HamBN.innerHTML = "Hamburger"
+            localStorage.setItem("CIMG", "HamB.png")
+        }
+        else {
+            HamBN.innerHTML = "1000000 clicks"
+            localStorage.setItem("CIMG", "Khinkali.png")
+        }
+    })
+    Shawarma.addEventListener("click", function () {
+        local_clicks = localStorage.getItem("Clicks")
+        if (Number(local_clicks) > 3000000) {
+            ShawarmaN.innerHTML = "Shawarma"
+            localStorage.setItem("CIMG", "Shawarma.png")
+        }
+        else {
+            ShawarmaN.innerHTML = "3000000 clicks"
+            localStorage.setItem("CIMG", "Khinkali.png")
+        }
+    })
+    Sushi.addEventListener("click", function () {
+        local_clicks = localStorage.getItem("Clicks")
+        if (Number(local_clicks) > 5000000) {
+            SushiN.innerHTML = "Sushi"
+            localStorage.setItem("CIMG", "Sushi.png")
+        }
+        else {
+            SushiN.innerHTML = "5000000 clicks"
+            localStorage.setItem("CIMG", "Khinkali.png")
+        }
+    })
+    Ghuda.addEventListener("click", function () {
+        local_clicks = localStorage.getItem("Clicks")
+        if (Number(local_clicks) > 2000000) {
+            GhudaN.innerHTML = "Ghuda"
+            localStorage.setItem("CIMG", "Cheese.png")
+        }
+        else {
+            GhudaN.innerHTML = "2000000 clicks"
+            localStorage.setItem("CIMG", "Khinkali.png")
+        }
+    })
+    Khinkali.addEventListener("click", function () {
+        local_clicks = localStorage.getItem("Clicks")
+        KhinkaliN.innerHTML = "Khinkali"
+        localStorage.setItem("CIMG", "Khinkali.png")
+    })
+    window.onbeforeunload = function (e) {
+        local_clicks = localStorage.setItem("Clicks", 0)
+        currentImg = localStorage.setItem("CIMG", 0)
+        let isTrue = localStorage.setItem("IT", true)
+        e.preventDefault()
+    }
+</script>
+<style>
+    h1 {
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: 50px;
+    }
+
+    .D1 {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: row;
+    }
+
+    .D2 {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
+
+    .Khinkali {
+        width: 100px;
+        height: 100px;
+    }
+
+    .Khachapuri {
+        width: 100px;
+        height: 100px;
+    }
+
+    .Pilmeni {
+        width: 130px;
+        height: 130px;
+    }
+
+    p {
+        font-size: 20px;
+        font-family: Verdana, Tahoma, sans-serif;
+    }
+
+    .Gvezeli {
+        width: 130px;
+        height: 130px;
+    }
+
+    .Lori {
+        width: 125px;
+        height: 60px;
+    }
+
+    .Ghomi {
+        width: 150px;
+        height: 150px;
+    }
+
+    .Hamburger {
+        width: 150px;
+        height: 150px;
+    }
+
+    .Pizza {
+        width: 150px;
+        height: 150px;
+    }
+
+    .Sushi {
+        width: 150px;
+        height: 150px;
+    }
+
+    .Ghuda {
+        width: 130px;
+        height: 130px;
+    }
+
+    .Shawarma {
+        width: 200px;
+        height: 150px;
+    }
+
+    .Kharcho {
+        width: 150px;
+        height: 120px;
+    }
+
+    body {
+        margin: 0;
+        background-color: beige;
+    }
+
+    hr {
+        border: 4px solid rgb(29, 28, 28);
+    }
+</style>
+
+</html>
