@@ -17,6 +17,9 @@
     <div class="div1">
       <p id="Count">0</p>
     </div>
+        <div class="div1">
+      <p id="Record">Previos score:</p>
+    </div>
     <div class="div1">
       <p id="PlusC">+1</p>
     </div>
@@ -95,6 +98,11 @@
         <p class="SHANum">3000000 clicks</p><img src="Shawarma.png" alt="" class="Shawarma">
       </div>
     </div>
+       <div class="D1">
+      <div class="D2">
+        <p class="FRINum">300000 clicks</p><img src="Fries.png" alt="" class="Fries">
+      </div>
+     </div>
     <br>
     <div class="D1 "> <button class="Back">Back</button></div>
     <br>
@@ -113,6 +121,10 @@
     const HamBN = document.querySelector(".HAMNum")
     const Shawarma = document.querySelector(".Shawarma")
     const Sushi = document.querySelector(".Sushi")
+    const Fries = document.querySelector(".Fries")
+    const FriesN = document.querySelector(".FRINum")
+    const Steak = document.querySelector(".Mtsvadi")
+    const SteakN = document.querySelector(".MTSNum")
     const Ghuda = document.querySelector(".Ghuda")
     const GhudaN = document.querySelector(".GHUNum")
     const Record1 = document.querySelector("#Record")
@@ -142,10 +154,56 @@
     const one = document.querySelector("#one")
     const two = document.querySelector("#two")
     two.style.display = "none"
+    let Prescore = 0
     window.onbeforeunload = function (e) {
+        
+         request = window.indexedDB.open("RecordHolder",1);
+        request.onupgradeneeded = e=>{
+            Db = e.target.result;
+            Db.createObjectStore("Record",{keyPath:"id"})
+
+            }
+request.onsuccess = e => {
+    Db = e.target.result;
+    const tx = Db.transaction("Record", "readwrite");
+    const store = tx.objectStore("Record");
+    store.put({ id:1, text: clicks });
+    tx.oncomplete = () => {
+        const tx2 = Db.transaction("Record", "readonly");
+        const store2 = tx2.objectStore("Record");
+        const getreq = store2.get(1);
+        getreq.onsuccess = () => {
+        };
+    };
+};
       e.preventDefault()
     }
     img.addEventListener("click", function () {
+      let Db1
+      const request1 = window.indexedDB.open("RecordHolder",1)
+        request1.onupgradeneeded = c=>{
+            Db1 = c.target.result;
+            Db1.createObjectStore("Record",{keyPath:"id"})
+
+            }
+            request1.onsuccess = c => {
+    Db1 = c.target.result;
+    const tx1 = Db1.transaction("Record", "readonly");
+    const store1 = tx1.objectStore("Record");
+    tx1.oncomplete = () => {
+        const tx4 = Db1.transaction("Record", "readonly");
+        const store3 = tx4.objectStore("Record");
+        const getreq2 = store3.get(1);
+        getreq2.onsuccess = () => {
+            Prescore = getreq2.result.text
+        };
+    };
+};
+      
+      if (Prescore == 0) { Record1.innerHTML = `Previos score:0` }
+      else {
+        Record1.innerHTML = `Previos record:${Prescore}`
+      }
       img.src = CurImg
         switch (CurImg) {
           case "Khachapuri.png":
@@ -169,6 +227,17 @@
             img.style.height = "150px"
             p2.style.fontSize = "25px"
             title.innerHTML = "Khinkali clicker"
+            input.value = ""
+            break
+            case "Fries.png":
+            img.src = "Fries.png"
+            Logo.href = "Fries.png"
+            title.style.fontSize = "40px"
+            DOCT.innerHTML = "Fries clicker"
+            img.style.width = "150px"
+            img.style.height = "150px"
+            p2.style.fontSize = "25px"
+            title.innerHTML = "Fries clicker"
             input.value = ""
             break
           case "Gvezeli.png":
@@ -455,6 +524,16 @@
       }
       else {
         GhudaN.innerHTML = "2000000 clicks"
+        CurImg = "Khinkali.png"
+      }
+    })
+    Fries.addEventListener("click", function () {
+      if (Number(clicks) > 300000) {
+        FriesN.innerHTML = "Fries"
+        CurImg = "Fries.png"
+      }
+      else {
+        FriesN.innerHTML = "300000 clicks"
         CurImg = "Khinkali.png"
       }
     })
