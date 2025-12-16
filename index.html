@@ -102,12 +102,16 @@
       <div class="D2">
         <p class="FRINum">300000 clicks</p><img src="Fries.png" alt="" class="Fries">
       </div>
+        <div class="D2">
+        <p class="MTSNum">600000 clicks</p><img src="Mtsvadi.png" alt="" class="Mtsvadi">
+      </div>
      </div>
     <br>
     <div class="D1 "> <button class="Back">Back</button></div>
     <br>
   </section>
   <script>
+  
     const Khinkali = document.querySelector(".Khinkali")
     const Khachapuri = document.querySelector(".Khachapuri")
     const Kharcho = document.querySelector(".Kharcho")
@@ -127,6 +131,8 @@
     const SteakN = document.querySelector(".MTSNum")
     const Ghuda = document.querySelector(".Ghuda")
     const GhudaN = document.querySelector(".GHUNum")
+    const Mtsvadi = document.querySelector(".Mtsvadi")
+    const MtsvadiN = document.querySelector(".MTSNum")
     const Record1 = document.querySelector("#Record")
     const ShawarmaN = document.querySelector(".SHANum")
     const SushiN = document.querySelector(".SUSHINum")
@@ -156,7 +162,6 @@
     two.style.display = "none"
     let Prescore = 0
     window.onbeforeunload = function (e) {
-        
          request = window.indexedDB.open("RecordHolder",1);
         request.onupgradeneeded = e=>{
             Db = e.target.result;
@@ -176,8 +181,8 @@ request.onsuccess = e => {
         };
     };
 };
-      e.preventDefault()
-    }
+e.preventDefault()
+   }
     img.addEventListener("click", function () {
       let Db1
       const request1 = window.indexedDB.open("RecordHolder",1)
@@ -227,6 +232,17 @@ request.onsuccess = e => {
             img.style.height = "150px"
             p2.style.fontSize = "25px"
             title.innerHTML = "Khinkali clicker"
+            input.value = ""
+            break
+            case "Mtsvadi.png":
+            img.src = "Mtsvadi.png"
+            Logo.href = "Mtsvadi.png"
+            title.style.fontSize = "40px"
+            DOCT.innerHTML = "Mtsvadi clicker"
+            img.style.width = "150px"
+            img.style.height = "150px"
+            p2.style.fontSize = "25px"
+            title.innerHTML = "Mtsvadi clicker"
             input.value = ""
             break
             case "Fries.png":
@@ -534,6 +550,16 @@ request.onsuccess = e => {
       }
       else {
         FriesN.innerHTML = "300000 clicks"
+        CurImg = "Khinkali.png"
+      }
+    })
+    Mtsvadi.addEventListener("click", function () {
+      if (Number(clicks) > 600000) {
+        MtsvadiN.innerHTML = "Mtsvadi"
+        CurImg = "Mtsvadi.png"
+      }
+      else {
+        MtsvadiN.innerHTML = "300000 clicks"
         CurImg = "Khinkali.png"
       }
     })
