@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +16,7 @@
     <div class="div1">
       <p id="Count">0</p>
     </div>
-        <div class="div1">
+    <div class="div1">
       <p id="Record">Previos score:</p>
     </div>
     <div class="div1">
@@ -98,20 +97,28 @@
         <p class="SHANum">3000000 clicks</p><img src="Shawarma.png" alt="" class="Shawarma">
       </div>
     </div>
-       <div class="D1">
+    <div class="D1">
       <div class="D2">
         <p class="FRINum">300000 clicks</p><img src="Fries.png" alt="" class="Fries">
       </div>
-        <div class="D2">
+      <div class="D2">
         <p class="MTSNum">600000 clicks</p><img src="Mtsvadi.png" alt="" class="Mtsvadi">
       </div>
-     </div>
+    </div>
+    <div class="D1">
+      <div class="D2">
+        <p class="CONum">100000 clicks</p><img src="Cookie.png" alt="" class="Cookies">
+      </div>
+      <div class="D2">
+        <p class="CADNum">50000 clicks</p><img src="Candy.png" alt="" class="Candy">
+      </div>
+    </div>
     <br>
     <div class="D1 "> <button class="Back">Back</button></div>
     <br>
   </section>
   <script>
-  
+
     const Khinkali = document.querySelector(".Khinkali")
     const Khachapuri = document.querySelector(".Khachapuri")
     const Kharcho = document.querySelector(".Kharcho")
@@ -131,6 +138,10 @@
     const SteakN = document.querySelector(".MTSNum")
     const Ghuda = document.querySelector(".Ghuda")
     const GhudaN = document.querySelector(".GHUNum")
+    const Candy = document.querySelector(".Candy")
+    const Cookie = document.querySelector(".Cookies")
+    const CandyN = document.querySelector(".CADNum")
+    const CookieN = document.querySelector(".CONum")
     const Mtsvadi = document.querySelector(".Mtsvadi")
     const MtsvadiN = document.querySelector(".MTSNum")
     const Record1 = document.querySelector("#Record")
@@ -162,229 +173,251 @@
     two.style.display = "none"
     let Prescore = 0
     window.onbeforeunload = function (e) {
-         request = window.indexedDB.open("RecordHolder",1);
-        request.onupgradeneeded = e=>{
-            Db = e.target.result;
-            Db.createObjectStore("Record",{keyPath:"id"})
+      request = window.indexedDB.open("RecordHolder", 1);
+      request.onupgradeneeded = e => {
+        Db = e.target.result;
+        Db.createObjectStore("Record", { keyPath: "id" })
 
-            }
-request.onsuccess = e => {
-    Db = e.target.result;
-    const tx = Db.transaction("Record", "readwrite");
-    const store = tx.objectStore("Record");
-    store.put({ id:1, text: clicks });
-    tx.oncomplete = () => {
-        const tx2 = Db.transaction("Record", "readonly");
-        const store2 = tx2.objectStore("Record");
-        const getreq = store2.get(1);
-        getreq.onsuccess = () => {
+      }
+      request.onsuccess = e => {
+        Db = e.target.result;
+        const tx = Db.transaction("Record", "readwrite");
+        const store = tx.objectStore("Record");
+        store.put({ id: 1, text: clicks });
+        tx.oncomplete = () => {
+          const tx2 = Db.transaction("Record", "readonly");
+          const store2 = tx2.objectStore("Record");
+          const getreq = store2.get(1);
+          getreq.onsuccess = () => {
+          };
         };
-    };
-};
-e.preventDefault()
-   }
+      };
+      e.preventDefault()
+    }
     img.addEventListener("click", function () {
       let Db1
-      const request1 = window.indexedDB.open("RecordHolder",1)
-        request1.onupgradeneeded = c=>{
-            Db1 = c.target.result;
-            Db1.createObjectStore("Record",{keyPath:"id"})
+      const request1 = window.indexedDB.open("RecordHolder", 1)
+      request1.onupgradeneeded = c => {
+        Db1 = c.target.result;
+        Db1.createObjectStore("Record", { keyPath: "id" })
 
-            }
-            request1.onsuccess = c => {
-    Db1 = c.target.result;
-    const tx1 = Db1.transaction("Record", "readonly");
-    const store1 = tx1.objectStore("Record");
-    tx1.oncomplete = () => {
-        const tx4 = Db1.transaction("Record", "readonly");
-        const store3 = tx4.objectStore("Record");
-        const getreq2 = store3.get(1);
-        getreq2.onsuccess = () => {
+      }
+      request1.onsuccess = c => {
+        Db1 = c.target.result;
+        const tx1 = Db1.transaction("Record", "readonly");
+        const store1 = tx1.objectStore("Record");
+        tx1.oncomplete = () => {
+          const tx4 = Db1.transaction("Record", "readonly");
+          const store3 = tx4.objectStore("Record");
+          const getreq2 = store3.get(1);
+          getreq2.onsuccess = () => {
             Prescore = getreq2.result.text
+          };
         };
-    };
-};
-      
+      };
+
       if (Prescore == 0) { Record1.innerHTML = `Previos score:0` }
       else {
         Record1.innerHTML = `Previos record:${Prescore}`
       }
       img.src = CurImg
-        switch (CurImg) {
-          case "Khachapuri.png":
-            title.style.fontSize = "30px"
-            img.src = "Khachapuri.png"
-            Logo.href = "Khachapuri.png"
-            img.style.width = "100px"
-            DOCT.innerHTML = "Khachapuri clicker"
-            img.style.height = "100px"
-            p2.style.fontSize = "15px"
-            title.innerHTML = "Khachapuri clicker"
-            input.value = ""
-            input.value = ""
-            break;
-          case "Khinkali.png":
-            img.src = "Khinkali.png"
-            Logo.href = "Khinkali.png"
-            title.style.fontSize = "40px"
-            DOCT.innerHTML = "Khinkali clicker"
-            img.style.width = "150px"
-            img.style.height = "150px"
-            p2.style.fontSize = "25px"
-            title.innerHTML = "Khinkali clicker"
-            input.value = ""
-            break
-            case "Mtsvadi.png":
-            img.src = "Mtsvadi.png"
-            Logo.href = "Mtsvadi.png"
-            title.style.fontSize = "40px"
-            DOCT.innerHTML = "Mtsvadi clicker"
-            img.style.width = "150px"
-            img.style.height = "150px"
-            p2.style.fontSize = "25px"
-            title.innerHTML = "Mtsvadi clicker"
-            input.value = ""
-            break
-            case "Fries.png":
-            img.src = "Fries.png"
-            Logo.href = "Fries.png"
-            title.style.fontSize = "40px"
-            DOCT.innerHTML = "Fries clicker"
-            img.style.width = "150px"
-            img.style.height = "150px"
-            p2.style.fontSize = "25px"
-            title.innerHTML = "Fries clicker"
-            input.value = ""
-            break
-          case "Gvezeli.png":
-            img.src = "Gvezeli.png"
-            title.style.fontSize = "30px"
-            img.style.width = "200px"
-            img.style.height = "200px"
-            p2.style.fontSize = "25px"
-            title.innerHTML = "Gvezeli clicker"
-            DOCT.innerHTML = "Gvezeli clicker"
-            Logo.href = "Gvezeli.png"
-            input.value = ""
-            break;
-          case "Cheese.png":
-            img.src = "Cheese.png"
-            title.style.fontSize = "30px"
-            img.style.width = "130px"
-            img.style.height = "130px"
-            p2.style.fontSize = "25px"
-            title.innerHTML = "Ghuda clicker"
-            DOCT.innerHTML = "Ghuda clicker"
-            Logo.href = "Cheese.png"
-            input.value = ""
-            break;
-          case "Pizza.png":
-            img.src = "Pizza.png"
-            title.style.fontSize = "40px"
-            img.style.width = "200px"
-            img.style.height = "200px"
-            p2.style.fontSize = "25px"
-            title.innerHTML = "Pizza clicker"
-            DOCT.innerHTML = "Pizza clicker"
-            Logo.href = "Pizza.png"
-            input.value = ""
-            break;
-          case "HamB.png":
-            img.src = "HamB.png"
-            title.style.fontSize = "30px"
-            img.style.width = "200px"
-            img.style.height = "200px"
-            p2.style.fontSize = "25px"
-            title.innerHTML = "Hamburger clicker"
-            DOCT.innerHTML = "Hamburger clicker"
-            Logo.href = "HamB.png"
-            input.value = ""
-            break;
-          case "PILMENI.png":
-            img.src = "PILMENI.png"
-            title.style.fontSize = "30px"
-            img.style.width = "150px"
-            img.style.height = "150px"
-            p2.style.fontSize = "25px"
-            title.innerHTML = "Pilmeni clicker"
-            DOCT.innerHTML = "Pilmeni clicker"
-            Logo.href = "PILMENI.png"
-            input.value = ""
-            break;
-          case "kharcho.png":
-            img.src = "kharcho.png"
-            title.style.fontSize = "40px"
-            img.style.width = "250px"
-            img.style.height = "190px"
-            p2.style.fontSize = "25px"
-            DOCT.innerHTML = "Kharcho clicker"
-            title.innerHTML = "Kharcho clicker"
-            Logo.href = "Kharcho.png"
-            input.value = ""
-            break;
-          case "Shawarma.png":
-            img.src = "Shawarma.png"
-            title.style.fontSize = "40px"
-            img.style.width = "200px"
-            img.style.height = "150px"
-            p2.style.fontSize = "25px"
-            DOCT.innerHTML = "Shawarma clicker"
-            title.innerHTML = "Shawarma clicker"
-            Logo.href = "Shawarma.png"
-            input.value = ""
-            break;
-          case "Sushi.png":
-            img.src = "Sushi.png"
-            title.style.fontSize = "40px"
-            img.style.width = "150px"
-            img.style.height = "150px"
-            p2.style.fontSize = "25px"
-            DOCT.innerHTML = "Sushi clicker"
-            title.innerHTML = "Sushi clicker"
-            Logo.href = "Sushi.png"
-            input.value = ""
-            break;
-          case "Ghomi.png":
-            img.src = "Ghomi.png"
-            title.style.fontSize = "40px"
-            img.style.width = "200px"
-            img.style.height = "200px"
-            p2.style.fontSize = "25px"
-            title.innerHTML = "Ghomi clicker"
-            DOCT.innerHTML = "Ghomi clicker"
-            Logo.href = "Ghomi.png"
-            input.value = ""
-            break;
-          case "Rachuli.png":
-            img.src = "Rachuli.png"
-            title.style.fontSize = "40px"
-            img.style.width = "250px"
-            img.style.height = "120px"
-            p2.style.fontSize = "25px"
-            title.innerHTML = "Lori clicker"
-            DOCT.innerHTML = "Lori clicker"
-            Logo.href = "Rachuli.png"
-            input.value = ""
-            break;
-        }
-        clicks += 1
-        if (clicks >= clicks1 / 2) {
-          clicks += clicks1 / 2
-          clicks1 += 2
-          num.innerHTML = `${clicks}`
-          p2.innerHTML = `+${clicks1 / 2}`
-        }
-        if (img.classList != "p") {
-          img.classList.add("p")
-        }
-        setTimeout(function () { img.classList.remove("p") }, 100)
-        if (p2.classList != "plus") {
-          p2.classList.add("plus")
-        }
-        setTimeout(function () {
-          p2.classList.remove('plus')
-        }, 300)
+      switch (CurImg) {
+        case "Khachapuri.png":
+          title.style.fontSize = "30px"
+          img.src = "Khachapuri.png"
+          Logo.href = "Khachapuri.png"
+          img.style.width = "100px"
+          DOCT.innerHTML = "Khachapuri clicker"
+          img.style.height = "100px"
+          p2.style.fontSize = "15px"
+          title.innerHTML = "Khachapuri clicker"
+          input.value = ""
+          input.value = ""
+          break;
+        case "Khinkali.png":
+          img.src = "Khinkali.png"
+          Logo.href = "Khinkali.png"
+          title.style.fontSize = "40px"
+          DOCT.innerHTML = "Khinkali clicker"
+          img.style.width = "150px"
+          img.style.height = "150px"
+          p2.style.fontSize = "25px"
+          title.innerHTML = "Khinkali clicker"
+          input.value = ""
+          break
+        case "Mtsvadi.png":
+          img.src = "Mtsvadi.png"
+          Logo.href = "Mtsvadi.png"
+          title.style.fontSize = "40px"
+          DOCT.innerHTML = "Mtsvadi clicker"
+          img.style.width = "150px"
+          img.style.height = "150px"
+          p2.style.fontSize = "25px"
+          title.innerHTML = "Mtsvadi clicker"
+          input.value = ""
+          break
+        case "Fries.png":
+          img.src = "Fries.png"
+          Logo.href = "Fries.png"
+          title.style.fontSize = "40px"
+          DOCT.innerHTML = "Fries clicker"
+          img.style.width = "150px"
+          img.style.height = "150px"
+          p2.style.fontSize = "25px"
+          title.innerHTML = "Fries clicker"
+          input.value = ""
+          break
+        case "Gvezeli.png":
+          img.src = "Gvezeli.png"
+          title.style.fontSize = "30px"
+          img.style.width = "200px"
+          img.style.height = "200px"
+          p2.style.fontSize = "25px"
+          title.innerHTML = "Gvezeli clicker"
+          DOCT.innerHTML = "Gvezeli clicker"
+          Logo.href = "Gvezeli.png"
+          input.value = ""
+          break;
+        case "Cheese.png":
+          img.src = "Cheese.png"
+          title.style.fontSize = "30px"
+          img.style.width = "130px"
+          img.style.height = "130px"
+          p2.style.fontSize = "25px"
+          title.innerHTML = "Ghuda clicker"
+          DOCT.innerHTML = "Ghuda clicker"
+          Logo.href = "Cheese.png"
+          input.value = ""
+          break;
+        case "Pizza.png":
+          img.src = "Pizza.png"
+          title.style.fontSize = "40px"
+          img.style.width = "200px"
+          img.style.height = "200px"
+          p2.style.fontSize = "25px"
+          title.innerHTML = "Pizza clicker"
+          DOCT.innerHTML = "Pizza clicker"
+          Logo.href = "Pizza.png"
+          input.value = ""
+          break;
+        case "HamB.png":
+          img.src = "HamB.png"
+          title.style.fontSize = "30px"
+          img.style.width = "200px"
+          img.style.height = "200px"
+          p2.style.fontSize = "25px"
+          title.innerHTML = "Hamburger clicker"
+          DOCT.innerHTML = "Hamburger clicker"
+          Logo.href = "HamB.png"
+          input.value = ""
+          break;
+        case "PILMENI.png":
+          img.src = "PILMENI.png"
+          title.style.fontSize = "30px"
+          img.style.width = "150px"
+          img.style.height = "150px"
+          p2.style.fontSize = "25px"
+          title.innerHTML = "Pilmeni clicker"
+          DOCT.innerHTML = "Pilmeni clicker"
+          Logo.href = "PILMENI.png"
+          input.value = ""
+          break;
+        case "Cookie.png":
+          img.src = "Cookie.png"
+          title.style.fontSize = "25px"
+          img.style.width = "150px"
+          img.style.height = "150px"
+          p2.style.fontSize = "25px"
+          title.innerHTML = "Gingerbreadmen clicker"
+          DOCT.innerHTML = "Gingerbreadmen clicker"
+          Logo.href = "Cookie.png"
+          input.value = ""
+          break;
+        case "Candy.png":
+          img.src = "Candy.png"
+          title.style.fontSize = "30px"
+          img.style.width = "150px"
+          img.style.height = "150px"
+          p2.style.fontSize = "25px"
+          title.innerHTML = "Candy clicker"
+          DOCT.innerHTML = "Candy clicker"
+          Logo.href = "Candy.png"
+          input.value = ""
+          break;
+        case "kharcho.png":
+          img.src = "kharcho.png"
+          title.style.fontSize = "40px"
+          img.style.width = "250px"
+          img.style.height = "190px"
+          p2.style.fontSize = "25px"
+          DOCT.innerHTML = "Kharcho clicker"
+          title.innerHTML = "Kharcho clicker"
+          Logo.href = "Kharcho.png"
+          input.value = ""
+          break;
+        case "Shawarma.png":
+          img.src = "Shawarma.png"
+          title.style.fontSize = "40px"
+          img.style.width = "200px"
+          img.style.height = "150px"
+          p2.style.fontSize = "25px"
+          DOCT.innerHTML = "Shawarma clicker"
+          title.innerHTML = "Shawarma clicker"
+          Logo.href = "Shawarma.png"
+          input.value = ""
+          break;
+        case "Sushi.png":
+          img.src = "Sushi.png"
+          title.style.fontSize = "40px"
+          img.style.width = "150px"
+          img.style.height = "150px"
+          p2.style.fontSize = "25px"
+          DOCT.innerHTML = "Sushi clicker"
+          title.innerHTML = "Sushi clicker"
+          Logo.href = "Sushi.png"
+          input.value = ""
+          break;
+        case "Ghomi.png":
+          img.src = "Ghomi.png"
+          title.style.fontSize = "40px"
+          img.style.width = "200px"
+          img.style.height = "200px"
+          p2.style.fontSize = "25px"
+          title.innerHTML = "Ghomi clicker"
+          DOCT.innerHTML = "Ghomi clicker"
+          Logo.href = "Ghomi.png"
+          input.value = ""
+          break;
+        case "Rachuli.png":
+          img.src = "Rachuli.png"
+          title.style.fontSize = "40px"
+          img.style.width = "250px"
+          img.style.height = "120px"
+          p2.style.fontSize = "25px"
+          title.innerHTML = "Lori clicker"
+          DOCT.innerHTML = "Lori clicker"
+          Logo.href = "Rachuli.png"
+          input.value = ""
+          break;
       }
+      clicks += 1
+      if (clicks >= clicks1 / 2) {
+        clicks += clicks1 / 2
+        clicks1 += 2
+        num.innerHTML = `${clicks}`
+        p2.innerHTML = `+${clicks1 / 2}`
+      }
+      if (img.classList != "p") {
+        img.classList.add("p")
+      }
+      setTimeout(function () { img.classList.remove("p") }, 100)
+      if (p2.classList != "plus") {
+        p2.classList.add("plus")
+      }
+      setTimeout(function () {
+        p2.classList.remove('plus')
+      }, 300)
+    }
     )
     function Cheat() {
       let string = input.value
@@ -559,7 +592,27 @@ e.preventDefault()
         CurImg = "Mtsvadi.png"
       }
       else {
-        MtsvadiN.innerHTML = "300000 clicks"
+        MtsvadiN.innerHTML = "600000 clicks"
+        CurImg = "Khinkali.png"
+      }
+    })
+    Cookie.addEventListener("click", function () {
+      if (Number(clicks) > 100000) {
+        CookieN.innerHTML = "Cookies"
+        CurImg = "Cookie.png"
+      }
+      else {
+        CookieN.innerHTML = "100000 clicks"
+        CurImg = "Khinkali.png"
+      }
+    })
+    Candy.addEventListener("click", function () {
+      if (Number(clicks) > 50000) {
+        CandyN.innerHTML = "Candy"
+        CurImg = "Candy.png"
+      }
+      else {
+        CandyN.innerHTML = "50000 clicks"
         CurImg = "Khinkali.png"
       }
     })
@@ -765,6 +818,16 @@ e.preventDefault()
     }
 
     .Ghomi {
+      width: 150px;
+      height: 150px;
+    }
+
+    .Cookie {
+      width: 150px;
+      height: 150px;
+    }
+
+    .Candy {
       width: 150px;
       height: 150px;
     }
