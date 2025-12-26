@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +8,7 @@
 </head>
 
 <body>
+  <!--Main layout-->
   <section id="one">
     <div class="div1">
       <p id="title">Khinkali clicker</p>
@@ -25,8 +25,8 @@
     <div class="div1">
       <img src="Khinkali.png">
     </div>
-    <br>
-    <br>
+    <p class="br"></p>
+    <p class="br"></p>
     <div class="div3">
       <div class="div2">
         <input type="text" placeholder="Enter Cheat codes!" for="btn">
@@ -35,14 +35,14 @@
 
       </div>
     </div>
-    <br>
+    <p class="br"></p>
     <div class="div1"> <button onclick="" class="shop">Shop</button></div>
     <div class="div1">
       <p id="idX">Created by : N.K (N1XS0N) </p>
     </div>
   </section>
 
-
+  <!--Store layout-->
 
   <section id="two">
     <div class="D1">
@@ -163,6 +163,8 @@
     const shop = document.querySelector(".shop")
     const num = document.querySelector("#Count")
     let CurImg = "Khinkali.png"
+    let IsAlphaColor =  false
+    let Random = 0
     let clicks = 0
     let clicks1 = 2
     const img = document.querySelector("img")
@@ -194,7 +196,180 @@
       };
       e.preventDefault()
     }
-    img.addEventListener("click", function () {
+
+    img.addEventListener("click", () => click()
+    )
+    window.addEventListener("keyup", function (event) {
+      if (event.key == " ") {
+        click()
+      }
+    })
+    shop.addEventListener("click", function () {
+      one.style.display = "none"
+      two.style.display = "inline"
+      DOCT.innerHTML = "Khinkali store"
+      Logo.href = "Khinkali.png"
+    })
+    Back.addEventListener("click", function () {
+      one.style.display = "inline"
+      two.style.display = "none"
+    })
+    Khachapuri.addEventListener("click", function () {
+      if (Number(clicks) > 30000) {
+        KhachapuriN.innerHTML = "Khachapuri"
+        CurImg = "Khachapuri.png"
+      }
+      else {
+        KhachapuriN.innerHTML = "30000 clicks"
+        CurImg = "Khinkali.png"
+      }
+    })
+    Pilmeni.addEventListener("click", function () {
+      if (Number(clicks) > 8000) {
+        PilmeniN.innerHTML = "Pilmeni"
+        CurImg = "PILMENI.png"
+      }
+      else {
+        PilmeniN.innerHTML = "8000 clicks"
+        CurImg = "Khinkali.png"
+      }
+    })
+    Gvezeli.addEventListener("click", function () {
+      if (Number(clicks) > 3000) {
+        GvezeliN.innerHTML = "Gvezeli"
+        CurImg = "Gvezeli.png"
+      }
+      else {
+        GvezeliN.innerHTML = "3000 clicks"
+        CurImg = "Khinkali.png"
+      }
+    })
+    Rachuli.addEventListener("click", function () {
+      if (Number(clicks) > 80000) {
+        RachuliN.innerHTML = "Lori"
+        CurImg = "Rachuli.png"
+      }
+      else {
+        RachuliN.innerHTML = "80000 clicks"
+        CurImg = "Khinkali.png"
+      }
+    })
+    Ghomi.addEventListener("click", function () {
+      if (Number(clicks) > 120000) {
+        GhomiN.innerHTML = "Ghomi"
+        CurImg = "Ghomi.png"
+      }
+      else {
+        GhomiN.innerHTML = "120000 clicks"
+        CurImg = "Khinkali.png"
+      }
+    })
+    Kharcho.addEventListener("click", function () {
+      if (Number(clicks) > 100000) {
+        KharchoN.innerHTML = "Kharcho"
+        CurImg = "kharcho.png"
+      }
+      else {
+        KharchoN.innerHTML = "100000 clicks"
+        CurImg = "Khinkali.png"
+      }
+    })
+    Pizza.addEventListener("click", function () {
+      if (Number(clicks) > 800000) {
+        PizzaN.innerHTML = "Pizza"
+        CurImg = "Pizza.png"
+      }
+      else {
+        PizzaN.innerHTML = "800000 clicks"
+        CurImg = "Khinkali.png"
+      }
+    })
+    HamB.addEventListener("click", function () {
+      if (Number(clicks) > 1000000) {
+        HamBN.innerHTML = "Hamburger"
+        CurImg = "HamB.png"
+      }
+      else {
+        HamBN.innerHTML = "1000000 clicks"
+        CurImg = "Khinkali.png"
+      }
+    })
+    Shawarma.addEventListener("click", function () {
+      if (Number(clicks) > 3000000) {
+        ShawarmaN.innerHTML = "Shawarma"
+        CurImg = "Shawarma.png"
+      }
+      else {
+        ShawarmaN.innerHTML = "3000000 clicks"
+        CurImg = "Khinkali.png"
+      }
+    })
+    Sushi.addEventListener("click", function () {
+      if (Number(clicks) > 5000000) {
+        SushiN.innerHTML = "Sushi"
+        CurImg = "Sushi.png"
+      }
+      else {
+        SushiN.innerHTML = "5000000 clicks"
+        CurImg = "Khinkali.png"
+      }
+    })
+    Ghuda.addEventListener("click", function () {
+      if (Number(clicks) > 2000000) {
+        GhudaN.innerHTML = "Ghuda"
+        CurImg = "Cheese.png"
+      }
+      else {
+        GhudaN.innerHTML = "2000000 clicks"
+        CurImg = "Khinkali.png"
+      }
+    })
+    Fries.addEventListener("click", function () {
+      if (Number(clicks) > 300000) {
+        FriesN.innerHTML = "Fries"
+        CurImg = "Fries.png"
+      }
+      else {
+        FriesN.innerHTML = "300000 clicks"
+        CurImg = "Khinkali.png"
+      }
+    })
+    Mtsvadi.addEventListener("click", function () {
+      if (Number(clicks) > 600000) {
+        MtsvadiN.innerHTML = "Mtsvadi"
+        CurImg = "Mtsvadi.png"
+      }
+      else {
+        MtsvadiN.innerHTML = "600000 clicks"
+        CurImg = "Khinkali.png"
+      }
+    })
+    Cookie.addEventListener("click", function () {
+      if (Number(clicks) > 100000) {
+        CookieN.innerHTML = "Cookies"
+        CurImg = "Cookie.png"
+      }
+      else {
+        CookieN.innerHTML = "100000 clicks"
+        CurImg = "Khinkali.png"
+      }
+    })
+    Candy.addEventListener("click", function () {
+      if (Number(clicks) > 50000) {
+        CandyN.innerHTML = "Candy"
+        CurImg = "Candy.png"
+      }
+      else {
+        CandyN.innerHTML = "50000 clicks"
+        CurImg = "Khinkali.png"
+      }
+    })
+    Khinkali.addEventListener("click", function () {
+      CurImg = "Khinkali.png"
+      KhinkaliN.innerHTML = "Khinkali"
+
+    })
+    function click() {
       let Db1
       const request1 = window.indexedDB.open("RecordHolder", 1)
       request1.onupgradeneeded = c => {
@@ -212,9 +387,9 @@
           const getreq2 = store3.get(1);
           getreq2.onsuccess = () => {
             Prescore = getreq2.result.text
-          };
-        };
-      };
+          }
+        }
+      }
 
       if (Prescore == 0) { Record1.innerHTML = `Previos score:0` }
       else {
@@ -401,6 +576,14 @@
           break;
       }
       clicks += 1
+      if(IsAlphaColor){
+        Random = Math.floor(Math.random()*360)
+        img.style.filter =`hue-rotate(${Random}deg)`
+      }
+      else{
+        Random = 0
+        img.style.filter =`hue-rotate(${Random}deg)`
+      }
       if (clicks >= clicks1 / 2) {
         clicks += clicks1 / 2
         clicks1 += 2
@@ -418,8 +601,8 @@
         p2.classList.remove('plus')
       }, 300)
     }
-    )
-    function Cheat() {
+    //code by N.K (N1XS0N) ,2025 
+function Cheat() {
       let string = input.value
       string = string.trim()
       string = string.toUpperCase()
@@ -449,6 +632,15 @@
           clicks1 += 700
           input.value = ""
           break;
+         case "ALPHACOLOR":
+          if (IsAlphaColor){
+            IsAlphaColor = false
+          }
+          else{
+            IsAlphaColor = true
+          }
+          input.value = ""
+          break;
         case "ZERO":
           clicks = 0
           clicks1 = 2
@@ -456,172 +648,6 @@
           break;
       }
     }
-    shop.addEventListener("click", function () {
-      one.style.display = "none"
-      two.style.display = "inline"
-      DOCT.innerHTML = "Khinkali store"
-      Logo.href = "Khinkali.png"
-    })
-    Back.addEventListener("click", function () {
-      one.style.display = "inline"
-      two.style.display = "none"
-    })
-    Khachapuri.addEventListener("click", function () {
-      if (Number(clicks) > 30000) {
-        KhachapuriN.innerHTML = "Khachapuri"
-        CurImg = "Khachapuri.png"
-      }
-      else {
-        KhachapuriN.innerHTML = "30000 clicks"
-        CurImg = "Khinkali.png"
-      }
-    })
-    Pilmeni.addEventListener("click", function () {
-      if (Number(clicks) > 8000) {
-        PilmeniN.innerHTML = "Pilmeni"
-        CurImg = "PILMENI.png"
-      }
-      else {
-        PilmeniN.innerHTML = "8000 clicks"
-        CurImg = "Khinkali.png"
-      }
-    })
-    Gvezeli.addEventListener("click", function () {
-      if (Number(clicks) > 3000) {
-        GvezeliN.innerHTML = "Gvezeli"
-        CurImg = "Gvezeli.png"
-      }
-      else {
-        GvezeliN.innerHTML = "3000 clicks"
-        CurImg = "Khinkali.png"
-      }
-    })
-    Rachuli.addEventListener("click", function () {
-      if (Number(clicks) > 80000) {
-        RachuliN.innerHTML = "Lori"
-        CurImg = "Rachuli.png"
-      }
-      else {
-        RachuliN.innerHTML = "80000 clicks"
-        CurImg = "Khinkali.png"
-      }
-    })
-    Ghomi.addEventListener("click", function () {
-      if (Number(clicks) > 120000) {
-        GhomiN.innerHTML = "Ghomi"
-        CurImg = "Ghomi.png"
-      }
-      else {
-        GhomiN.innerHTML = "120000 clicks"
-        CurImg = "Khinkali.png"
-      }
-    })
-    Kharcho.addEventListener("click", function () {
-      if (Number(clicks) > 100000) {
-        KharchoN.innerHTML = "Kharcho"
-        CurImg = "kharcho.png"
-      }
-      else {
-        KharchoN.innerHTML = "100000 clicks"
-        CurImg = "Khinkali.png"
-      }
-    })
-    Pizza.addEventListener("click", function () {
-      if (Number(clicks) > 800000) {
-        PizzaN.innerHTML = "Pizza"
-        CurImg = "Pizza.png"
-      }
-      else {
-        PizzaN.innerHTML = "800000 clicks"
-        CurImg = "Khinkali.png"
-      }
-    })
-    HamB.addEventListener("click", function () {
-      if (Number(clicks) > 1000000) {
-        HamBN.innerHTML = "Hamburger"
-        CurImg = "HamB.png"
-      }
-      else {
-        HamBN.innerHTML = "1000000 clicks"
-        CurImg = "Khinkali.png"
-      }
-    })
-    Shawarma.addEventListener("click", function () {
-      if (Number(clicks) > 3000000) {
-        ShawarmaN.innerHTML = "Shawarma"
-        CurImg = "Shawarma.png"
-      }
-      else {
-        ShawarmaN.innerHTML = "3000000 clicks"
-        CurImg = "Khinkali.png"
-      }
-    })
-    Sushi.addEventListener("click", function () {
-      if (Number(clicks) > 5000000) {
-        SushiN.innerHTML = "Sushi"
-        CurImg = "Sushi.png"
-      }
-      else {
-        SushiN.innerHTML = "5000000 clicks"
-        CurImg = "Khinkali.png"
-      }
-    })
-    Ghuda.addEventListener("click", function () {
-      if (Number(clicks) > 2000000) {
-        GhudaN.innerHTML = "Ghuda"
-        CurImg = "Cheese.png"
-      }
-      else {
-        GhudaN.innerHTML = "2000000 clicks"
-        CurImg = "Khinkali.png"
-      }
-    })
-    Fries.addEventListener("click", function () {
-      if (Number(clicks) > 300000) {
-        FriesN.innerHTML = "Fries"
-        CurImg = "Fries.png"
-      }
-      else {
-        FriesN.innerHTML = "300000 clicks"
-        CurImg = "Khinkali.png"
-      }
-    })
-    Mtsvadi.addEventListener("click", function () {
-      if (Number(clicks) > 600000) {
-        MtsvadiN.innerHTML = "Mtsvadi"
-        CurImg = "Mtsvadi.png"
-      }
-      else {
-        MtsvadiN.innerHTML = "600000 clicks"
-        CurImg = "Khinkali.png"
-      }
-    })
-    Cookie.addEventListener("click", function () {
-      if (Number(clicks) > 100000) {
-        CookieN.innerHTML = "Cookies"
-        CurImg = "Cookie.png"
-      }
-      else {
-        CookieN.innerHTML = "100000 clicks"
-        CurImg = "Khinkali.png"
-      }
-    })
-    Candy.addEventListener("click", function () {
-      if (Number(clicks) > 50000) {
-        CandyN.innerHTML = "Candy"
-        CurImg = "Candy.png"
-      }
-      else {
-        CandyN.innerHTML = "50000 clicks"
-        CurImg = "Khinkali.png"
-      }
-    })
-    Khinkali.addEventListener("click", function () {
-      CurImg = "Khinkali.png"
-      KhinkaliN.innerHTML = "Khinkali"
-
-    })
-    //code by N.K (N1XS0N) ,2025
   </script>
   <style>
     #idX {
@@ -865,7 +891,10 @@
     hr {
       border: 4px solid rgb(29, 28, 28);
     }
+
+    .br {
+      line-height: 0.3;
+    }
   </style>
 </body>
-
 </html>
