@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -113,6 +114,14 @@
         <p class="CADNum">50000 clicks</p><img src="Candy.png" alt="" class="Candy">
       </div>
     </div>
+    <div class="D1">
+      <div class="D2">
+        <p class="SALNum">10000000 clicks</p><img src="Salad.png" alt="" class="Salad">
+      </div>
+      <div class="D2">
+        <p class="NFCNum">6000000 clicks</p><img src="NFC.png" alt="" class="NFC">
+      </div>
+    </div>
     <br>
     <div class="D1 "> <button class="Back">Back</button></div>
     <br>
@@ -144,6 +153,10 @@
     const CookieN = document.querySelector(".CONum")
     const Mtsvadi = document.querySelector(".Mtsvadi")
     const MtsvadiN = document.querySelector(".MTSNum")
+    const Salad = document.querySelector(".Salad")
+    const SaladN = document.querySelector(".SALNum")
+    const NFC = document.querySelector(".NFC")
+    const NFCN = document.querySelector(".NFCNum")
     const Record1 = document.querySelector("#Record")
     const ShawarmaN = document.querySelector(".SHANum")
     const SushiN = document.querySelector(".SUSHINum")
@@ -163,7 +176,7 @@
     const shop = document.querySelector(".shop")
     const num = document.querySelector("#Count")
     let CurImg = "Khinkali.png"
-    let IsAlphaColor =  false
+    let IsAlphaColor = false
     let Random = 0
     let clicks = 0
     let clicks1 = 2
@@ -174,7 +187,7 @@
     const two = document.querySelector("#two")
     two.style.display = "none"
     let Prescore = 0
-    window.onbeforeunload = function (e) {
+    window.onbeforeunload = function (event) {
       request = window.indexedDB.open("RecordHolder", 1);
       request.onupgradeneeded = e => {
         Db = e.target.result;
@@ -191,12 +204,11 @@
           const store2 = tx2.objectStore("Record");
           const getreq = store2.get(1);
           getreq.onsuccess = () => {
-          };
-        };
-      };
-      e.preventDefault()
-    }
 
+          }
+        }
+      }
+    }
     img.addEventListener("click", () => click()
     )
     window.addEventListener("keyup", function (event) {
@@ -364,6 +376,26 @@
         CurImg = "Khinkali.png"
       }
     })
+    Salad.addEventListener("click", function () {
+      if (Number(clicks) > 10000000) {
+        SaladN.innerHTML = "Salad"
+        CurImg = "Salad.png"
+      }
+      else {
+        SaladN.innerHTML = "10000000 clicks"
+        CurImg = "Khinkali.png"
+      }
+    })
+    NFC.addEventListener("click", function () {
+      if (Number(clicks) > 6000000) {
+        NFCN.innerHTML = "NFC"
+        CurImg = "NFC.png"
+      }
+      else {
+        NFCN.innerHTML = "6000000 clicks"
+        CurImg = "Khinkali.png"
+      }
+    })
     Khinkali.addEventListener("click", function () {
       CurImg = "Khinkali.png"
       KhinkaliN.innerHTML = "Khinkali"
@@ -425,8 +457,8 @@
           Logo.href = "Mtsvadi.png"
           title.style.fontSize = "40px"
           DOCT.innerHTML = "Mtsvadi clicker"
-          img.style.width = "150px"
-          img.style.height = "150px"
+          img.style.width = "185px"
+          img.style.height = "135px"
           p2.style.fontSize = "25px"
           title.innerHTML = "Mtsvadi clicker"
           input.value = ""
@@ -445,8 +477,8 @@
         case "Gvezeli.png":
           img.src = "Gvezeli.png"
           title.style.fontSize = "30px"
-          img.style.width = "200px"
-          img.style.height = "200px"
+          img.style.width = "120px"
+          img.style.height = "100px"
           p2.style.fontSize = "25px"
           title.innerHTML = "Gvezeli clicker"
           DOCT.innerHTML = "Gvezeli clicker"
@@ -456,8 +488,8 @@
         case "Cheese.png":
           img.src = "Cheese.png"
           title.style.fontSize = "30px"
-          img.style.width = "130px"
-          img.style.height = "130px"
+          img.style.width = "200px"
+          img.style.height = "200px"
           p2.style.fontSize = "25px"
           title.innerHTML = "Ghuda clicker"
           DOCT.innerHTML = "Ghuda clicker"
@@ -511,8 +543,8 @@
         case "Candy.png":
           img.src = "Candy.png"
           title.style.fontSize = "30px"
-          img.style.width = "150px"
-          img.style.height = "150px"
+          img.style.width = "200px"
+          img.style.height = "140px"
           p2.style.fontSize = "25px"
           title.innerHTML = "Candy clicker"
           DOCT.innerHTML = "Candy clicker"
@@ -522,8 +554,8 @@
         case "kharcho.png":
           img.src = "kharcho.png"
           title.style.fontSize = "40px"
-          img.style.width = "250px"
-          img.style.height = "190px"
+          img.style.width = "140px"
+          img.style.height = "120px"
           p2.style.fontSize = "25px"
           DOCT.innerHTML = "Kharcho clicker"
           title.innerHTML = "Kharcho clicker"
@@ -574,15 +606,38 @@
           Logo.href = "Rachuli.png"
           input.value = ""
           break;
+        case "Salad.png":
+          img.src = "Salad.png"
+          title.style.fontSize = "40px"
+          img.style.width = "180px"
+          img.style.height = "180px"
+          p2.style.fontSize = "25px"
+          title.innerHTML = "Salad clicker"
+          DOCT.innerHTML = "Salad clicker"
+          Logo.href = "Salad.png"
+          input.value = ""
+          break;
+        case "NFC.png":
+          img.src = "NFC.png"
+          title.style.fontSize = "40px"
+          img.style.width = "170px"
+          img.style.height = "150px"
+          p2.style.fontSize = "25px"
+          title.innerHTML = "N.F.C clicker"
+          DOCT.innerHTML = "N.F.C clicker"
+          Logo.href = "NFC.png"
+          input.value = ""
+          break;
       }
       clicks += 1
-      if(IsAlphaColor){
-        Random = Math.floor(Math.random()*360)
-        img.style.filter =`hue-rotate(${Random}deg)`
+      if (IsAlphaColor) {
+        Random = Math.floor(Math.random() * 360)
+        img.style.filter = `hue-rotate(${Random}deg)`
       }
-      else{
+      else {
         Random = 0
-        img.style.filter =`hue-rotate(${Random}deg)`
+        img.style.filter = `hue-rotate(${Random}deg)`
+        img.style.filter = "drop-shadow(0 0 13px #FFD700)"
       }
       if (clicks >= clicks1 / 2) {
         clicks += clicks1 / 2
@@ -601,25 +656,20 @@
         p2.classList.remove('plus')
       }, 300)
     }
-    //code by N.K (N1XS0N) ,2025 
-function Cheat() {
+    //code by N.K (N1XS0N) ,2025-2026 
+    function Cheat() {
       let string = input.value
       string = string.trim()
       string = string.toUpperCase()
       switch (string) {
-        case "KHINKALIEATER":
-          clicks += 100
-          clicks1 += 200
-          input.value = ""
-          break;
         case "HACKER":
           clicks += 250
           clicks1 += 500
           input.value = ""
           break;
         case "NIXSONGANG":
-          clicks += 200
-          clicks1 += 400
+          clicks += 300
+          clicks1 += 600
           input.value = ""
           break;
         case "ULTIMATE":
@@ -632,11 +682,11 @@ function Cheat() {
           clicks1 += 700
           input.value = ""
           break;
-         case "ALPHACOLOR":
-          if (IsAlphaColor){
+        case "ALPHACOLOR":
+          if (IsAlphaColor) {
             IsAlphaColor = false
           }
-          else{
+          else {
             IsAlphaColor = true
           }
           input.value = ""
@@ -670,6 +720,7 @@ function Cheat() {
       font-weight: bold;
       font-family: Verdana, monospace, sans-serif;
       background-color: beige;
+      color: black;
       margin: 0;
     }
 
@@ -834,8 +885,13 @@ function Cheat() {
     }
 
     .Gvezeli {
-      width: 130px;
-      height: 130px;
+      width: 120px;
+      height: 100px;
+    }
+
+    .NFC {
+      width: 170px;
+      height: 150px;
     }
 
     .Lori {
@@ -854,8 +910,8 @@ function Cheat() {
     }
 
     .Candy {
-      width: 150px;
-      height: 150px;
+      width: 200px;
+      height: 140px;
     }
 
     .Hamburger {
@@ -874,18 +930,28 @@ function Cheat() {
     }
 
     .Ghuda {
-      width: 130px;
-      height: 130px;
+      width: 200px;
+      height: 200px;
     }
 
     .Shawarma {
-      width: 200px;
+      width: 230px;
+      height: 150px;
+    }
+
+    .Salad {
+      width: 150px;
       height: 150px;
     }
 
     .Kharcho {
-      width: 150px;
+      width: 140px;
       height: 120px;
+    }
+
+    .Mtsvadi {
+      width: 185px;
+      height: 135px;
     }
 
     hr {
@@ -897,4 +963,5 @@ function Cheat() {
     }
   </style>
 </body>
+
 </html>
