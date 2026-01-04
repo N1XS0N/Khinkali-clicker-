@@ -122,6 +122,14 @@
         <p class="NFCNum">6000000 clicks</p><img src="NFC.png" alt="" class="NFC">
       </div>
     </div>
+    <div class="D1">
+      <div class="D2">
+        <p class="ELANum">200000 clicks</p><img src="Elarji.png" alt="" class="Elarji">
+      </div>
+      <div class="D2">
+        <p class="OSTNum">600000 clicks</p><img src="Ostri.png" alt="" class="Ostri">
+      </div>
+    </div>
     <br>
     <div class="D1 "> <button class="Back">Back</button></div>
     <br>
@@ -143,10 +151,12 @@
     const Sushi = document.querySelector(".Sushi")
     const Fries = document.querySelector(".Fries")
     const FriesN = document.querySelector(".FRINum")
-    const Steak = document.querySelector(".Mtsvadi")
-    const SteakN = document.querySelector(".MTSNum")
     const Ghuda = document.querySelector(".Ghuda")
     const GhudaN = document.querySelector(".GHUNum")
+    const Ostri = document.querySelector(".Ostri")
+    const OstriN = document.querySelector(".OSTNum")
+    const Elarji = document.querySelector(".Elarji")
+    const ElarjiN = document.querySelector(".ELANum")
     const Candy = document.querySelector(".Candy")
     const Cookie = document.querySelector(".Cookies")
     const CandyN = document.querySelector(".CADNum")
@@ -396,6 +406,25 @@
         CurImg = "Khinkali.png"
       }
     })
+    Elarji.addEventListener("click", function () {
+      if (Number(clicks) > 200000) {
+        ElarjiN.innerHTML = "Elarji"
+        CurImg = "Elarji.png"
+      }
+      else {
+        ElarjiN.innerHTML = "200000 clicks"
+        CurImg = "Khinkali.png"
+      }
+    })
+     Ostri.addEventListener("click", function () {
+      if (Number(clicks) > 600000) {
+        OstriN.innerHTML = "Ostri"
+        CurImg = "Ostri.png"
+      }
+      else {
+        OstriN.innerHTML = "600000 clicks"
+        CurImg = "Khinkali.png"
+      }})
     Khinkali.addEventListener("click", function () {
       CurImg = "Khinkali.png"
       KhinkaliN.innerHTML = "Khinkali"
@@ -626,6 +655,28 @@
           title.innerHTML = "N.F.C clicker"
           DOCT.innerHTML = "N.F.C clicker"
           Logo.href = "NFC.png"
+          input.value = ""
+          break;
+        case "Elarji.png":
+          img.src = "Elarji.png"
+          title.style.fontSize = "40px"
+          img.style.width = "150px"
+          img.style.height = "100px"
+          p2.style.fontSize = "25px"
+          title.innerHTML = "Elarji clicker"
+          DOCT.innerHTML = "Elarji clicker"
+          Logo.href = "Elarji.png"
+          input.value = ""
+          break;
+        case "Ostri.png":
+          img.src = "Ostri.png"
+          title.style.fontSize = "40px"
+          img.style.width = "150px"
+          img.style.height = "100px"
+          p2.style.fontSize = "25px"
+          title.innerHTML = "Ostri clicker"
+          DOCT.innerHTML = "Ostri clicker"
+          Logo.href = "Ostri.png"
           input.value = ""
           break;
       }
@@ -936,6 +987,16 @@
     .Shawarma {
       width: 230px;
       height: 150px;
+    }
+
+    .Elarji {
+      width: 150px;
+      height: 100px;
+    }
+
+    .Ostri {
+      width: 150px;
+      height: 100px;
     }
 
     .Salad {
