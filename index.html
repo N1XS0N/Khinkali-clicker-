@@ -135,7 +135,7 @@
     <br>
   </section>
   <script>
-
+    const body1 = document.querySelector("body")
     const Khinkali = document.querySelector(".Khinkali")
     const Khachapuri = document.querySelector(".Khachapuri")
     const Kharcho = document.querySelector(".Kharcho")
@@ -187,6 +187,7 @@
     const num = document.querySelector("#Count")
     let CurImg = "Khinkali.png"
     let IsAlphaColor = false
+    let Isgrayscale = false
     let Random = 0
     let clicks = 0
     let clicks1 = 2
@@ -200,25 +201,26 @@
     window.onbeforeunload = function (event) {
       request = window.indexedDB.open("RecordHolder", 1);
       request.onupgradeneeded = e => {
-        Db = e.target.result;
+        let Db = e.target.result;
         Db.createObjectStore("Record", { keyPath: "id" })
-
       }
       request.onsuccess = e => {
         Db = e.target.result;
         const tx = Db.transaction("Record", "readwrite");
         const store = tx.objectStore("Record");
-        store.put({ id: 1, text: clicks });
-        tx.oncomplete = () => {
-          const tx2 = Db.transaction("Record", "readonly");
-          const store2 = tx2.objectStore("Record");
-          const getreq = store2.get(1);
-          getreq.onsuccess = () => {
-
+        const tx0=Db.transaction("Record", "readonly");
+        const store0 = tx.objectStore("Record");
+        const storex = store0.get(1)
+        storex.onsuccess =() =>{
+          res = storex.result.text
+          if(clicks >= res){
+            store.put({ id: 1, text: clicks })}
+          else {
+             store.put({ id: 1, text: res })
           }
         }
       }
-    }
+     event.preventDefault()}
     img.addEventListener("click", () => click()
     )
     window.addEventListener("keyup", function (event) {
@@ -727,6 +729,11 @@
           clicks1 += 1000
           input.value = ""
           break;
+         case "CATACLYSM":
+          clicks += 1000
+          clicks1 += 2000
+          input.value = ""
+          break;
         case "GIFT":
           clicks += 350
           clicks1 += 700
@@ -738,6 +745,17 @@
           }
           else {
             IsAlphaColor = true
+          }
+          input.value = ""
+          break;
+        case "GRAYSCALE":
+          if (Isgrayscale) {
+            Isgrayscale = false
+            body1.style.filter=""
+          }
+          else {
+            Isgrayscale = true
+            body1.style.filter="grayscale(100%)"
           }
           input.value = ""
           break;
