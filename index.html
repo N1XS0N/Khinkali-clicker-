@@ -130,6 +130,11 @@
         <p class="OSTNum">600000 clicks</p><img src="Ostri.png" alt="" class="Ostri">
       </div>
     </div>
+       <div class="D1">
+      <div class="D2">
+        <p class="CHUNum">30000000 clicks</p><img src="Churckhela.png" alt="" class="Churckhela">
+      </div>
+    </div>
     <br>
     <div class="D1 "> <button class="Back">Back</button></div>
     <br>
@@ -167,6 +172,8 @@
     const SaladN = document.querySelector(".SALNum")
     const NFC = document.querySelector(".NFC")
     const NFCN = document.querySelector(".NFCNum")
+    const Churckhela= document.querySelector(".Churckhela")
+    const ChurckhelaN = document.querySelector(".CHUNum")
     const Record1 = document.querySelector("#Record")
     const ShawarmaN = document.querySelector(".SHANum")
     const SushiN = document.querySelector(".SUSHINum")
@@ -432,6 +439,17 @@
       KhinkaliN.innerHTML = "Khinkali"
 
     })
+    //Churckhela
+    Churckhela.addEventListener("click", function () {
+      if (Number(clicks) > 30000000) {
+        ChurckhelaN.innerHTML = "Churckhela"
+        CurImg = "Churckhela.png"
+      }
+      else {
+        ChurckhelaN.innerHTML = "30000000 clicks"
+        CurImg = "Khinkali.png"
+      }
+    })
     function click() {
       let Db1
       const request1 = window.indexedDB.open("RecordHolder", 1)
@@ -659,6 +677,17 @@
           Logo.href = "NFC.png"
           input.value = ""
           break;
+         case "Churckhela.png":
+          img.src = "Churckhela.png"
+          title.style.fontSize = "40px"
+          img.style.width = "210px"
+          img.style.height = "150px"
+          p2.style.fontSize = "25px"
+          title.innerHTML = "Churckhela clicker"
+          DOCT.innerHTML = "Churckhela clicker"
+          Logo.href = "Churckhela.png"
+          input.value = ""
+          break;
         case "Elarji.png":
           img.src = "Elarji.png"
           title.style.fontSize = "40px"
@@ -708,7 +737,6 @@
         p2.classList.remove('plus')
       }, 300)
     }
-    //code by N.K (N1XS0N) ,2025-2026 
     function Cheat() {
       let string = input.value
       string = string.trim()
@@ -735,6 +763,11 @@
           input.value = ""
           break;
         case "GIFT":
+          clicks += 350
+          clicks1 += 700
+          input.value = ""
+          break;
+        case "":
           clicks += 350
           clicks1 += 700
           input.value = ""
@@ -766,6 +799,7 @@
           break;
       }
     }
+     //code by N.K (N1XS0N) 2025-2026 
   </script>
   <style>
     #idX {
@@ -1038,6 +1072,10 @@
 
     .br {
       line-height: 0.3;
+    }
+    .Churckhela{
+      width: 210px;
+      height: 150px;
     }
   </style>
 </body>
