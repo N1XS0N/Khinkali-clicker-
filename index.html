@@ -196,7 +196,6 @@
     const btn = document.querySelector(".btn")
     const shop = document.querySelector(".shop")
     const num = document.querySelector("#Count")
-    let CurImg = "Khinkali.png"
     let SentString = ""
     let IsAlphaColor = false
     let Isgrayscale = false
@@ -573,36 +572,6 @@
       string = string.trim()
       string = string.toUpperCase()
       switch (string) {
-        case "HACKER":
-          clicks += 250
-          clicks1 += 500
-          input.value = ""
-          break;
-        case "NIXSONGANG":
-          clicks += 300
-          clicks1 += 600
-          input.value = ""
-          break;
-        case "ULTIMATE":
-          clicks += 500
-          clicks1 += 1000
-          input.value = ""
-          break;
-        case "CATACLYSM":
-          clicks += 1000
-          clicks1 += 2000
-          input.value = ""
-          break;
-        case "GIFT":
-          clicks += 350
-          clicks1 += 700
-          input.value = ""
-          break;
-        case "":
-          clicks += 350
-          clicks1 += 700
-          input.value = ""
-          break;
         case "ALPHACOLOR":
           if (IsAlphaColor) {
             IsAlphaColor = false
@@ -629,11 +598,23 @@
           input.value = ""
           break;
       }
-
-
-
-
-
+    let Cheats={
+      HACKER:{   
+          c:250,
+          c1: 500,},
+ULTIMATE:{
+          c : 500,
+          c1 : 1000},
+        CATACLYSM:{
+          c: 1000,
+          c1: 2000},}
+      for(i in Cheats){
+        if(String(i)==string){
+          clicks+=Cheats[i]["c"]
+          clicks1+=Cheats[i]["c1"]
+          input.value =""
+        }
+      }
       //Cookies management
     }
     function Addcookies() {
@@ -954,5 +935,4 @@
     }
   </style>
 </body>
-
 </html>
