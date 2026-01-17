@@ -50,7 +50,7 @@
       <h1 class="Tit">Nixson Food Shop</h1>
     </div>
     <hr>
-   <div class="D1">
+    <div class="D1">
       <div class="D2">
         <p class="KNum">Khinkali</p><img src="Khinkali.png" alt="" class="Khinkali">
       </div>
@@ -122,17 +122,19 @@
         <p class="OSTNum">600000 clicks</p><img src="Ostri.png" alt="" class="Ostri">
       </div>
     </div>
-       <div class="D1">
+    <div class="D1">
       <div class="D2">
-        <p class="CHUNum">30000000 clicks</p><img src="Churckhela.png" alt="" class="Churckhela"></div>
-         <div class="D2">
+        <p class="CHUNum">30000000 clicks</p><img src="Churckhela.png" alt="" class="Churckhela">
+      </div>
+      <div class="D2">
         <p class="CokeNum">50000000 clicks</p><img src="coke.png" alt="" class="Nixsoncola">
       </div>
     </div>
-     <div class="D1">
+    <div class="D1">
       <div class="D2">
-        <p class="NpieNum">20000000 clicks</p><img src="Nixson pie.png" alt="" class="Nixsonpie"></div>
-         <div class="D2">
+        <p class="NpieNum">20000000 clicks</p><img src="Nixson pie.png" alt="" class="Nixsonpie">
+      </div>
+      <div class="D2">
         <p class="BeefNum">60000000 clicks</p><img src="Beef.png" alt="" class="Welington">
       </div>
     </div>
@@ -168,7 +170,7 @@
     const SaladN = document.querySelector(".SALNum")
     const NFC = document.querySelector(".NFC")
     const NFCN = document.querySelector(".NFCNum")
-    const Churckhela= document.querySelector(".Churckhela")
+    const Churckhela = document.querySelector(".Churckhela")
     const ChurckhelaN = document.querySelector(".CHUNum")
     const Record1 = document.querySelector("#Record")
     const ShawarmaN = document.querySelector(".SHANum")
@@ -182,8 +184,8 @@
     const RachuliN = document.querySelector(".LORINum")
     const Coke = document.querySelector(".Nixsoncola")
     const CokeNum = document.querySelector(".CokeNum")
-    const NPie = document.querySelector(".Nixsonpie")
-    const NpieNum = document.querySelector(".NixsonpieNum")
+    const Pie = document.querySelector(".Nixsonpie")
+    const PieNum = document.querySelector(".NpieNum")
     const Beef = document.querySelector(".Welington")
     const BeefNum = document.querySelector(".BeefNum")
     const DOCT = document.querySelector("title")
@@ -195,7 +197,7 @@
     const shop = document.querySelector(".shop")
     const num = document.querySelector("#Count")
     let CurImg = "Khinkali.png"
-    let SentString =""
+    let SentString = ""
     let IsAlphaColor = false
     let Isgrayscale = false
     let Random = 0
@@ -204,6 +206,8 @@
     let owned = "Owned"
     let cost = "cost"
     let url = "url"
+    let Height = "height"
+    let Width = "width"
     let Message = "Message"
     const img = document.querySelector("img")
     const p2 = document.querySelector("#PlusC")
@@ -212,6 +216,7 @@
     const two = document.querySelector("#two")
     two.style.display = "none"
     let Prescore = 0
+    console.log(document.cookie)
     window.onbeforeunload = function (event) {
       Addcookies()
       event.preventDefault()
@@ -219,7 +224,7 @@
     img.addEventListener("click", () => click()
     )
     window.addEventListener("keyup", function (event) {
-      if (event.key == " ") {
+      if (event.key == " " || event.key == "Enter") {
         click()
       }
     })
@@ -236,540 +241,292 @@
     let skins = {
       Khinkali: {
         Owned: true,
-        url:"Khinkali.png",
+        url: "Khinkali.png",
         cost: 0,
-        Message: "Khinkali"
+        Message: "Khinkali",
+        height: "150px",
+        width: "150px",
       },
       Khachapuri: {
         Owned: false,
         cost: 30000,
-        url:"Khachapuri.png",
-        Message: "Khachapuri"
+        url: "Khachapuri.png",
+        Message: "Khachapuri",
+        height: "100px",
+        width: "100px",
       },
       Gvezeli: {
         Owned: false,
-        url:"Gvezeli.png",
+        url: "Gvezeli.png",
         cost: 3000,
-        Message: "Gvezeli"
+        Message: "Gvezeli",
+        width: "120px",
+        height: "100px",
       },
       Pilmeni: {
         Owned: false,
-        url:"PILMENI.png",
+        url: "PILMENI.png",
         cost: 8000,
-        Message: "Pilemeni"
+        Message: "Pilemeni",
+        height: "150px",
+        width: "150px",
       },
-       Rachuli: {
+      Rachuli: {
         Owned: false,
-        url:"Rachuli.png",
+        url: "Rachuli.png",
         cost: 80000,
-        Message: "Lori"
+        Message: "Lori",
+        width: "250px",
+        height: "120px",
       },
-       Ghomi: {
+      Ghomi: {
         Owned: false,
-        url:"Ghomi.png",
+        url: "Ghomi.png",
         cost: 120000,
-        Message: "Ghomi"
+        Message: "Ghomi",
+        height: "200px",
+        width: "200px",
       },
       Kharcho: {
         Owned: false,
-        url:"kharcho.png",
+        url: "kharcho.png",
         cost: 100000,
-        Message: "Kharcho"
+        Message: "Kharcho",
+        width: "140px",
+        height: "120px",
       },
-       Pizza: {
+      Pizza: {
         Owned: false,
-        url:"Pizza.png",
+        url: "Pizza.png",
         cost: 800000,
-        Message: "Pizza"
+        Message: "Pizza",
+        height: "200px",
+        width: "200px",
       },
       HamB: {
         Owned: false,
-        url:"HamB.png",
+        url: "HamB.png",
         cost: 100000,
-        Message: "HamB"
+        Message: "HamB",
+        height: "200px",
+        width: "200px",
       },
-       Sushi: {
+      Sushi: {
         Owned: false,
-        url:"Sushi.png",
+        url: "Sushi.png",
         cost: 5000000,
-        Message: "Sushi"
+        Message: "Sushi",
+        height: "150px",
+        width: "150px",
       },
       Salad: {
         Owned: false,
-        url:"Salad.png",
+        url: "Salad.png",
         cost: 10000000,
-        Message: "Salad"
+        Message: "Salad",
+        width: "180px",
+        height: "180px",
       },
       Fries: {
         Owned: false,
-        url:"Fries.png",
+        url: "Fries.png",
         cost: 300000,
-        Message: "Fries"
+        Message: "Fries",
+        height: "150px",
+        width: "150px",
       },
       NFC: {
         Owned: false,
-        url:"NFC.png",
+        url: "NFC.png",
         cost: 6000000,
-        Message: "NFC"
+        Message: "NFC",
+        width: "170px",
+        height: "150px",
       },
       Elarji: {
         Owned: false,
-        url:"Elarji.png",
+        url: "Elarji.png",
         cost: 2000000,
-        Message: "Elarji"
+        Message: "Elarji",
+        width: "150px",
+        height: "100px",
       },
       Ostri: {
         Owned: false,
-        url:"Ostri.png",
+        url: "Ostri.png",
         cost: 600000,
-        Message: "Ostri"
+        Message: "Ostri",
+        width: "150px",
+        height: "100px",
+
       },
       Shawarma: {
         Owned: false,
-        url:"Shawarma.png",
+        url: "Shawarma.png",
         cost: 3000000,
-        Message: "Shawarma"
+        Message: "Shawarma",
+        width: "125px",
+        height: "60px",
       },
       Ghuda: {
         Owned: false,
-        url:"Cheese.png",
+        url: "Cheese.png",
         cost: 2000000,
-        Message: "Ghuda"
+        Message: "Ghuda",
+        width: "200px",
+        height: "200px",
       },
       Churckhela: {
         Owned: false,
-        url:"Churckhela.png",
+        url: "Churckhela.png",
         cost: 30000000,
-        Message: "Churckhela"
+        Message: "Churckhela",
+        width: "210px",
+        height: "150px",
       },
-       Coke: {
+      Coke: {
         Owned: false,
-        url:"coke.png",
+        url: "coke.png",
         cost: 50000000,
-        Message: "Coke"
+        Message: "Coke",
+        height: "150px",
+        width: "150px",
       },
       Pie: {
         Owned: false,
-        url:"Nixson pie.png",
+        url: "Nixson pie.png",
         cost: 20000000,
-        Message: "Pie"
+        Message: "Pie",
+        width: "230px",
+        height: "150px",
+
       },
-      Beef: {
+      Welington: {
         Owned: false,
-        url:"Beef.png",
+        url: "Beef.png",
         cost: 70000000,
-        Message: "Beef"
+        Message: "Beef",
+        height: "150px",
+        width: "150px",
       },
+      Mtsvadi: {
+        Owned: false,
+        url: "Mtsvadi.png",
+        cost: 600000,
+        Message: "Mtsvadi",
+        width: "185px",
+        height: "135px",
+      }
     }
     Khachapuri.addEventListener("click", function () {
-      SentString ="Khachapuri"
-      Isbought()
-      if (skins["Khachapuri"][owned] == true) {
-          KhachapuriN.innerHTML="Khachapuri"
-        }
-      Isbought()
+      Isowned()
+      buying(KhachapuriN, "Khachapuri")
     })
     Pilmeni.addEventListener("click", function () {
-      SentString ="Pilmeni"
-      Isbought()
-      if(skins["Pilmeni"][owned] == true) {
-          PilmeniN.innerHTML="Pilmeni"
-        }
-
+      Isowned()
+      buying(PilmeniN, "Pilmeni")
     })
     Gvezeli.addEventListener("click", function () {
-       SentString ="Gvezeli"
-       Isbought()
-      if(skins["Gvezeli"][owned] == true) {
-          GvezeliN.innerHTML="Gvezeli"
-          
-        }
+      Isowned()
+      buying(GvezeliN, "Gvezeli")
     })
     Rachuli.addEventListener("click", function () {
-      SentString ="Rachuli"
-      Isbought()
-      if(skins["Rachuli"][owned] == true) {
-          RachuliN.innerHTML="Lori"
-        }
+      Isowned()
+      buying(RachuliN, "Rachuli")
     })
     Ghomi.addEventListener("click", function () {
-     SentString ="Ghomi"
-     Isbought()
-      if(skins["Ghomi"][owned] == true) {
-          GhomiN.innerHTML="Ghomi"
-        }
+      Isowned()
+      buying(GhomiN, "Ghomi")
     })
     Kharcho.addEventListener("click", function () {
-      SentString ="Kharcho"
-      Isbought()
-      if(skins["Kharcho"][owned] == true) {
-          KharchoN.innerHTML="Kharcho"
-        }
+      Isowned()
+      buying(KharchoN, "Kharcho")
     })
     Pizza.addEventListener("click", function () {
-      SentString ="Pizza"
-      Isbought()
-      if(skins["Pizza"][owned] == true) {
-          PizzaN.innerHTML="Pizza"
-        }
-      
+      Isowned()
+      buying(PizzaN, "Pizza")
     })
     HamB.addEventListener("click", function () {
-      SentString ="HamB"
-      Isbought()
-      if(skins["HamB"][owned] == true) {
-          HamBN.innerHTML="HamB"
-        }
-      
+      Isowned()
+      buying(HamBN, "HamB")
+
     })
     Shawarma.addEventListener("click", function () {
-      SentString ="Shawarma"
-      Isbought()
-      if(skins["Shawarma"][owned] == true) {
-          ShawarmaN.innerHTML="Shawarma"
-        }
-      
+      Isowned()
+      buying(ShawarmaN, "Shawarma")
     })
     Sushi.addEventListener("click", function () {
-      SentString ="Sushi"
-      Isbought()
-      if(skins["Sushi"][owned] == true) {
-          SushiN.innerHTML="Sushi"
-        }
+      Isowned()
+      buying(SushiN, "Sushi")
     })
     Ghuda.addEventListener("click", function () {
-SentString ="Ghuda"
-Isbought()
-if(skins["Ghuda"][owned] == true) {
-          GhudaN.innerHTML="Ghuda"
-        }
-    
+      Isowned()
+      buying(GhudaN, "Ghuda")
     })
     Fries.addEventListener("click", function () {
-SentString ="Fries"
-      Isbought()
-      if(skins["Fries"][owned] == true) {
-          FriesN.innerHTML="Fries"
-        }
+      Isowned()
+      buying(FriesN, "Fries")
     })
     Mtsvadi.addEventListener("click", function () {
-SentString ="Mtsvadi"
-      Isbought()
-      if(skins["Mtsvadi"][owned] == true) {
-          MtsvadiN.innerHTML="Mtsvadi"
-        }
+      Isowned()
+      buying(MtsvadiN, "Mtsvadi")
     })
     Salad.addEventListener("click", function () {
-      SentString ="Salad"
-      Isbought()
-      if(skins["Salad"][owned] == true) {
-          SaladN.innerHTML="Salad"
-        }
+      Isowned()
+      buying(SaladN, "Salad")
     })
     NFC.addEventListener("click", function () {
-SentString ="NFC"
-      Isbought()
-     if(skins["NFC"][owned] == true) {
-          NFCN.innerHTML="NFC"
-        }
+      Isowned()
+      buying(NFCN, "NFC")
     })
     Elarji.addEventListener("click", function () {
-SentString ="Elarji"
-      Isbought()
-  if(skins["Elarji"][owned] == true) {
-          ElarjiN.innerHTML="Elarji"
-        }
+      Isowned()
+      buying(ElarjiN, "Elarji")
     })
-    Coke.addEventListener("click",function(){
-      SentString ="Coke"
-      Isbought()
-  if(skins["Coke"][owned] == true) {
-          CokeNum.innerHTML="Nixson Cola"
-        }
+    Coke.addEventListener("click", function () {
+      Isowned()
+      buying(CokeNum, "Coke")
     })
-      NPie.addEventListener("click",function(){
-      SentString ="Pie"
-      Isbought()
-  if(skins["Pie"][owned] == true) {
-          NpieNum.innerHTML="Nixson pie"
-        }
+    Pie.addEventListener("click", function () {
+      Isowned()
+      buying(PieNum, "Pie")
     })
-    Beef.addEventListener("click",function(){
-      SentString ="Beef"
-      Isbought()
-  if(skins["Beef"][owned] == true) {
-          BeefNUm.innerHTML="Beef welington"
-        }
+    Beef.addEventListener("click", function () {
+      Isowned()
+      buying(BeefNum, "Wellington")
     })
     Ostri.addEventListener("click", function () {
-      SentString ="Ostri"
-      Isbought()
-      if(skins["Ostri"][owned] == true) {
-          OstriN.innerHTML="Ostri"}
+      Isowned()
+      buying(OstriN, "Ostri")
     })
     Khinkali.addEventListener("click", function () {
-      CurImg = "Khinkali.png"
+      Isowned()
+      buying(KhinkaliN, "Khinkali")
     })
     Churckhela.addEventListener("click", function () {
-      SentString ="Churckhela"
-      Isbought()
-      if(skins['Churckhela'][owned] == true) {
-          ChurckhelaN.innerHTML='Churckhela'
-        }
+      Isowned()
+      buying(ChurckhelaN, "Khachapuri")
     })
+    function buying(Label, Objectname) {
+      if (skins[Objectname][owned]) {
+        Label.innerHTML = Objectname
+        img.src = skins[Objectname][url]
+        img.style.height = skins[Objectname][Height]
+        img.style.width = skins[Objectname][Width]
+        Logo.href = skins[Objectname][url]
+        DOCT.innerHTML = Objectname + " " + "clicker"
+        title.innerHTML = Objectname + " " + "clicker"
+        p2.innerHTML = "25px"
+      }
+    }
     function click() {
       Readcookies()
-      if (Prescore == 0 || Prescore == null || Prescore == undefined) { Record1.innerHTML = `Previos score:0` }
+      if (Prescore == 0 || Prescore == null || Prescore == undefined) {
+        Record1.innerHTML = `Previos score:0`
+      }
       else {
         Record1.innerHTML = `Previos record:${Prescore}`
       }
-      img.src = CurImg
-      switch (CurImg) {
-        case "Khachapuri.png":
-          title.style.fontSize = "30px"
-          img.src = "Khachapuri.png"
-          Logo.href = "Khachapuri.png"
-          img.style.width = "100px"
-          DOCT.innerHTML = "Khachapuri clicker"
-          img.style.height = "100px"
-          p2.style.fontSize = "15px"
-          title.innerHTML = "Khachapuri clicker"
-          input.value = ""
-          input.value = ""
-          break;
-        case "Khinkali.png":
-          img.src = "Khinkali.png"
-          Logo.href = "Khinkali.png"
-          title.style.fontSize = "40px"
-          DOCT.innerHTML = "Khinkali clicker"
-          img.style.width = "150px"
-          img.style.height = "150px"
-          p2.style.fontSize = "25px"
-          title.innerHTML = "Khinkali clicker"
-          input.value = ""
-          break
-        case "Mtsvadi.png":
-          img.src = "Mtsvadi.png"
-          Logo.href = "Mtsvadi.png"
-          title.style.fontSize = "40px"
-          DOCT.innerHTML = "Mtsvadi clicker"
-          img.style.width = "185px"
-          img.style.height = "135px"
-          p2.style.fontSize = "25px"
-          title.innerHTML = "Mtsvadi clicker"
-          input.value = ""
-          break
-        case "Fries.png":
-          img.src = "Fries.png"
-          Logo.href = "Fries.png"
-          title.style.fontSize = "40px"
-          DOCT.innerHTML = "Fries clicker"
-          img.style.width = "150px"
-          img.style.height = "150px"
-          p2.style.fontSize = "25px"
-          title.innerHTML = "Fries clicker"
-          input.value = ""
-          break
-        case "Gvezeli.png":
-          img.src = "Gvezeli.png"
-          title.style.fontSize = "30px"
-          img.style.width = "120px"
-          img.style.height = "100px"
-          p2.style.fontSize = "25px"
-          title.innerHTML = "Gvezeli clicker"
-          DOCT.innerHTML = "Gvezeli clicker"
-          Logo.href = "Gvezeli.png"
-          input.value = ""
-          break;
-        case "Cheese.png":
-          img.src = "Cheese.png"
-          title.style.fontSize = "30px"
-          img.style.width = "200px"
-          img.style.height = "200px"
-          p2.style.fontSize = "25px"
-          title.innerHTML = "Ghuda clicker"
-          DOCT.innerHTML = "Ghuda clicker"
-          Logo.href = "Cheese.png"
-          input.value = ""
-          break;
-        case "Pizza.png":
-          img.src = "Pizza.png"
-          title.style.fontSize = "40px"
-          img.style.width = "200px"
-          img.style.height = "200px"
-          p2.style.fontSize = "25px"
-          title.innerHTML = "Pizza clicker"
-          DOCT.innerHTML = "Pizza clicker"
-          Logo.href = "Pizza.png"
-          input.value = ""
-          break;
-        case "HamB.png":
-          img.src = "HamB.png"
-          title.style.fontSize = "30px"
-          img.style.width = "200px"
-          img.style.height = "200px"
-          p2.style.fontSize = "25px"
-          title.innerHTML = "Hamburger clicker"
-          DOCT.innerHTML = "Hamburger clicker"
-          Logo.href = "HamB.png"
-          input.value = ""
-          break;
-        case "PILMENI.png":
-          img.src = "PILMENI.png"
-          title.style.fontSize = "30px"
-          img.style.width = "150px"
-          img.style.height = "150px"
-          p2.style.fontSize = "25px"
-          title.innerHTML = "Pilmeni clicker"
-          DOCT.innerHTML = "Pilmeni clicker"
-          Logo.href = "PILMENI.png"
-          input.value = ""
-          break;
-        case "kharcho.png":
-          img.src = "kharcho.png"
-          title.style.fontSize = "40px"
-          img.style.width = "140px"
-          img.style.height = "120px"
-          p2.style.fontSize = "25px"
-          DOCT.innerHTML = "Kharcho clicker"
-          title.innerHTML = "Kharcho clicker"
-          Logo.href = "Kharcho.png"
-          input.value = ""
-          break;
-        case "Shawarma.png":
-          img.src = "Shawarma.png"
-          title.style.fontSize = "40px"
-          img.style.width = "200px"
-          img.style.height = "150px"
-          p2.style.fontSize = "25px"
-          DOCT.innerHTML = "Shawarma clicker"
-          title.innerHTML = "Shawarma clicker"
-          Logo.href = "Shawarma.png"
-          input.value = ""
-          break;
-        case "Sushi.png":
-          img.src = "Sushi.png"
-          title.style.fontSize = "40px"
-          img.style.width = "150px"
-          img.style.height = "150px"
-          p2.style.fontSize = "25px"
-          DOCT.innerHTML = "Sushi clicker"
-          title.innerHTML = "Sushi clicker"
-          Logo.href = "Sushi.png"
-          input.value = ""
-          break;
-        case "Ghomi.png":
-          img.src = "Ghomi.png"
-          title.style.fontSize = "40px"
-          img.style.width = "200px"
-          img.style.height = "200px"
-          p2.style.fontSize = "25px"
-          title.innerHTML = "Ghomi clicker"
-          DOCT.innerHTML = "Ghomi clicker"
-          Logo.href = "Ghomi.png"
-          input.value = ""
-          break;
-        case "Rachuli.png":
-          img.src = "Rachuli.png"
-          title.style.fontSize = "40px"
-          img.style.width = "250px"
-          img.style.height = "120px"
-          p2.style.fontSize = "25px"
-          title.innerHTML = "Lori clicker"
-          DOCT.innerHTML = "Lori clicker"
-          Logo.href = "Rachuli.png"
-          input.value = ""
-          break;
-        case "coke.png":
-          img.src = "coke.png"
-          title.style.fontSize = "35px"
-          img.style.width = "150px"
-          img.style.height = "150px"
-          p2.style.fontSize = "25px"
-          title.innerHTML = "Nixson Cola clicker"
-          DOCT.innerHTML = "Nison Cola clicker"
-          Logo.href = "coke.png"
-          input.value = ""
-          break;
-        case "Nixson pie.png":
-          img.src = "Nixson pie.png"
-          title.style.fontSize = "35px"
-          img.style.width = "230px"
-          img.style.height = "150px"
-          p2.style.fontSize = "25px"
-          title.innerHTML = "Nixson pie clicker"
-          DOCT.innerHTML = "Nixson pie clicker"
-          Logo.href = "Nixson pie.png"
-          input.value = ""
-          break;
-        case "Beef.png":
-          img.src = "Beef.png"
-          title.style.fontSize = "28px"
-          img.style.width = "150px"
-          img.style.height = "150px"
-          p2.style.fontSize = "25px"
-          title.innerHTML = "Beef Welington clicker"
-          DOCT.innerHTML = "Beef Welington clicker"
-          Logo.href = "Beef.png"
-          input.value = ""
-          break;
-        case "Salad.png":
-          img.src = "Salad.png"
-          title.style.fontSize = "40px"
-          img.style.width = "180px"
-          img.style.height = "180px"
-          p2.style.fontSize = "25px"
-          title.innerHTML = "Salad clicker"
-          DOCT.innerHTML = "Salad clicker"
-          Logo.href = "Salad.png"
-          input.value = ""
-          break;
-        case "NFC.png":
-          img.src = "NFC.png"
-          title.style.fontSize = "40px"
-          img.style.width = "170px"
-          img.style.height = "150px"
-          p2.style.fontSize = "25px"
-          title.innerHTML = "N.F.C clicker"
-          DOCT.innerHTML = "N.F.C clicker"
-          Logo.href = "NFC.png"
-          input.value = ""
-          break;
-        case "Churckhela.png":
-          img.src = "Churckhela.png"
-          title.style.fontSize = "40px"
-          img.style.width = "210px"
-          img.style.height = "150px"
-          p2.style.fontSize = "25px"
-          title.innerHTML = "Churckhela clicker"
-          DOCT.innerHTML = "Churckhela clicker"
-          Logo.href = "Churckhela.png"
-          input.value = ""
-          break;
-        case "Elarji.png":
-          img.src = "Elarji.png"
-          title.style.fontSize = "40px"
-          img.style.width = "150px"
-          img.style.height = "100px"
-          p2.style.fontSize = "25px"
-          title.innerHTML = "Elarji clicker"
-          DOCT.innerHTML = "Elarji clicker"
-          Logo.href = "Elarji.png"
-          input.value = ""
-          break;
-        case "Ostri.png":
-          img.src = "Ostri.png"
-          title.style.fontSize = "40px"
-          img.style.width = "150px"
-          img.style.height = "100px"
-          p2.style.fontSize = "25px"
-          title.innerHTML = "Ostri clicker"
-          DOCT.innerHTML = "Ostri clicker"
-          Logo.href = "Ostri.png"
-          input.value = ""
-          break;
-      }
-      clicks += 1
       if (IsAlphaColor) {
         Random = Math.floor(Math.random() * 360)
         img.style.filter = `hue-rotate(${Random}deg)`
@@ -778,12 +535,15 @@ SentString ="Elarji"
         Random = 0
         img.style.filter = `hue-rotate(${Random}deg)`
       }
+      //Clicks
+      clicks += 1
       if (clicks >= clicks1 / 2) {
         clicks += clicks1 / 2
         clicks1 += 2
         num.innerHTML = `${clicks}`
         p2.innerHTML = `+${clicks1 / 2}`
       }
+      //Animation
       if (img.classList != "p") {
         img.classList.add("p")
       }
@@ -794,13 +554,19 @@ SentString ="Elarji"
       setTimeout(function () {
         p2.classList.remove('plus')
       }, 300)
-      Isowned()}
+      Isowned()
+    }
     function Isowned() {
       for (i in skins) {
         if (clicks >= skins[i][cost] && skins[i][owned] == false) {
           skins[i][owned] = true
         }
       }
+
+
+
+
+      //Cheats 
     }
     function Cheat() {
       let string = input.value
@@ -863,46 +629,45 @@ SentString ="Elarji"
           input.value = ""
           break;
       }
+
+
+
+
+
+      //Cookies management
     }
-    function Isbought(){
-      for(x in skins){
-        if(skins[x][owned] == true && SentString==String(x)){
-          CurImg=skins[x][url]
-        }}
-      }
-    function Addcookies(){
+    function Addcookies() {
+      let ExpDate = String(1000 * 60 * 60 * 24 * 365)
       let valueC = "Record"
-        let cd = decodeURIComponent(document.cookie)
-        let cda = cd.split("; ")
-        let result = undefined
-        cda.forEach(part =>{
-          if(part.indexOf("Record")==0){
-            result =  part.substring(valueC.length + 1)
+      let cd = decodeURIComponent(document.cookie)
+      let cda = cd.split("; ")
+      cda.forEach(part => {
+        if (part.indexOf("Record") == 0) {
+          let result = part.substring(valueC.length + 1)
+          if (result >= clicks) {
+            document.cookie = `Record=${result};expires=${ExpDate};path=/`
           }
-          else{
-             document.cookie = `Record=0;expires=31536000000;path=/`
+          else {
+            document.cookie = `Record=${clicks};expires=${ExpDate};path=/`
           }
-        })
-        if(result >= clicks){
-             document.cookie = `Record=${result};expires=31536000000;path=/`
-             console.log(document.cookie)
         }
-        else{
-          document.cookie = `Record=${clicks};expires=31536000000;path=/`
-          console.log(document.cookie)
+        else {
+          document.cookie = `Record=0;expires=${ExpDate};path=/`
         }
-      }
-function Readcookies() {
-  let ValueC2 = "Record"
-  let cd2 = decodeURIComponent(document.cookie)
-  let cda2 = cd2.split("; ")
-  let result1 = null
-  cda2.forEach(element =>{
-          if(element.indexOf("Record")==0){
-            result1 =  element.substring(ValueC2.length + 1)}
-            Prescore = result1
-          })
-}
+      })
+    }
+    function Readcookies() {
+      let ValueC2 = "Record"
+      let cd2 = decodeURIComponent(document.cookie)
+      let cda2 = cd2.split("; ")
+      let result1 = null
+      cda2.forEach(element => {
+        if (element.indexOf("Record") == 0) {
+          result1 = element.substring(ValueC2.length + 1)
+          Prescore = result1
+        }
+      })
+    }
     //code by N.K (N1XS0N) 2026 
   </script>
   <style>
@@ -1119,10 +884,12 @@ function Readcookies() {
       width: 150px;
       height: 150px;
     }
-.Nixsonpie{
-  width: 230px;
-  height:150px;
-}
+
+    .Nixsonpie {
+      width: 230px;
+      height: 150px;
+    }
+
     .Sushi {
       width: 150px;
       height: 150px;
@@ -1170,18 +937,22 @@ function Readcookies() {
     .br {
       line-height: 0.3;
     }
-.Nixsoncola{
-  width: 170px;
-  height: 150px;
-}
+
+    .Nixsoncola {
+      width: 170px;
+      height: 150px;
+    }
+
     .Churckhela {
       width: 210px;
       height: 150px;
     }
-    .Welington{
+
+    .Welington {
       width: 150px;
-      height:150px;
+      height: 150px;
     }
   </style>
 </body>
+
 </html>
