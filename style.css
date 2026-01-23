@@ -1,0 +1,261 @@
+    #idX {
+        font-size: 15px;
+        opacity: 50%;
+        font-family: monospace, 'Courier New', Courier;
+    }
+
+    img {
+        width: 150px;
+        height: 150px;
+    }
+
+    div {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    body {
+        font-weight: bold;
+        font-family: Verdana, monospace, sans-serif;
+        background-color: beige;
+        color: black;
+        margin: 0;
+    }
+
+    button {
+        font-size: 15px;
+        border-radius: 7%;
+        font-family: Verdana, monospace, sans-serif;
+        border: 2px solid black;
+        background-color: white;
+    }
+
+    .Back {
+        font-size: 17px;
+        border-radius: 7%;
+        font-family: Verdana, monospace, sans-serif;
+        border: 2px solid black;
+        background-color: white;
+    }
+
+    input {
+        font-size: 15px;
+        border: 2px solid black;
+        font-family: Verdana, monospace, sans-serif;
+    }
+
+    .p {
+        animation: p 100ms ease-in-out;
+    }
+
+    @keyframes p {
+        0% {}
+
+        50% {
+            scale: 1.2
+        }
+
+        100% {
+            scale: 1
+        }
+
+    }
+
+    h1 {
+        font-size: 15px;
+
+
+    }
+
+    .plus {
+        animation: plus 300ms ease-in-out;
+    }
+
+    @keyframes plus {
+        0% {}
+
+        50% {
+            scale: 1.2;
+            opacity: 100%;
+
+        }
+
+        100% {
+            scale: 1;
+            opacity: 0%;
+        }
+    }
+
+    #PlusC {
+        font-size: 25px;
+        opacity: 0%;
+    }
+
+    #title {
+        font-size: 40px;
+        ;
+    }
+
+    #Count {
+        font-size: 35px;
+    }
+
+    .div1 {
+        display: flex;
+        align-items: center;
+    }
+
+    .div3 {
+        display: flex;
+        width: 100%;
+        align-items: center;
+    }
+
+    .div2 {
+        display: flex;
+        justify-items: center;
+    }
+
+    #Record {
+        font-size: 20px;
+    }
+
+    #c {
+        font-family: monospace, 'Courier New', Courier, ;
+        font-size: 13px;
+    }
+
+    .Tit {
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: 50px;
+    }
+
+    .D1 {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: row;
+    }
+
+    .D2 {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
+
+    .Khinkali {
+        width: 100px;
+        height: 100px;
+    }
+
+    .Khachapuri {
+        width: 100px;
+        height: 100px;
+    }
+
+    .Pilmeni {
+        width: 130px;
+        height: 130px;
+    }
+
+    p {
+        font-size: 20px;
+        font-family: Verdana, Tahoma, sans-serif;
+    }
+
+    .Gvezeli {
+        width: 120px;
+        height: 100px;
+    }
+
+    .NFC {
+        width: 170px;
+        height: 150px;
+    }
+
+    .Lori {
+        width: 125px;
+        height: 60px;
+    }
+
+    .Ghomi {
+        width: 150px;
+        height: 150px;
+    }
+
+    .Hamburger {
+        width: 150px;
+        height: 150px;
+    }
+
+    .Pizza {
+        width: 150px;
+        height: 150px;
+    }
+
+    .Nixsonpie {
+        width: 230px;
+        height: 150px;
+    }
+
+    .Sushi {
+        width: 150px;
+        height: 150px;
+    }
+
+    .Ghuda {
+        width: 200px;
+        height: 200px;
+    }
+
+    .Shawarma {
+        width: 230px;
+        height: 150px;
+    }
+
+    .Elarji {
+        width: 150px;
+        height: 100px;
+    }
+
+    .Ostri {
+        width: 150px;
+        height: 100px;
+    }
+
+    .Salad {
+        width: 150px;
+        height: 150px;
+    }
+
+    .Kharcho {
+        width: 140px;
+        height: 120px;
+    }
+
+    .Mtsvadi {
+        width: 185px;
+        height: 135px;
+    }
+
+    hr {
+        border: 4px solid rgb(29, 28, 28);
+    }
+
+    .br {
+        line-height: 0.3;
+    }
+
+    .Nixsoncola {
+        width: 170px;
+        height: 150px;
+    }
+
+    .Churckhela {
+        width: 210px;
+        height: 150px;
+    }
+
+    .Welington {
+        width: 150px;
+        height: 150px;
+    }
