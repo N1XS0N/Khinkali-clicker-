@@ -1,3 +1,5 @@
+    
+    /*N1XS0N(NK) 2026 */
     #idX {
         font-size: 15px;
         opacity: 50%;
@@ -17,7 +19,7 @@
     body {
         font-weight: bold;
         font-family: Verdana, monospace, sans-serif;
-        background-color: beige;
+        background-color: #fff6b4;
         color: black;
         margin: 0;
     }
@@ -159,7 +161,7 @@
 
     p {
         font-size: 20px;
-        font-family: Verdana, Tahoma, sans-serif;
+        font-family: Verdana, Tahoma, sans-serif
     }
 
     .Gvezeli {
@@ -259,3 +261,11 @@
         width: 150px;
         height: 150px;
     }
+.Hotdog{
+        width: 125px;
+        height: 75px;
+}
+.ice{
+          width: 150px;
+        height: 150px;
+}
