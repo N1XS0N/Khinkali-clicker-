@@ -3,6 +3,7 @@
     #idX {
         font-size: 15px;
         opacity: 50%;
+        color:black;
         font-family: monospace, 'Courier New', Courier;
     }
 
@@ -29,6 +30,7 @@
         border-radius: 7%;
         font-family: Verdana, monospace, sans-serif;
         border: 2px solid black;
+        color:black;
         background-color: white;
     }
 
@@ -44,9 +46,12 @@
         font-size: 15px;
         border: 2px solid black;
         font-family: Verdana, monospace, sans-serif;
+        color:black;
+
     }
 
     .p {
+        color:black;
         animation: p 100ms ease-in-out;
     }
 
@@ -130,16 +135,20 @@
     .Tit {
         font-family: Verdana, Tahoma, sans-serif;
         font-size: 50px;
+        color:black;
+
     }
 
     .D1 {
         display: flex;
+        color:black;
         justify-content: space-evenly;
         flex-direction: row;
     }
 
     .D2 {
         display: flex;
+        color:black;
         justify-content: space-evenly;
         flex-direction: column;
     }
@@ -160,8 +169,9 @@
     }
 
     p {
-        font-size: 20px;
-        font-family: Verdana, Tahoma, sans-serif
+        font-family: Verdana, Tahoma, sans-serif;
+        color:black;
+        
     }
 
     .Gvezeli {
@@ -268,4 +278,8 @@
 .ice{
           width: 150px;
         height: 150px;
+}
+.Khashlama{
+    width:170px;
+    height:100px;
 }
