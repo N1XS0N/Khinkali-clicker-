@@ -86,11 +86,11 @@ let Cheats = {
     c: 1500,
     c1: 3000, InUse: 0,
   },
-    MASTER: {
-    c:  1000000000000,
-    c1: 2000000000000, InUse: 0,
+  MASTER: {
+    c: 10000000,
+    c1: 20000000, InUse: 0,
   },
-  
+
 }
 const img = document.querySelector("img")
 const p2 = document.querySelector("#PlusC")
@@ -152,7 +152,7 @@ let skins = {
   },
   Khachapuri: {
     Owned: false,
-    cost: 3000000,
+    cost: 300000,
     url: "Khachapuri.png",
     Message: "Khachapuri",
     height: "100px",
@@ -177,7 +177,7 @@ let skins = {
   Rachuli: {
     Owned: false,
     url: "Rachuli.png",
-    cost: 8000000,
+    cost: 800000,
     Message: "Lori",
     width: "250px",
     height: "120px",
@@ -185,7 +185,7 @@ let skins = {
   Ghomi: {
     Owned: false,
     url: "Ghomi.png",
-    cost: 12000000,
+    cost: 1200000,
     Message: "Ghomi",
     height: "200px",
     width: "200px",
@@ -193,7 +193,7 @@ let skins = {
   Kharcho: {
     Owned: false,
     url: "kharcho.png",
-    cost: 10000000,
+    cost: 1000000,
     Message: "Kharcho",
     width: "140px",
     height: "120px",
@@ -201,7 +201,7 @@ let skins = {
   Pizza: {
     Owned: false,
     url: "Pizza.png",
-    cost: 8000000000,
+    cost: 8000000,
     Message: "Pizza",
     height: "200px",
     width: "200px",
@@ -217,7 +217,7 @@ let skins = {
   Sushi: {
     Owned: false,
     url: "Sushi.png",
-    cost: 500000000,
+    cost: 50000000,
     Message: "Sushi",
     height: "150px",
     width: "150px",
@@ -225,7 +225,7 @@ let skins = {
   Salad: {
     Owned: false,
     url: "Salad.png",
-    cost: 1000000000,
+    cost: 100000000,
     Message: "Salad",
     width: "180px",
     height: "180px",
@@ -233,7 +233,7 @@ let skins = {
   Fries: {
     Owned: false,
     url: "Fries.png",
-    cost: 30000000,
+    cost: 3000000,
     Message: "Fries",
     height: "150px",
     width: "150px",
@@ -241,7 +241,7 @@ let skins = {
   NFC: {
     Owned: false,
     url: "NFC.png",
-    cost: 600000000,
+    cost: 60000000,
     Message: "NFC",
     width: "170px",
     height: "150px",
@@ -249,7 +249,7 @@ let skins = {
   Elarji: {
     Owned: false,
     url: "Elarji.png",
-    cost: 200000000,
+    cost: 2000000,
     Message: "Elarji",
     width: "150px",
     height: "100px",
@@ -257,7 +257,7 @@ let skins = {
   Ostri: {
     Owned: false,
     url: "Ostri.png",
-    cost: 60000000,
+    cost: 6000000,
     Message: "Ostri",
     width: "150px",
     height: "100px",
@@ -266,7 +266,7 @@ let skins = {
   Shawarma: {
     Owned: false,
     url: "Shawarma.png",
-    cost: 300000000,
+    cost: 30000000,
     Message: "Shawarma",
     width: "125px",
     height: "60px",
@@ -274,7 +274,7 @@ let skins = {
   Ghuda: {
     Owned: false,
     url: "Cheese.png",
-    cost: 200000000,
+    cost: 20000000,
     Message: "Ghuda",
     width: "200px",
     height: "200px",
@@ -282,7 +282,7 @@ let skins = {
   Churckhela: {
     Owned: false,
     url: "Churckhela.png",
-    cost: 3000000000,
+    cost: 300000000,
     Message: "Churckhela",
     width: "210px",
     height: "150px",
@@ -290,7 +290,7 @@ let skins = {
   Coke: {
     Owned: false,
     url: "coke.png",
-    cost: 5000000000,
+    cost: 500000000,
     Message: "Coke",
     height: "150px",
     width: "150px",
@@ -298,7 +298,7 @@ let skins = {
   Pie: {
     Owned: false,
     url: "Nixson pie.png",
-    cost: 2000000000,
+    cost: 200000000,
     Message: "Pie",
     width: "230px",
     height: "150px",
@@ -307,7 +307,7 @@ let skins = {
   Wellington: {
     Owned: false,
     url: "Beef.png",
-    cost: 7000000000,
+    cost: 600000000,
     Message: "Beef",
     height: "150px",
     width: "150px",
@@ -315,7 +315,7 @@ let skins = {
   Mtsvadi: {
     Owned: false,
     url: "Mtsvadi.png",
-    cost: 60000000,
+    cost: 6000000,
     Message: "Mtsvadi",
     width: "185px",
     height: "135px",
@@ -336,13 +336,14 @@ let skins = {
     width: "150x",
     height: "150px",
   },
-  Khashlama:{
-      Owned: false,
+  Khashlama: {
+    Owned: false,
     url: "Khaslama.png",
-    cost: 4000000,
+    cost: 400000,
     Message: "Khashlama",
     width: "170x",
-    height: "100px"},
+    height: "100px"
+  },
 }
 Khachapuri.addEventListener("click", function () {
   Isowned()
@@ -427,7 +428,7 @@ Pie.addEventListener("click", function () {
 })
 Beef.addEventListener("click", function () {
   Isowned()
-  buying(BeefNum, "Welington")
+  buying(BeefNum, "Wellington")
 })
 Ostri.addEventListener("click", function () {
   Isowned()
@@ -441,8 +442,8 @@ Churckhela.addEventListener("click", function () {
   Isowned()
   buying(ChurckhelaN, "Churckhela")
 })
-Khashlama.addEventListener("click",function(){
-   Isowned()
+Khashlama.addEventListener("click", function () {
+  Isowned()
   buying(KhashlamaN, "Khashlama")
 })
 function buying(Label, Objectname) {
@@ -480,8 +481,8 @@ function click() {
     clicks1 += 2
     num.innerHTML = `${clicks}`
     p2.innerHTML = `+${clicks1 / 2}`
-    if (clicks > 999) {
-      Cps = Math.round(clicks / 1000)
+    if (clicks > 199) {
+      Cps = Math.round(clicks / 200)
     }
   }
   //Animation
