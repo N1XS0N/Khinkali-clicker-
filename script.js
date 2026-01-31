@@ -59,6 +59,7 @@ const btn = document.querySelector(".btn")
 const shop = document.querySelector(".shop")
 const num = document.querySelector("#Count")
 const CpsText = document.querySelector("#cps")
+let Ishardmode = false
 let Cps = 0
 let SentString = ""
 let IsAlphaColor = false
@@ -67,6 +68,7 @@ let clicks = 0
 let clicks1 = 2
 let owned = "Owned"
 let cost = "cost"
+let Message = "Message"
 let url = "url"
 let Height = "height"
 let Width = "width"
@@ -146,7 +148,7 @@ let skins = {
     Owned: true,
     url: "Khinkali.png",
     cost: 0,
-    Message: "Khinkali",
+    Message: "12M",
     height: "150px",
     width: "150px",
   },
@@ -154,23 +156,23 @@ let skins = {
     Owned: false,
     cost: 300000,
     url: "Khachapuri.png",
-    Message: "Khachapuri",
+    Message: "3M",
     height: "100px",
     width: "100px",
   },
   Gvezeli: {
     Owned: false,
     url: "Gvezeli.png",
-    cost: 300000,
-    Message: "Gvezeli",
+    cost: 30000,
+    Message: "300K",
     width: "120px",
     height: "100px",
   },
   Pilmeni: {
     Owned: false,
     url: "PILMENI.png",
-    cost: 800000,
-    Message: "Pilemeni",
+    cost: 80000,
+    Message: "800K",
     height: "150px",
     width: "150px",
   },
@@ -178,7 +180,7 @@ let skins = {
     Owned: false,
     url: "Rachuli.png",
     cost: 800000,
-    Message: "Lori",
+    Message: "8M",
     width: "250px",
     height: "120px",
   },
@@ -186,7 +188,7 @@ let skins = {
     Owned: false,
     url: "Ghomi.png",
     cost: 1200000,
-    Message: "Ghomi",
+    Message: "12M",
     height: "200px",
     width: "200px",
   },
@@ -194,7 +196,7 @@ let skins = {
     Owned: false,
     url: "kharcho.png",
     cost: 1000000,
-    Message: "Kharcho",
+    Message: "10M",
     width: "140px",
     height: "120px",
   },
@@ -202,7 +204,7 @@ let skins = {
     Owned: false,
     url: "Pizza.png",
     cost: 8000000,
-    Message: "Pizza",
+    Message: "80M",
     height: "200px",
     width: "200px",
   },
@@ -210,7 +212,7 @@ let skins = {
     Owned: false,
     url: "HamB.png",
     cost: 10000000,
-    Message: "HamB",
+    Message: "100M",
     height: "200px",
     width: "200px",
   },
@@ -218,7 +220,7 @@ let skins = {
     Owned: false,
     url: "Sushi.png",
     cost: 50000000,
-    Message: "Sushi",
+    Message: "500000000",
     height: "150px",
     width: "150px",
   },
@@ -226,7 +228,7 @@ let skins = {
     Owned: false,
     url: "Salad.png",
     cost: 100000000,
-    Message: "Salad",
+    Message: "1B",
     width: "180px",
     height: "180px",
   },
@@ -234,7 +236,7 @@ let skins = {
     Owned: false,
     url: "Fries.png",
     cost: 3000000,
-    Message: "Fries",
+    Message: "30M",
     height: "150px",
     width: "150px",
   },
@@ -242,7 +244,7 @@ let skins = {
     Owned: false,
     url: "NFC.png",
     cost: 60000000,
-    Message: "NFC",
+    Message: "600M",
     width: "170px",
     height: "150px",
   },
@@ -250,7 +252,7 @@ let skins = {
     Owned: false,
     url: "Elarji.png",
     cost: 2000000,
-    Message: "Elarji",
+    Message: "20M",
     width: "150px",
     height: "100px",
   },
@@ -258,7 +260,7 @@ let skins = {
     Owned: false,
     url: "Ostri.png",
     cost: 6000000,
-    Message: "Ostri",
+    Message: "60M",
     width: "150px",
     height: "100px",
 
@@ -267,7 +269,7 @@ let skins = {
     Owned: false,
     url: "Shawarma.png",
     cost: 30000000,
-    Message: "Shawarma",
+    Message: "300M",
     width: "125px",
     height: "60px",
   },
@@ -275,7 +277,7 @@ let skins = {
     Owned: false,
     url: "Cheese.png",
     cost: 20000000,
-    Message: "Ghuda",
+    Message: "200M",
     width: "200px",
     height: "200px",
   },
@@ -283,7 +285,7 @@ let skins = {
     Owned: false,
     url: "Churckhela.png",
     cost: 300000000,
-    Message: "Churckhela",
+    Message: "3B",
     width: "210px",
     height: "150px",
   },
@@ -291,7 +293,7 @@ let skins = {
     Owned: false,
     url: "coke.png",
     cost: 500000000,
-    Message: "Coke",
+    Message: "5B",
     height: "150px",
     width: "150px",
   },
@@ -299,7 +301,7 @@ let skins = {
     Owned: false,
     url: "Nixson pie.png",
     cost: 200000000,
-    Message: "Pie",
+    Message: "2B",
     width: "230px",
     height: "150px",
 
@@ -308,7 +310,7 @@ let skins = {
     Owned: false,
     url: "Beef.png",
     cost: 600000000,
-    Message: "Beef",
+    Message: "6B",
     height: "150px",
     width: "150px",
   },
@@ -316,7 +318,7 @@ let skins = {
     Owned: false,
     url: "Mtsvadi.png",
     cost: 6000000,
-    Message: "Mtsvadi",
+    Message: "60M",
     width: "185px",
     height: "135px",
   },
@@ -324,7 +326,7 @@ let skins = {
     Owned: false,
     url: "Hotdog.png",
     cost: 900000000,
-    Message: "Hotdog",
+    Message: "9B",
     width: "125x",
     height: "75px",
   },
@@ -332,7 +334,7 @@ let skins = {
     Owned: false,
     url: "icecream.png",
     cost: 400000000,
-    Message: "Ice",
+    Message: "4B",
     width: "150x",
     height: "150px",
   },
@@ -340,7 +342,7 @@ let skins = {
     Owned: false,
     url: "Khaslama.png",
     cost: 400000,
-    Message: "Khashlama",
+    Message: "4M",
     width: "170x",
     height: "100px"
   },
@@ -504,12 +506,9 @@ function Isowned() {
       skins[i][owned] = true
     }
   }
-
-
-
-
-  //Cheats 
 }
+//Cheats 
+
 function Cheat() {
   let string = input.value.trim().toUpperCase()
   switch (string) {
