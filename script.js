@@ -57,15 +57,17 @@ const Logo = document.querySelector("link")
 const input = document.querySelector("input")
 const btn = document.querySelector(".btn")
 const shop = document.querySelector(".shop")
+const upgrade = document.querySelector(".three")
+const upgradebtn = document.querySelector(".upg")
 const num = document.querySelector("#Count")
 const CpsText = document.querySelector("#cps")
-let Ishardmode = false
+let upgcost="upgcost"
 let Cps = 0
 let SentString = ""
 let IsAlphaColor = false
 let Random = 0
 let clicks = 0
-let clicks1 = 2
+let adder = 1
 let owned = "Owned"
 let cost = "cost"
 let Message = "Message"
@@ -76,30 +78,37 @@ let used = "InUse"
 let Cheats = {
   HACKER: {
     c: 500,
-    c1: 100,
     InUse: 0,
   },
   ULTIMATE: {
     c: 1000,
-    c1: 2000,
     InUse: 0,
   },
   CATACLYSM: {
-    c: 1500,
-    c1: 3000, InUse: 0,
-  },
-  MASTER: {
-    c: 10000000,
-    c1: 20000000, InUse: 0,
+    c: 1500,InUse: 0,
   },
 
+}
+let prices={
+  Cps:{
+    upgcost:1000,
+    Earn:1,
+  },
+  Clicksbonus:{
+    upgcost:100,
+    Earn:1,
+  }
 }
 const img = document.querySelector("img")
 const p2 = document.querySelector("#PlusC")
 const Back = document.querySelector(".Back")
+const Back2 = document.querySelector(".back2")
 const one = document.querySelector("#one")
 const two = document.querySelector("#two")
+const cliupg= document.querySelector(".cliupg")
+const cpsupg =document.querySelector(".cpsupg")
 two.style.display = "none"
+upgrade.style.display = "none"
 let Prescore = 0
 window.onbeforeunload = function (event) {
   request = window.indexedDB.open("RecordHolder", 1);
@@ -139,9 +148,37 @@ shop.addEventListener("click", function () {
   DOCT.innerHTML = "Khinkali store"
   Logo.href = "Khinkali.png"
 })
+upgradebtn.addEventListener("click",function(){
+  one.style.display = "none"
+  two.style.display = "none"
+  upgrade.style.display = "inline"
+  DOCT.innerHTML = "Khinkali Upgrade store"
+  Logo.href = "Khinkali.png"
+})
+cliupg.addEventListener("click",function(){
+    if(clicks >= prices["Clicksbonus"][upgcost]){
+       prices["Clicksbonus"]["Earn"]=Number(prices["Clicksbonus"]["Earn"]*2)
+      adder+=prices["Clicksbonus"]["Earn"]
+      prices["Clicksbonus"][upgcost]=Number(prices["Clicksbonus"][upgcost]*3)
+      cliupg.innerHTML="Price:"+String(prices["Clicksbonus"][upgcost])
+    }
+  }
+)
+cpsupg.addEventListener("click",function(){
+  if(clicks >= prices["Cps"][upgcost]){
+      Cps+=prices["Cps"]["Earn"]
+      prices["Cps"]["Earn"]=Number(prices["Cps"]["Earn"]*2)
+      prices["Cps"][upgcost]=Number(prices["Cps"][upgcost]*3)
+      cpsupg.innerHTML="Price:"+String(prices["Cps"][upgcost])
+    }
+})
 Back.addEventListener("click", function () {
   one.style.display = "inline"
   two.style.display = "none"
+})
+Back2.addEventListener("click", function () {
+  one.style.display = "inline"
+  upgrade.style.display = "none"
 })
 let skins = {
   Khinkali: {
@@ -154,113 +191,99 @@ let skins = {
   },
   Khachapuri: {
     Owned: false,
-    cost: 300000,
+    cost: 30000,
     url: "Khachapuri.png",
-    Message: "3M",
     height: "100px",
     width: "100px",
   },
   Gvezeli: {
     Owned: false,
     url: "Gvezeli.png",
-    cost: 30000,
-    Message: "300K",
+    cost: 3000,
     width: "120px",
     height: "100px",
   },
   Pilmeni: {
     Owned: false,
     url: "PILMENI.png",
-    cost: 80000,
-    Message: "800K",
+    cost: 8000,
     height: "150px",
     width: "150px",
   },
   Rachuli: {
     Owned: false,
     url: "Rachuli.png",
-    cost: 800000,
-    Message: "8M",
+    cost: 80000,
     width: "250px",
     height: "120px",
   },
   Ghomi: {
     Owned: false,
     url: "Ghomi.png",
-    cost: 1200000,
-    Message: "12M",
+    cost: 120000,
     height: "200px",
     width: "200px",
   },
   Kharcho: {
     Owned: false,
     url: "kharcho.png",
-    cost: 1000000,
-    Message: "10M",
+    cost: 100000,
     width: "140px",
     height: "120px",
   },
   Pizza: {
     Owned: false,
     url: "Pizza.png",
-    cost: 8000000,
-    Message: "80M",
+    cost: 800000,
     height: "200px",
     width: "200px",
   },
   HamB: {
     Owned: false,
     url: "HamB.png",
-    cost: 10000000,
-    Message: "100M",
+    cost: 1000000,
     height: "200px",
     width: "200px",
   },
   Sushi: {
     Owned: false,
     url: "Sushi.png",
-    cost: 50000000,
-    Message: "500000000",
+    cost: 5000000,
     height: "150px",
     width: "150px",
   },
   Salad: {
     Owned: false,
     url: "Salad.png",
-    cost: 100000000,
-    Message: "1B",
+    cost: 10000000,
     width: "180px",
     height: "180px",
   },
   Fries: {
     Owned: false,
     url: "Fries.png",
-    cost: 3000000,
-    Message: "30M",
+    cost: 300000,
     height: "150px",
     width: "150px",
   },
   NFC: {
     Owned: false,
     url: "NFC.png",
-    cost: 60000000,
-    Message: "600M",
+    cost: 6000000,
     width: "170px",
     height: "150px",
   },
   Elarji: {
     Owned: false,
     url: "Elarji.png",
-    cost: 2000000,
-    Message: "20M",
+    cost: 200000,
     width: "150px",
     height: "100px",
   },
   Ostri: {
     Owned: false,
     url: "Ostri.png",
-    cost: 6000000,
-    Message: "60M",
+    cost: 600000,
     width: "150px",
     height: "100px",
 
@@ -268,40 +291,35 @@ let skins = {
   Shawarma: {
     Owned: false,
     url: "Shawarma.png",
-    cost: 30000000,
-    Message: "300M",
+    cost: 3000000,
     width: "125px",
     height: "60px",
   },
   Ghuda: {
     Owned: false,
     url: "Cheese.png",
-    cost: 20000000,
-    Message: "200M",
+    cost: 2000000,
     width: "200px",
     height: "200px",
   },
   Churckhela: {
     Owned: false,
     url: "Churckhela.png",
-    cost: 300000000,
-    Message: "3B",
+    cost: 30000000,
     width: "210px",
     height: "150px",
   },
   Coke: {
     Owned: false,
     url: "coke.png",
-    cost: 500000000,
-    Message: "5B",
+    cost: 50000000,
     height: "150px",
     width: "150px",
   },
   Pie: {
     Owned: false,
     url: "Nixson pie.png",
-    cost: 200000000,
-    Message: "2B",
+    cost: 20000000,
     width: "230px",
     height: "150px",
 
@@ -309,32 +327,28 @@ let skins = {
   Wellington: {
     Owned: false,
     url: "Beef.png",
-    cost: 600000000,
-    Message: "6B",
+    cost: 60000000,
     height: "150px",
     width: "150px",
   },
   Mtsvadi: {
     Owned: false,
     url: "Mtsvadi.png",
-    cost: 6000000,
-    Message: "60M",
+    cost: 600000,
     width: "185px",
     height: "135px",
   },
   Hotdog: {
     Owned: false,
     url: "Hotdog.png",
-    cost: 900000000,
-    Message: "9B",
+    cost: 90000000,
     width: "125x",
     height: "75px",
   },
   IceCream: {
     Owned: false,
-    url: "icecream.png",
-    cost: 400000000,
-    Message: "4B",
+    url: "Icecream.png",
+    cost: 40000000,
     width: "150x",
     height: "150px",
   },
@@ -342,7 +356,6 @@ let skins = {
     Owned: false,
     url: "Khaslama.png",
     cost: 400000,
-    Message: "4M",
     width: "170x",
     height: "100px"
   },
@@ -457,7 +470,7 @@ function buying(Label, Objectname) {
     Logo.href = skins[Objectname][url]
     DOCT.innerHTML = Objectname + " " + "clicker"
     title.innerHTML = Objectname + " " + "clicker"
-    p2.innerHTML = "25px"
+    p2.style.fontSize ="25px"
   }
 }
 ShowRec()
@@ -468,6 +481,8 @@ else {
   Record1.innerHTML = `Previos record:${Prescore}`
 }
 function click() {
+    clicks += adder
+    p2.innerHTML="+" + String(adder)
   if (IsAlphaColor) {
     Random = Math.floor(Math.random() * 360)
     img.style.filter = `hue-rotate(${Random}deg)`
@@ -475,17 +490,6 @@ function click() {
   else {
     Random = 0
     img.style.filter = `hue-rotate(${Random}deg)`
-  }
-  //Clicks
-  clicks += 1
-  if (clicks >= clicks1 / 2) {
-    clicks += clicks1 / 2
-    clicks1 += 2
-    num.innerHTML = `${clicks}`
-    p2.innerHTML = `+${clicks1 / 2}`
-    if (clicks > 199) {
-      Cps = Math.round(clicks / 200)
-    }
   }
   //Animation
   if (img.classList != "p") {
@@ -538,19 +542,15 @@ function Addcheats(inputvalue) {
       if (Cheats[i][used] == 0) {
         Cheats[i][used] = 1
         clicks += Cheats[i]["c"]
-        clicks1 += Cheats[i]["c1"]
         input.value = ""
       }
     }
   }
 }
-const addcps = setInterval(() => {
-  clicks += Cps
-  clicks1 += Cps * 2
+const addcps = setInterval(function(){
   CpsText.innerHTML = `CPS:${Cps}`
   num.innerHTML = `${clicks}`
-
-}, 1000)
+  clicks += Cps},1000)
 function ShowRec() {
   let Db1
   const request1 = window.indexedDB.open("RecordHolder", 1)
