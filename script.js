@@ -1,4 +1,9 @@
 console.log("Cheats:HACKER,ULTIMATE,CATACLYSM")
+const cliupg = document.querySelector(".cliupg")
+const cpsupg = document.querySelector(".cpsupg")
+const Back2 = document.querySelector(".back2")
+const upgrade = document.querySelector(".three")
+const upgradebtn = document.querySelector(".upg")
 const Khinkali = document.querySelector(".Khinkali")
 const Khachapuri = document.querySelector(".Khachapuri")
 const Kharcho = document.querySelector(".Kharcho")
@@ -57,24 +62,21 @@ const Logo = document.querySelector("link")
 const input = document.querySelector("input")
 const btn = document.querySelector(".btn")
 const shop = document.querySelector(".shop")
-const upgrade = document.querySelector(".three")
-const upgradebtn = document.querySelector(".upg")
 const num = document.querySelector("#Count")
 const CpsText = document.querySelector("#cps")
-let upgcost="upgcost"
 let Cps = 0
 let SentString = ""
 let IsAlphaColor = false
 let Random = 0
 let clicks = 0
-let adder = 1
 let owned = "Owned"
 let cost = "cost"
-let Message = "Message"
 let url = "url"
 let Height = "height"
 let Width = "width"
 let used = "InUse"
+let upgcost = "upgcost"
+let adder = 1
 let Cheats = {
   HACKER: {
     c: 500,
@@ -85,28 +87,25 @@ let Cheats = {
     InUse: 0,
   },
   CATACLYSM: {
-    c: 1500,InUse: 0,
+    c: 1500, InUse: 0,
   },
 
 }
-let prices={
-  Cps:{
-    upgcost:1000,
-    Earn:1,
+let prices = {
+  Cps: {
+    upgcost: 1000,
+    Earn: 1,
   },
-  Clicksbonus:{
-    upgcost:100,
-    Earn:1,
+  Clicksbonus: {
+    upgcost: 100,
+    Earn: 1,
   }
 }
 const img = document.querySelector("img")
 const p2 = document.querySelector("#PlusC")
 const Back = document.querySelector(".Back")
-const Back2 = document.querySelector(".back2")
 const one = document.querySelector("#one")
 const two = document.querySelector("#two")
-const cliupg= document.querySelector(".cliupg")
-const cpsupg =document.querySelector(".cpsupg")
 two.style.display = "none"
 upgrade.style.display = "none"
 let Prescore = 0
@@ -148,37 +147,9 @@ shop.addEventListener("click", function () {
   DOCT.innerHTML = "Khinkali store"
   Logo.href = "Khinkali.png"
 })
-upgradebtn.addEventListener("click",function(){
-  one.style.display = "none"
-  two.style.display = "none"
-  upgrade.style.display = "inline"
-  DOCT.innerHTML = "Khinkali Upgrade store"
-  Logo.href = "Khinkali.png"
-})
-cliupg.addEventListener("click",function(){
-    if(clicks >= prices["Clicksbonus"][upgcost]){
-       prices["Clicksbonus"]["Earn"]=Number(prices["Clicksbonus"]["Earn"]*2)
-      adder+=prices["Clicksbonus"]["Earn"]
-      prices["Clicksbonus"][upgcost]=Number(prices["Clicksbonus"][upgcost]*3)
-      cliupg.innerHTML="Price:"+String(prices["Clicksbonus"][upgcost])
-    }
-  }
-)
-cpsupg.addEventListener("click",function(){
-  if(clicks >= prices["Cps"][upgcost]){
-      Cps+=prices["Cps"]["Earn"]
-      prices["Cps"]["Earn"]=Number(prices["Cps"]["Earn"]*2)
-      prices["Cps"][upgcost]=Number(prices["Cps"][upgcost]*3)
-      cpsupg.innerHTML="Price:"+String(prices["Cps"][upgcost])
-    }
-})
 Back.addEventListener("click", function () {
   one.style.display = "inline"
   two.style.display = "none"
-})
-Back2.addEventListener("click", function () {
-  one.style.display = "inline"
-  upgrade.style.display = "none"
 })
 let skins = {
   Khinkali: {
@@ -356,10 +327,38 @@ let skins = {
     Owned: false,
     url: "Khaslama.png",
     cost: 400000,
-    width: "170x",
+    width: "135x",
     height: "100px"
   },
 }
+upgradebtn.addEventListener("click", function () {
+  one.style.display = "none"
+  two.style.display = "none"
+  upgrade.style.display = "inline"
+  DOCT.innerHTML = "Khinkali Upgrade store"
+  Logo.href = "Khinkali.png"
+})
+cliupg.addEventListener("click", function () {
+  if (clicks >= prices["Clicksbonus"][upgcost]) {
+    prices["Clicksbonus"]["Earn"] = Number(prices["Clicksbonus"]["Earn"] * 2)
+    adder += prices["Clicksbonus"]["Earn"]
+    prices["Clicksbonus"][upgcost] = Number(prices["Clicksbonus"][upgcost] * 2)
+    cliupg.innerHTML = "Price:" + String(prices["Clicksbonus"][upgcost])
+  }
+}
+)
+cpsupg.addEventListener("click", function () {
+  if (clicks >= prices["Cps"][upgcost]) {
+    Cps = prices["Cps"]["Earn"]
+    prices["Cps"]["Earn"] = Number(prices["Cps"]["Earn"] * 3)
+    prices["Cps"][upgcost] = Number(prices["Cps"][upgcost] * 4)
+    cpsupg.innerHTML = "Price:" + String(prices["Cps"][upgcost])
+  }
+})
+Back2.addEventListener("click", function () {
+  one.style.display = "inline"
+  upgrade.style.display = "none"
+})
 Khachapuri.addEventListener("click", function () {
   Isowned()
   buying(KhachapuriN, "Khachapuri")
@@ -470,7 +469,7 @@ function buying(Label, Objectname) {
     Logo.href = skins[Objectname][url]
     DOCT.innerHTML = Objectname + " " + "clicker"
     title.innerHTML = Objectname + " " + "clicker"
-    p2.style.fontSize ="25px"
+    p2.innerHTML = "25px"
   }
 }
 ShowRec()
@@ -481,8 +480,6 @@ else {
   Record1.innerHTML = `Previos record:${Prescore}`
 }
 function click() {
-    clicks += adder
-    p2.innerHTML="+" + String(adder)
   if (IsAlphaColor) {
     Random = Math.floor(Math.random() * 360)
     img.style.filter = `hue-rotate(${Random}deg)`
@@ -490,6 +487,12 @@ function click() {
   else {
     Random = 0
     img.style.filter = `hue-rotate(${Random}deg)`
+  }
+  //Clicks
+  if (clicks > -1) {
+    clicks += adder
+    num.innerHTML = `${clicks}`
+    p2.innerHTML = `+` + String(adder)
   }
   //Animation
   if (img.classList != "p") {
@@ -510,9 +513,12 @@ function Isowned() {
       skins[i][owned] = true
     }
   }
-}
-//Cheats 
 
+
+
+
+  //Cheats 
+}
 function Cheat() {
   let string = input.value.trim().toUpperCase()
   switch (string) {
@@ -542,15 +548,17 @@ function Addcheats(inputvalue) {
       if (Cheats[i][used] == 0) {
         Cheats[i][used] = 1
         clicks += Cheats[i]["c"]
+        clicks1 += Cheats[i]["c1"]
         input.value = ""
       }
     }
   }
 }
-const addcps = setInterval(function(){
+const addcps = setInterval(function () {
   CpsText.innerHTML = `CPS:${Cps}`
   num.innerHTML = `${clicks}`
-  clicks += Cps},1000)
+  clicks += Cps
+}, 1000)
 function ShowRec() {
   let Db1
   const request1 = window.indexedDB.open("RecordHolder", 1)
