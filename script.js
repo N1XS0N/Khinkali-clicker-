@@ -1,4 +1,4 @@
-console.log("Cheats:HACKER,ULTIMATE,CATACLYSM")
+console.log("Cheats:HACKER,ULTIMATE,CATACLYSM,DINOSAUR")
 const cliupg = document.querySelector(".cliupg")
 const cpsupg = document.querySelector(".cpsupg")
 const Back2 = document.querySelector(".back2")
@@ -9,8 +9,8 @@ const Khachapuri = document.querySelector(".Khachapuri")
 const Kharcho = document.querySelector(".Kharcho")
 const Gvezeli = document.querySelector(".Gvezeli")
 const Pilmeni = document.querySelector(".Pilmeni")
-const Khashlama = document.querySelector(".Khashlama")
-const KhashlamaN = document.querySelector(".KhasNum")
+const Cake= document.querySelector(".Cake")
+const CakeN = document.querySelector(".CakeNum")
 const Ghomi = document.querySelector(".Ghomi")
 const Rachuli = document.querySelector(".Lori")
 const Pizza = document.querySelector(".Pizza")
@@ -21,6 +21,8 @@ const Shawarma = document.querySelector(".Shawarma")
 const Sushi = document.querySelector(".Sushi")
 const Fries = document.querySelector(".Fries")
 const FriesN = document.querySelector(".FRINum")
+const Choco = document.querySelector(".Choco")
+const ChocoN = document.querySelector(".ChoNum")
 const Hotdog = document.querySelector(".Hotdog")
 const HotdogN = document.querySelector(".HotdogNum")
 const Ice = document.querySelector(".Ice")
@@ -31,6 +33,8 @@ const Ostri = document.querySelector(".Ostri")
 const OstriN = document.querySelector(".OSTNum")
 const Elarji = document.querySelector(".Elarji")
 const ElarjiN = document.querySelector(".ELANum")
+const Candy= document.querySelector(".C")
+const CandyN = document.querySelector(".LolNum")
 const Mtsvadi = document.querySelector(".Mtsvadi")
 const MtsvadiN = document.querySelector(".MTSNum")
 const Salad = document.querySelector(".Salad")
@@ -89,7 +93,9 @@ let Cheats = {
   CATACLYSM: {
     c: 1500, InUse: 0,
   },
-
+ DINOSAUR: {
+    c: 3000, InUse: 0,
+  },
 }
 let prices = {
   Cps: {
@@ -156,13 +162,12 @@ let skins = {
     Owned: true,
     url: "Khinkali.png",
     cost: 0,
-    Message: "12M",
     height: "150px",
     width: "150px",
   },
   Khachapuri: {
     Owned: false,
-    cost: 30000,
+    cost: 300000,
     url: "Khachapuri.png",
     height: "100px",
     width: "100px",
@@ -170,91 +175,91 @@ let skins = {
   Gvezeli: {
     Owned: false,
     url: "Gvezeli.png",
-    cost: 3000,
+    cost: 30000,
     width: "120px",
     height: "100px",
   },
   Pilmeni: {
     Owned: false,
     url: "PILMENI.png",
-    cost: 8000,
+    cost: 80000,
     height: "150px",
     width: "150px",
   },
   Rachuli: {
     Owned: false,
     url: "Rachuli.png",
-    cost: 80000,
+    cost: 800000,
     width: "250px",
     height: "120px",
   },
   Ghomi: {
     Owned: false,
     url: "Ghomi.png",
-    cost: 120000,
+    cost: 1200000,
     height: "200px",
     width: "200px",
   },
   Kharcho: {
     Owned: false,
     url: "kharcho.png",
-    cost: 100000,
+    cost: 1000000,
     width: "140px",
     height: "120px",
   },
   Pizza: {
     Owned: false,
     url: "Pizza.png",
-    cost: 800000,
+    cost: 8000000,
     height: "200px",
     width: "200px",
   },
   HamB: {
     Owned: false,
     url: "HamB.png",
-    cost: 1000000,
+    cost: 10000000,
     height: "200px",
     width: "200px",
   },
   Sushi: {
     Owned: false,
     url: "Sushi.png",
-    cost: 5000000,
+    cost: 50000000,
     height: "150px",
     width: "150px",
   },
   Salad: {
     Owned: false,
     url: "Salad.png",
-    cost: 10000000,
+    cost: 100000000,
     width: "180px",
     height: "180px",
   },
   Fries: {
     Owned: false,
     url: "Fries.png",
-    cost: 300000,
+    cost: 3000000,
     height: "150px",
     width: "150px",
   },
   NFC: {
     Owned: false,
     url: "NFC.png",
-    cost: 6000000,
+    cost: 60000000,
     width: "170px",
     height: "150px",
   },
   Elarji: {
     Owned: false,
     url: "Elarji.png",
-    cost: 200000,
+    cost: 2000000,
     width: "150px",
     height: "100px",
   },
   Ostri: {
     Owned: false,
     url: "Ostri.png",
-    cost: 600000,
+    cost: 6000000,
     width: "150px",
     height: "100px",
 
@@ -262,73 +267,86 @@ let skins = {
   Shawarma: {
     Owned: false,
     url: "Shawarma.png",
-    cost: 3000000,
+    cost: 30000000,
     width: "125px",
     height: "60px",
   },
   Ghuda: {
     Owned: false,
     url: "Cheese.png",
-    cost: 2000000,
+    cost: 20000000,
     width: "200px",
     height: "200px",
   },
   Churckhela: {
     Owned: false,
     url: "Churckhela.png",
-    cost: 30000000,
+    cost: 300000000,
     width: "210px",
     height: "150px",
   },
   Coke: {
     Owned: false,
     url: "coke.png",
-    cost: 50000000,
+    cost: 500000000,
     height: "150px",
     width: "150px",
   },
   Pie: {
     Owned: false,
     url: "Nixson pie.png",
-    cost: 20000000,
-    width: "230px",
-    height: "150px",
-
+    cost: 200000000,
+    width: "115px",
+    height: "125px",
   },
   Wellington: {
     Owned: false,
     url: "Beef.png",
-    cost: 60000000,
+    cost: 600000000,
     height: "150px",
     width: "150px",
   },
   Mtsvadi: {
     Owned: false,
     url: "Mtsvadi.png",
-    cost: 600000,
+    cost: 6000000,
     width: "185px",
     height: "135px",
   },
   Hotdog: {
     Owned: false,
     url: "Hotdog.png",
-    cost: 90000000,
-    width: "125x",
+    cost: 900000000,
+    width: "125px",
     height: "75px",
   },
   IceCream: {
     Owned: false,
     url: "Icecream.png",
-    cost: 40000000,
-    width: "150x",
+    cost: 400000000,
+    width: "150px",
     height: "150px",
   },
-  Khashlama: {
+   Cake: {
     Owned: false,
-    url: "Khaslama.png",
-    cost: 400000,
-    width: "135x",
-    height: "100px"
+    url: "Cake.png",
+    cost: 100000000,
+    width: "150px",
+    height: "150px"
+  },
+  Chocolate: {
+    Owned: false,
+    url: "Chocolate.png",
+    cost: 700000000,
+    width: "150px",
+    height: "150px"
+  },
+   Candy: {
+    Owned: false,
+    url: "Lollipop.png",
+    cost: 50000000,
+    width: "150px",
+    height: "150px"
   },
 }
 upgradebtn.addEventListener("click", function () {
@@ -342,7 +360,7 @@ cliupg.addEventListener("click", function () {
   if (clicks >= prices["Clicksbonus"][upgcost]) {
     prices["Clicksbonus"]["Earn"] = Number(prices["Clicksbonus"]["Earn"] * 2)
     adder += prices["Clicksbonus"]["Earn"]
-    prices["Clicksbonus"][upgcost] = Number(prices["Clicksbonus"][upgcost] * 2)
+    prices["Clicksbonus"][upgcost] = Number(prices["Clicksbonus"][upgcost] * 4)
     cliupg.innerHTML = "Price:" + String(prices["Clicksbonus"][upgcost])
   }
 }
@@ -350,7 +368,7 @@ cliupg.addEventListener("click", function () {
 cpsupg.addEventListener("click", function () {
   if (clicks >= prices["Cps"][upgcost]) {
     Cps = prices["Cps"]["Earn"]
-    prices["Cps"]["Earn"] = Number(prices["Cps"]["Earn"] * 3)
+    prices["Cps"]["Earn"] = Number(prices["Cps"]["Earn"] * 2)
     prices["Cps"][upgcost] = Number(prices["Cps"][upgcost] * 4)
     cpsupg.innerHTML = "Price:" + String(prices["Cps"][upgcost])
   }
@@ -456,9 +474,17 @@ Churckhela.addEventListener("click", function () {
   Isowned()
   buying(ChurckhelaN, "Churckhela")
 })
-Khashlama.addEventListener("click", function () {
+Cake.addEventListener("click", function () {
   Isowned()
-  buying(KhashlamaN, "Khashlama")
+  buying(CakeN, "Cake")
+})
+Choco.addEventListener("click",function () {
+    Isowned()
+  buying(ChocoN, "Chocolate")
+})
+Candy.addEventListener("click",function () {
+    Isowned()
+  buying(CandyN, "Candy")
 })
 function buying(Label, Objectname) {
   if (skins[Objectname][owned]) {
@@ -480,6 +506,9 @@ else {
   Record1.innerHTML = `Previos record:${Prescore}`
 }
 function click() {
+  if(String(clicks).length > 9){
+    num.style.fontSize="30px"
+  }
   if (IsAlphaColor) {
     Random = Math.floor(Math.random() * 360)
     img.style.filter = `hue-rotate(${Random}deg)`

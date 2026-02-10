@@ -15,6 +15,7 @@
     div {
         display: flex;
         justify-content: space-evenly;
+
     }
 
     body {
@@ -205,8 +206,8 @@
     }
 
     .Nixsonpie {
-        width: 230px;
-        height: 150px;
+        width: 115px;
+        height: 125px;
     }
 
     .Sushi {
@@ -258,7 +259,7 @@
     }
 
     .Nixsoncola {
-        width: 170px;
+        width: 150px;
         height: 150px;
     }
 
@@ -291,4 +292,3 @@
         color: black;
     font-size: 15px;
 }
-
