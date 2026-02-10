@@ -67,6 +67,7 @@ const input = document.querySelector("input")
 const btn = document.querySelector(".btn")
 const shop = document.querySelector(".shop")
 const num = document.querySelector("#Count")
+let whattodisplay=""
 const CpsText = document.querySelector("#cps")
 let Cps = 0
 let SentString = ""
@@ -506,9 +507,16 @@ else {
   Record1.innerHTML = `Previos record:${Prescore}`
 }
 function click() {
-  if(String(clicks).length > 9){
-    num.style.fontSize="30px"
-  }
+  if(clicks>999){
+    let  z =new Intl.NumberFormat('en-US', {
+  notation: 'compact',
+  maximumFractionDigits: 1
+})
+whattodisplay = String(z.format(clicks))
+}
+else{
+  whattodisplay=String(clicks)
+}
   if (IsAlphaColor) {
     Random = Math.floor(Math.random() * 360)
     img.style.filter = `hue-rotate(${Random}deg)`
@@ -520,7 +528,7 @@ function click() {
   //Clicks
   if (clicks > -1) {
     clicks += adder
-    num.innerHTML = `${clicks}`
+    num.innerHTML = `${whattodisplay}`
     p2.innerHTML = `+` + String(adder)
   }
   //Animation
@@ -585,7 +593,7 @@ function Addcheats(inputvalue) {
 }
 const addcps = setInterval(function () {
   CpsText.innerHTML = `CPS:${Cps}`
-  num.innerHTML = `${clicks}`
+  num.innerHTML = `${whattodisplay}`
   clicks += Cps
 }, 1000)
 function ShowRec() {
