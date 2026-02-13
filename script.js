@@ -67,7 +67,7 @@ const input = document.querySelector("input")
 const btn = document.querySelector(".btn")
 const shop = document.querySelector(".shop")
 const num = document.querySelector("#Count")
-let whattodisplay=""
+let whattodisplay="0"
 const CpsText = document.querySelector("#cps")
 let Cps = 0
 let SentString = ""
@@ -151,7 +151,6 @@ window.addEventListener("keyup", function (event) {
 shop.addEventListener("click", function () {
   one.style.display = "none"
   two.style.display = "inline"
-  DOCT.innerHTML = "Khinkali store"
   Logo.href = "Khinkali.png"
 })
 Back.addEventListener("click", function () {
@@ -168,7 +167,7 @@ let skins = {
   },
   Khachapuri: {
     Owned: false,
-    cost: 300000,
+    cost: 30000,
     url: "Khachapuri.png",
     height: "100px",
     width: "100px",
@@ -176,91 +175,91 @@ let skins = {
   Gvezeli: {
     Owned: false,
     url: "Gvezeli.png",
-    cost: 30000,
+    cost: 3000,
     width: "120px",
     height: "100px",
   },
   Pilmeni: {
     Owned: false,
     url: "PILMENI.png",
-    cost: 80000,
+    cost: 8000,
     height: "150px",
     width: "150px",
   },
   Rachuli: {
     Owned: false,
     url: "Rachuli.png",
-    cost: 800000,
+    cost: 80000,
     width: "250px",
     height: "120px",
   },
   Ghomi: {
     Owned: false,
     url: "Ghomi.png",
-    cost: 1200000,
+    cost: 120000,
     height: "200px",
     width: "200px",
   },
   Kharcho: {
     Owned: false,
     url: "kharcho.png",
-    cost: 1000000,
+    cost: 100000,
     width: "140px",
     height: "120px",
   },
   Pizza: {
     Owned: false,
     url: "Pizza.png",
-    cost: 8000000,
+    cost: 800000,
     height: "200px",
     width: "200px",
   },
   HamB: {
     Owned: false,
     url: "HamB.png",
-    cost: 10000000,
+    cost: 1000000,
     height: "200px",
     width: "200px",
   },
   Sushi: {
     Owned: false,
     url: "Sushi.png",
-    cost: 50000000,
+    cost: 5000000,
     height: "150px",
     width: "150px",
   },
   Salad: {
     Owned: false,
     url: "Salad.png",
-    cost: 100000000,
+    cost: 10000000,
     width: "180px",
     height: "180px",
   },
   Fries: {
     Owned: false,
     url: "Fries.png",
-    cost: 3000000,
+    cost: 300000,
     height: "150px",
     width: "150px",
   },
   NFC: {
     Owned: false,
     url: "NFC.png",
-    cost: 60000000,
+    cost: 6000000,
     width: "170px",
     height: "150px",
   },
   Elarji: {
     Owned: false,
     url: "Elarji.png",
-    cost: 2000000,
+    cost: 200000,
     width: "150px",
     height: "100px",
   },
   Ostri: {
     Owned: false,
     url: "Ostri.png",
-    cost: 6000000,
+    cost: 600000,
     width: "150px",
     height: "100px",
 
@@ -268,84 +267,84 @@ let skins = {
   Shawarma: {
     Owned: false,
     url: "Shawarma.png",
-    cost: 30000000,
+    cost: 3000000,
     width: "125px",
     height: "60px",
   },
   Ghuda: {
     Owned: false,
     url: "Cheese.png",
-    cost: 20000000,
+    cost: 2000000,
     width: "200px",
     height: "200px",
   },
   Churckhela: {
     Owned: false,
     url: "Churckhela.png",
-    cost: 300000000,
+    cost: 30000000,
     width: "210px",
     height: "150px",
   },
   Coke: {
     Owned: false,
     url: "coke.png",
-    cost: 500000000,
+    cost: 50000000,
     height: "150px",
     width: "150px",
   },
   Pie: {
     Owned: false,
     url: "Nixson pie.png",
-    cost: 200000000,
+    cost: 20000000,
     width: "115px",
     height: "125px",
   },
-  Wellington: {
+  Shnitzel: {
     Owned: false,
-    url: "Beef.png",
-    cost: 600000000,
-    height: "150px",
-    width: "150px",
+    url: "Shnitzel.png",
+    cost: 60000000,
+     width: "150px",
+    height: "100px",
   },
   Mtsvadi: {
     Owned: false,
     url: "Mtsvadi.png",
-    cost: 6000000,
+    cost: 600000,
     width: "185px",
     height: "135px",
   },
   Hotdog: {
     Owned: false,
     url: "Hotdog.png",
-    cost: 900000000,
+    cost: 90000000,
     width: "125px",
     height: "75px",
   },
   IceCream: {
     Owned: false,
     url: "Icecream.png",
-    cost: 400000000,
+    cost: 40000000,
     width: "150px",
     height: "150px",
   },
    Cake: {
     Owned: false,
     url: "Cake.png",
-    cost: 100000000,
+    cost: 10000000,
     width: "150px",
     height: "150px"
   },
   Chocolate: {
     Owned: false,
     url: "Chocolate.png",
-    cost: 700000000,
+    cost: 70000000,
     width: "150px",
     height: "150px"
   },
    Candy: {
     Owned: false,
-    url: "Lollipop.png",
-    cost: 50000000,
+    url: "Candy.png",
+    cost: 5000000,
     width: "150px",
     height: "150px"
   },
@@ -354,14 +353,13 @@ upgradebtn.addEventListener("click", function () {
   one.style.display = "none"
   two.style.display = "none"
   upgrade.style.display = "inline"
-  DOCT.innerHTML = "Khinkali Upgrade store"
   Logo.href = "Khinkali.png"
 })
 cliupg.addEventListener("click", function () {
   if (clicks >= prices["Clicksbonus"][upgcost]) {
     prices["Clicksbonus"]["Earn"] = Number(prices["Clicksbonus"]["Earn"] * 2)
     adder += prices["Clicksbonus"]["Earn"]
-    prices["Clicksbonus"][upgcost] = Number(prices["Clicksbonus"][upgcost] * 4)
+    prices["Clicksbonus"][upgcost] = Number(prices["Clicksbonus"][upgcost] * 3)
     cliupg.innerHTML = "Price:" + String(prices["Clicksbonus"][upgcost])
   }
 }
@@ -370,7 +368,7 @@ cpsupg.addEventListener("click", function () {
   if (clicks >= prices["Cps"][upgcost]) {
     Cps = prices["Cps"]["Earn"]
     prices["Cps"]["Earn"] = Number(prices["Cps"]["Earn"] * 2)
-    prices["Cps"][upgcost] = Number(prices["Cps"][upgcost] * 4)
+    prices["Cps"][upgcost] = Number(prices["Cps"][upgcost] * 3)
     cpsupg.innerHTML = "Price:" + String(prices["Cps"][upgcost])
   }
 })
@@ -461,7 +459,7 @@ Pie.addEventListener("click", function () {
 })
 Beef.addEventListener("click", function () {
   Isowned()
-  buying(BeefNum, "Wellington")
+  buying(BeefNum, "Shnitzel")
 })
 Ostri.addEventListener("click", function () {
   Isowned()
@@ -526,11 +524,9 @@ else{
     img.style.filter = `hue-rotate(${Random}deg)`
   }
   //Clicks
-  if (clicks > -1) {
-    clicks += adder
-    num.innerHTML = `${whattodisplay}`
-    p2.innerHTML = `+` + String(adder)
-  }
+  clicks += adder
+  num.innerHTML = `${whattodisplay}`
+  p2.innerHTML = `+` + String(adder)
   //Animation
   if (img.classList != "p") {
     img.classList.add("p")
