@@ -1,4 +1,4 @@
-console.log("Cheats:HACKER,ULTIMATE,CATACLYSM,DINOSAUR")
+console.log("Cheats:HACKER,ULTIMATE,CATACLYSM,DINOSAUR,ZERO,ALPHACOLOR")
 const cliupg = document.querySelector(".cliupg")
 const cpsupg = document.querySelector(".cpsupg")
 const Back2 = document.querySelector(".back2")
@@ -9,7 +9,7 @@ const Khachapuri = document.querySelector(".Khachapuri")
 const Kharcho = document.querySelector(".Kharcho")
 const Gvezeli = document.querySelector(".Gvezeli")
 const Pilmeni = document.querySelector(".Pilmeni")
-const Cake= document.querySelector(".Cake")
+const Cake = document.querySelector(".Cake")
 const CakeN = document.querySelector(".CakeNum")
 const Ghomi = document.querySelector(".Ghomi")
 const Rachuli = document.querySelector(".Lori")
@@ -33,7 +33,7 @@ const Ostri = document.querySelector(".Ostri")
 const OstriN = document.querySelector(".OSTNum")
 const Elarji = document.querySelector(".Elarji")
 const ElarjiN = document.querySelector(".ELANum")
-const Candy= document.querySelector(".C")
+const Candy = document.querySelector(".C")
 const CandyN = document.querySelector(".LolNum")
 const Mtsvadi = document.querySelector(".Mtsvadi")
 const MtsvadiN = document.querySelector(".MTSNum")
@@ -67,7 +67,7 @@ const input = document.querySelector("input")
 const btn = document.querySelector(".btn")
 const shop = document.querySelector(".shop")
 const num = document.querySelector("#Count")
-let whattodisplay="0"
+let whattodisplay = "0"
 const CpsText = document.querySelector("#cps")
 let Cps = 0
 let SentString = ""
@@ -94,7 +94,7 @@ let Cheats = {
   CATACLYSM: {
     c: 1500, InUse: 0,
   },
- DINOSAUR: {
+  DINOSAUR: {
     c: 3000, InUse: 0,
   },
 }
@@ -115,30 +115,7 @@ const one = document.querySelector("#one")
 const two = document.querySelector("#two")
 two.style.display = "none"
 upgrade.style.display = "none"
-let Prescore = 0
 window.onbeforeunload = function (event) {
-  request = window.indexedDB.open("RecordHolder", 1);
-  request.onupgradeneeded = e => {
-    let Db = e.target.result;
-    Db.createObjectStore("Record", { keyPath: "id" })
-  }
-  request.onsuccess = e => {
-    Db = e.target.result;
-    const tx = Db.transaction("Record", "readwrite");
-    const store = tx.objectStore("Record");
-    const tx0 = Db.transaction("Record", "readonly");
-    const store0 = tx.objectStore("Record");
-    const storex = store0.get(1)
-    storex.onsuccess = () => {
-      res = storex.result.text
-      if (clicks >= res) {
-        store.put({ id: 1, text: clicks })
-      }
-      else {
-        store.put({ id: 1, text: res })
-      }
-    }
-  }
   event.preventDefault()
 }
 img.addEventListener("click", () => click()
@@ -303,7 +280,7 @@ let skins = {
     Owned: false,
     url: "Shnitzel.png",
     cost: 60000000,
-     width: "150px",
+    width: "150px",
     height: "100px",
   },
   Mtsvadi: {
@@ -327,7 +304,7 @@ let skins = {
     width: "150px",
     height: "150px",
   },
-   Cake: {
+  Cake: {
     Owned: false,
     url: "Cake.png",
     cost: 10000000,
@@ -341,7 +318,7 @@ let skins = {
     width: "150px",
     height: "150px"
   },
-   Candy: {
+  Candy: {
     Owned: false,
     url: "Candy.png",
     cost: 5000000,
@@ -360,8 +337,18 @@ cliupg.addEventListener("click", function () {
     prices["Clicksbonus"]["Earn"] = Number(prices["Clicksbonus"]["Earn"] * 2)
     adder += prices["Clicksbonus"]["Earn"]
     prices["Clicksbonus"][upgcost] = Number(prices["Clicksbonus"][upgcost] * 3)
-    cliupg.innerHTML = "Price:" + String(prices["Clicksbonus"][upgcost])
+    if (prices["Clicksbonus"][upgcost] > 900) {
+      let formatter1 = new Intl.NumberFormat('en-US', {
+        notation: 'compact',
+        maximumFractionDigits: 1
+      })
+      cliupg.innerHTML = "Price:" + String(formatter1.format(prices["Clicksbonus"][upgcost]))
+    }
+    else {
+      cliupg.innerHTML = "Price:" + String(prices["Clicksbonus"][upgcost])
+    }
   }
+
 }
 )
 cpsupg.addEventListener("click", function () {
@@ -369,7 +356,13 @@ cpsupg.addEventListener("click", function () {
     Cps = prices["Cps"]["Earn"]
     prices["Cps"]["Earn"] = Number(prices["Cps"]["Earn"] * 2)
     prices["Cps"][upgcost] = Number(prices["Cps"][upgcost] * 3)
-    cpsupg.innerHTML = "Price:" + String(prices["Cps"][upgcost])
+    let formatter2 = new Intl.NumberFormat('en-US', {
+      notation: 'compact',
+      maximumFractionDigits: 1
+    })
+    cpsupg.innerHTML = "Price:" + String(formatter2.format(prices["Cps"][upgcost]))
+
+
   }
 })
 Back2.addEventListener("click", function () {
@@ -477,12 +470,12 @@ Cake.addEventListener("click", function () {
   Isowned()
   buying(CakeN, "Cake")
 })
-Choco.addEventListener("click",function () {
-    Isowned()
+Choco.addEventListener("click", function () {
+  Isowned()
   buying(ChocoN, "Chocolate")
 })
-Candy.addEventListener("click",function () {
-    Isowned()
+Candy.addEventListener("click", function () {
+  Isowned()
   buying(CandyN, "Candy")
 })
 function buying(Label, Objectname) {
@@ -497,24 +490,17 @@ function buying(Label, Objectname) {
     p2.innerHTML = "25px"
   }
 }
-ShowRec()
-if (Prescore == 0 || Prescore == null || Prescore == undefined) {
-  Record1.innerHTML = `Previos score:0`
-}
-else {
-  Record1.innerHTML = `Previos record:${Prescore}`
-}
 function click() {
-  if(clicks>999){
-    let  z =new Intl.NumberFormat('en-US', {
-  notation: 'compact',
-  maximumFractionDigits: 1
-})
-whattodisplay = String(z.format(clicks))
-}
-else{
-  whattodisplay=String(clicks)
-}
+  if (clicks > 999) {
+    let z = new Intl.NumberFormat('en-US', {
+      notation: 'compact',
+      maximumFractionDigits: 1
+    })
+    whattodisplay = String(z.format(clicks))
+  }
+  else {
+    whattodisplay = String(clicks)
+  }
   if (IsAlphaColor) {
     Random = Math.floor(Math.random() * 360)
     img.style.filter = `hue-rotate(${Random}deg)`
@@ -525,8 +511,18 @@ else{
   }
   //Clicks
   clicks += adder
+  if (adder > 999) {
+    let formatter3 = new Intl.NumberFormat('en-US', {
+      notation: 'compact',
+      maximumFractionDigits: 1
+    })
+    p2.innerHTML = `+` + String(formatter3.format(adder))
+  }
+  else {
+    p2.innerHTML = `+` + String(adder)
+  }
+
   num.innerHTML = `${whattodisplay}`
-  p2.innerHTML = `+` + String(adder)
   //Animation
   if (img.classList != "p") {
     img.classList.add("p")
@@ -553,7 +549,7 @@ function Isowned() {
   //Cheats 
 }
 function Cheat() {
-  let string = input.value.trim().toUpperCase()
+  let string = input.value.replaceAll(" ", "").toUpperCase()
   switch (string) {
     case "ALPHACOLOR":
       if (IsAlphaColor) {
@@ -581,7 +577,6 @@ function Addcheats(inputvalue) {
       if (Cheats[i][used] == 0) {
         Cheats[i][used] = 1
         clicks += Cheats[i]["c"]
-        clicks1 += Cheats[i]["c1"]
         input.value = ""
       }
     }
@@ -592,26 +587,4 @@ const addcps = setInterval(function () {
   num.innerHTML = `${whattodisplay}`
   clicks += Cps
 }, 1000)
-function ShowRec() {
-  let Db1
-  const request1 = window.indexedDB.open("RecordHolder", 1)
-  request1.onupgradeneeded = c => {
-    Db1 = c.target.result;
-    Db1.createObjectStore("Record", { keyPath: "id" })
-
-  }
-  request1.onsuccess = c => {
-    Db1 = c.target.result;
-    const tx1 = Db1.transaction("Record", "readonly");
-    const store1 = tx1.objectStore("Record");
-    tx1.oncomplete = () => {
-      const tx4 = Db1.transaction("Record", "readonly");
-      const store3 = tx4.objectStore("Record");
-      const getreq2 = store3.get(1);
-      getreq2.onsuccess = () => {
-        Prescore = getreq2.result.text
-      }
-    }
-  }
-}
 //code by N.K (N1XS0N) 2026 
