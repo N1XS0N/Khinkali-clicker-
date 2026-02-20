@@ -1,6 +1,8 @@
-console.log("Cheats:HACKER,ULTIMATE,CATACLYSM,DINOSAUR,ZERO,ALPHACOLOR")
+console.log("Cheats:HACKER,ULTIMATE,CATACLYSM,DINOSAUR,ALPHACOLOR")
 const cliupg = document.querySelector(".cliupg")
 const cpsupg = document.querySelector(".cpsupg")
+const cliupg1 = document.querySelector(".cliupg1")
+const cpsupg1 = document.querySelector(".cliupg2")
 const Back2 = document.querySelector(".back2")
 const upgrade = document.querySelector(".three")
 const upgradebtn = document.querySelector(".upg")
@@ -11,6 +13,10 @@ const Gvezeli = document.querySelector(".Gvezeli")
 const Pilmeni = document.querySelector(".Pilmeni")
 const Cake = document.querySelector(".Cake")
 const CakeN = document.querySelector(".CakeNum")
+const Donut = document.querySelector(".Donut")
+const DonutN = document.querySelector(".DOTNum")
+const Milkshake = document.querySelector(".Milkshake")
+const MilkshakeN = document.querySelector(".MILNum")
 const Ghomi = document.querySelector(".Ghomi")
 const Rachuli = document.querySelector(".Lori")
 const Pizza = document.querySelector(".Pizza")
@@ -108,7 +114,7 @@ let prices = {
     Earn: 1,
   }
 }
-const img = document.querySelector("img")
+const img = document.querySelector(".KhinkaliMain")
 const p2 = document.querySelector("#PlusC")
 const Back = document.querySelector(".Back")
 const one = document.querySelector("#one")
@@ -321,9 +327,23 @@ let skins = {
   Candy: {
     Owned: false,
     url: "Candy.png",
-    cost: 5000000,
+    cost: 12000000,
     width: "150px",
     height: "150px"
+  },
+   Donut: {
+    Owned: false,
+    url: "Donut.png",
+    cost: 9000000,
+    width: "150px",
+    height: "150px"
+  },
+  Milkshake: {
+    Owned: false,
+    url: "Milkshake.webp",
+    cost: 5000000,
+    height: "200px",
+    width: "250px",
   },
 }
 upgradebtn.addEventListener("click", function () {
@@ -342,10 +362,10 @@ cliupg.addEventListener("click", function () {
         notation: 'compact',
         maximumFractionDigits: 1
       })
-      cliupg.innerHTML = "Price:" + String(formatter1.format(prices["Clicksbonus"][upgcost]))
+      cliupg1.innerHTML = "Price:" + String(formatter1.format(prices["Clicksbonus"][upgcost]))
     }
     else {
-      cliupg.innerHTML = "Price:" + String(prices["Clicksbonus"][upgcost])
+      cliupg1.innerHTML = "Price:" + String(prices["Clicksbonus"][upgcost])
     }
   }
 
@@ -360,7 +380,7 @@ cpsupg.addEventListener("click", function () {
       notation: 'compact',
       maximumFractionDigits: 1
     })
-    cpsupg.innerHTML = "Price:" + String(formatter2.format(prices["Cps"][upgcost]))
+    cpsupg1.innerHTML = "Price:" + String(formatter2.format(prices["Cps"][upgcost]))
 
 
   }
@@ -396,6 +416,10 @@ Kharcho.addEventListener("click", function () {
 Pizza.addEventListener("click", function () {
   Isowned()
   buying(PizzaN, "Pizza")
+})
+Milkshake.addEventListener("click", function () {
+  Isowned()
+  buying(MilkshakeN, "Milkshake")
 })
 HamB.addEventListener("click", function () {
   Isowned()
@@ -478,6 +502,10 @@ Candy.addEventListener("click", function () {
   Isowned()
   buying(CandyN, "Candy")
 })
+Donut.addEventListener("click", function () {
+  Isowned()
+  buying(DonutN, "Donut")
+})
 function buying(Label, Objectname) {
   if (skins[Objectname][owned]) {
     Label.innerHTML = Objectname
@@ -491,6 +519,7 @@ function buying(Label, Objectname) {
   }
 }
 function click() {
+
   if (clicks > 999) {
     let z = new Intl.NumberFormat('en-US', {
       notation: 'compact',
@@ -521,7 +550,6 @@ function click() {
   else {
     p2.innerHTML = `+` + String(adder)
   }
-
   num.innerHTML = `${whattodisplay}`
   //Animation
   if (img.classList != "p") {
@@ -560,11 +588,6 @@ function Cheat() {
       }
       input.value = ""
       break;
-    case "ZERO":
-      clicks = 0
-      clicks1 = 2
-      input.value = ""
-      break;
     default:
       Addcheats(string)
       break;
@@ -586,5 +609,15 @@ const addcps = setInterval(function () {
   CpsText.innerHTML = `CPS:${Cps}`
   num.innerHTML = `${whattodisplay}`
   clicks += Cps
+if (clicks > 999) {
+    let z1 = new Intl.NumberFormat('en-US', {
+      notation: 'compact',
+      maximumFractionDigits: 1
+    })
+    whattodisplay = String(z1.format(clicks))
+  }
+  else {
+    whattodisplay = String(clicks)
+  }
 }, 1000)
 //code by N.K (N1XS0N) 2026 
