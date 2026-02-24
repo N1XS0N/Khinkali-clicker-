@@ -312,7 +312,7 @@ let skins = {
   },
   Cake: {
     Owned: false,
-    url: "Cake.png",
+    url: "CAKE.png",
     cost: 10000000,
     width: "150px",
     height: "150px"
