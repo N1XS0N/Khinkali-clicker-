@@ -13,6 +13,10 @@ const Gvezeli = document.querySelector(".Gvezeli")
 const Pilmeni = document.querySelector(".Pilmeni")
 const Cake = document.querySelector(".Cake")
 const CakeN = document.querySelector(".CakeNum")
+const GummiBear = document.querySelector(".Gummibear")
+const GummiN = document.querySelector(".GUMNum")
+const Durian = document.querySelector(".Durian")
+const DurianN = document.querySelector(".DURNum")
 const Donut = document.querySelector(".Donut")
 const DonutN = document.querySelector(".DOTNum")
 const Milkshake = document.querySelector(".Milkshake")
@@ -251,8 +255,8 @@ let skins = {
     Owned: false,
     url: "Shawarma.png",
     cost: 3000000,
-    width: "125px",
-    height: "60px",
+    width: "200px",
+    height: "150px",
   },
   Ghuda: {
     Owned: false,
@@ -344,6 +348,20 @@ let skins = {
     cost: 5000000,
     height: "200px",
     width: "250px",
+  },
+  GummiBear:{
+       Owned: false,
+    url: "Gummibear.webp",
+    cost: 2000000,
+    height: "150px",
+    width: "150px",
+  },
+   Durian:{
+       Owned: false,
+    url: "Durian.png",
+    cost: 100,
+    height: "150px",
+    width: "150px",
   },
 }
 upgradebtn.addEventListener("click", function () {
@@ -461,6 +479,14 @@ Hotdog.addEventListener("click", function () {
 NFC.addEventListener("click", function () {
   Isowned()
   buying(NFCN, "NFC")
+})
+Durian.addEventListener("click", function () {
+  Isowned()
+  buying(DurianN, "Durian")
+})
+GummiBear.addEventListener("click", function () {
+  Isowned()
+  buying(GummiN, "GummiBear")
 })
 Elarji.addEventListener("click", function () {
   Isowned()
