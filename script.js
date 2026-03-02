@@ -1,4 +1,3 @@
-console.log("Cheats:HACKER,ULTIMATE,CATACLYSM,DINOSAUR,ALPHACOLOR")
 const cliupg = document.querySelector(".cliupg")
 const cpsupg = document.querySelector(".cpsupg")
 const cliupg1 = document.querySelector(".cliupg1")
@@ -77,11 +76,13 @@ const input = document.querySelector("input")
 const btn = document.querySelector(".btn")
 const shop = document.querySelector(".shop")
 const num = document.querySelector("#Count")
+let ChefMode=false
 let whattodisplay = "0"
 const CpsText = document.querySelector("#cps")
 let Cps = 0
 let SentString = ""
 let IsAlphaColor = false
+let IsGrayscale=false
 let Random = 0
 let clicks = 0
 let owned = "Owned"
@@ -134,6 +135,10 @@ window.addEventListener("keyup", function (event) {
   if (event.key == " ") {
     click()
   }
+})
+window.addEventListener("wheel", function () {
+  if(ChefMode){
+    click()}
 })
 shop.addEventListener("click", function () {
   one.style.display = "none"
@@ -560,9 +565,12 @@ function click() {
     Random = Math.floor(Math.random() * 360)
     img.style.filter = `hue-rotate(${Random}deg)`
   }
-  else {
+  else if (IsGrayscale) {
     Random = 0
-    img.style.filter = `hue-rotate(${Random}deg)`
+    img.style.filter = "grayscale(100%)"
+  }
+  else{
+    img.style.filter="none"
   }
   //Clicks
   clicks += adder
@@ -582,12 +590,16 @@ function click() {
     img.classList.add("p")
   }
   setTimeout(function () { img.classList.remove("p") }, 100)
-  if (p2.classList != "plus") {
+  if (p2.classList != "plus" && num.classList !="plus2") {
     p2.classList.add("plus")
+    num.classList.add("plus2")
   }
   setTimeout(function () {
     p2.classList.remove('plus')
   }, 300)
+  setTimeout(function () {
+    num.classList.remove('plus2')
+  }, 200)
   Isowned()
 }
 function Isowned() {
@@ -606,12 +618,25 @@ function Cheat() {
   let string = input.value.replaceAll(" ", "").toUpperCase()
   switch (string) {
     case "ALPHACOLOR":
+       IsGrayscale = false
       if (IsAlphaColor) {
         IsAlphaColor = false
       }
       else {
         IsAlphaColor = true
       }
+      input.value = ""
+      break;
+      case "GRAYSCALE":
+        IsAlphaColor = false
+          if (IsGrayscale) {
+        IsGrayscale = false
+      }
+      else {
+        IsGrayscale = true
+      }
+       case "CHEFMODE":
+        ChefMode =true
       input.value = ""
       break;
     default:
@@ -631,10 +656,12 @@ function Addcheats(inputvalue) {
     }
   }
 }
+//CPS (It runs every sec.)
 const addcps = setInterval(function () {
   CpsText.innerHTML = `CPS:${Cps}`
   num.innerHTML = `${whattodisplay}`
   clicks += Cps
+  //Number formatting !!!
 if (clicks > 999) {
     let z1 = new Intl.NumberFormat('en-US', {
       notation: 'compact',
