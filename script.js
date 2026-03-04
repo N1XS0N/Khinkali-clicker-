@@ -14,6 +14,10 @@ const Cake = document.querySelector(".Cake")
 const CakeN = document.querySelector(".CakeNum")
 const GummiBear = document.querySelector(".Gummibear")
 const GummiN = document.querySelector(".GUMNum")
+const Dragonfruit = document.querySelector(".Dragon")
+const DragonfruitN = document.querySelector(".DRANum")
+const Xalva = document.querySelector(".Xalva")
+const XalvaN = document.querySelector(".XNum")
 const Durian = document.querySelector(".Durian")
 const DurianN = document.querySelector(".DURNum")
 const Donut = document.querySelector(".Donut")
@@ -76,13 +80,13 @@ const input = document.querySelector("input")
 const btn = document.querySelector(".btn")
 const shop = document.querySelector(".shop")
 const num = document.querySelector("#Count")
-let ChefMode=false
+let ChefMode = false
 let whattodisplay = "0"
 const CpsText = document.querySelector("#cps")
 let Cps = 0
 let SentString = ""
 let IsAlphaColor = false
-let IsGrayscale=false
+let IsGrayscale = false
 let Random = 0
 let clicks = 0
 let owned = "Owned"
@@ -124,6 +128,7 @@ const p2 = document.querySelector("#PlusC")
 const Back = document.querySelector(".Back")
 const one = document.querySelector("#one")
 const two = document.querySelector("#two")
+let Candystyle = 0
 two.style.display = "none"
 upgrade.style.display = "none"
 window.onbeforeunload = function (event) {
@@ -135,10 +140,14 @@ window.addEventListener("keyup", function (event) {
   if (event.key == " ") {
     click()
   }
+  if (event.key == "c") {
+    ChefMode = true
+  }
 })
 window.addEventListener("wheel", function () {
-  if(ChefMode){
-    click()}
+  if (ChefMode) {
+    click()
+  }
 })
 shop.addEventListener("click", function () {
   one.style.display = "none"
@@ -288,8 +297,8 @@ let skins = {
     Owned: false,
     url: "Nixson pie.png",
     cost: 20000000,
-    width: "115px",
-    height: "125px",
+    width: "145px",
+    height: "105px",
   },
   Shnitzel: {
     Owned: false,
@@ -335,12 +344,12 @@ let skins = {
   },
   Candy: {
     Owned: false,
-    url: "Candy.png",
-    cost: 12000000,
+    url: "Candy1.png",
+    cost: 1700000,
     width: "150px",
-    height: "150px"
+    height: "100px"
   },
-   Donut: {
+  Donut: {
     Owned: false,
     url: "Donut.png",
     cost: 9000000,
@@ -354,17 +363,31 @@ let skins = {
     height: "200px",
     width: "250px",
   },
-  GummiBear:{
-       Owned: false,
+  GummiBear: {
+    Owned: false,
     url: "Gummibear.webp",
     cost: 2000000,
     height: "150px",
     width: "150px",
   },
-   Durian:{
-       Owned: false,
+  Durian: {
+    Owned: false,
     url: "Durian.png",
     cost: 100,
+    height: "150px",
+    width: "150px",
+  },
+  Xalva: {
+    Owned: false,
+    url: "Xalva.png",
+    cost: 3000000,
+    height: "100px",
+    width: "160px",
+  },
+  Dragonfruit: {
+    Owned: false,
+    url: "D.png",
+    cost: 1000,
     height: "150px",
     width: "150px",
   },
@@ -537,6 +560,14 @@ Donut.addEventListener("click", function () {
   Isowned()
   buying(DonutN, "Donut")
 })
+Xalva.addEventListener("click", function () {
+  Isowned()
+  buying(XalvaN, "Xalva")
+})
+Dragonfruit.addEventListener("click", function () {
+  Isowned()
+  buying(DragonfruitN, "Dragonfruit")
+})
 function buying(Label, Objectname) {
   if (skins[Objectname][owned]) {
     Label.innerHTML = Objectname
@@ -550,7 +581,6 @@ function buying(Label, Objectname) {
   }
 }
 function click() {
-
   if (clicks > 999) {
     let z = new Intl.NumberFormat('en-US', {
       notation: 'compact',
@@ -569,8 +599,8 @@ function click() {
     Random = 0
     img.style.filter = "grayscale(100%)"
   }
-  else{
-    img.style.filter="none"
+  else {
+    img.style.filter = "none"
   }
   //Clicks
   clicks += adder
@@ -590,7 +620,7 @@ function click() {
     img.classList.add("p")
   }
   setTimeout(function () { img.classList.remove("p") }, 100)
-  if (p2.classList != "plus" && num.classList !="plus2") {
+  if (p2.classList != "plus" && num.classList != "plus2") {
     p2.classList.add("plus")
     num.classList.add("plus2")
   }
@@ -607,6 +637,15 @@ function Isowned() {
     if (clicks >= skins[i][cost] && skins[i][owned] == false) {
       skins[i][owned] = true
     }
+    else if (skins["Candy"][owned] == true) {
+      Candystyle = Math.floor(Math.random() * 4)
+      if (!Candystyle == 0 || !Candystyle == 4) {
+        skins["Candy"][url] = `Candy${Candystyle}.png`
+      }
+      else {
+        skins["Candy"][url] = `Candy1.png`
+      }
+    }
   }
 
 
@@ -618,7 +657,7 @@ function Cheat() {
   let string = input.value.replaceAll(" ", "").toUpperCase()
   switch (string) {
     case "ALPHACOLOR":
-       IsGrayscale = false
+      IsGrayscale = false
       if (IsAlphaColor) {
         IsAlphaColor = false
       }
@@ -627,17 +666,14 @@ function Cheat() {
       }
       input.value = ""
       break;
-      case "GRAYSCALE":
-        IsAlphaColor = false
-          if (IsGrayscale) {
+    case "GRAYSCALE":
+      IsAlphaColor = false
+      if (IsGrayscale) {
         IsGrayscale = false
       }
       else {
         IsGrayscale = true
       }
-       case "CHEFMODE":
-        ChefMode =true
-      input.value = ""
       break;
     default:
       Addcheats(string)
@@ -662,7 +698,7 @@ const addcps = setInterval(function () {
   num.innerHTML = `${whattodisplay}`
   clicks += Cps
   //Number formatting !!!
-if (clicks > 999) {
+  if (clicks > 999) {
     let z1 = new Intl.NumberFormat('en-US', {
       notation: 'compact',
       maximumFractionDigits: 1

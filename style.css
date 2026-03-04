@@ -218,8 +218,8 @@
     }
 
     .Nixsonpie {
-        width: 115px;
-        height: 125px;
+        width: 145px;
+        height: 105px;
     }
 
     .Sushi {
@@ -323,4 +323,12 @@
 }
 .btn{
     font-size: 15px;
+}
+.Xalva{
+    width: 160px;
+    height: 100px;
+}
+.C{
+    width: 150px;
+    height: 100px;
 }
