@@ -82,9 +82,13 @@ let ChefMode = false
 let whattodisplay = "0"
 const CpsText = document.querySelector("#cps")
 let Cps = 0
-if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
- window.href.location="index_OG.html"
+function isMobile() {
+  return window.matchMedia("(max-width: 768px)").matches;
 }
+
+if (isMobile()) {
+  window.location.href="index_OG.html"
+} 
 let SentString = ""
 let IsAlphaColor = false
 let IsGrayscale = false
