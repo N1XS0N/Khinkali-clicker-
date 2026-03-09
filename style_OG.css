@@ -1,13 +1,13 @@
+    
     /*N1XS0N(NK) 2026 */
     @font-face {
         font-family: Khinkali;
-        src: url("PTSANS-BOLD.TTF");
+        src: url("GAMEOVERCRE1.TTF");
     }
-
     #idX {
         font-size: 20px;
         opacity: 50%;
-        color: black;
+        color:black;
         font-family: Khinkali, sans-serif;
     }
 
@@ -16,9 +16,10 @@
         height: 150px;
     }
 
-    .Main {
+    div {
         display: flex;
         justify-content: space-evenly;
+
     }
 
     body {
@@ -34,7 +35,7 @@
         border-radius: 0%;
         font-family: Khinkali, sans-serif;
         border: 2.5px solid black;
-        color: black;
+        color:black;
         background-color: white;
         display: flex;
         justify-content: space-evenly;
@@ -44,7 +45,7 @@
 
     .Back {
         font-size: 17px;
-        font-family: Khinkali, sans-serif;
+        font-family:Khinkali, sans-serif;
         border: 2.5px solid black;
         background-color: white;
     }
@@ -53,21 +54,18 @@
         font-size: 15px;
         border: 2.5px solid black;
         font-family: Khinkali, sans-serif;
-        color: black;
+        color:black;
         margin-right: 3px;
     }
 
     .p {
-        color: black;
+        color:black;
         animation: p 100ms ease-in-out;
     }
 
     @keyframes p {
         0% {}
-
-        50% {
-            scale: 1.25
-        }
+        50%{scale: 1.25}
 
         100% {
             scale: 1
@@ -77,17 +75,13 @@
 
     @keyframes p-2 {
         0% {}
-
-        50% {
-            scale: 1.2550
-        }
+        50%{scale: 1.2550}
 
         100% {
             scale: 1
         }
 
     }
-
     h1 {
         font-size: 15px;
 
@@ -97,11 +91,9 @@
     .plus {
         animation: plus 300ms ease-in-out;
     }
-
-    .plus2 {
+ .plus2 {
         animation: p-2 200ms ease-in-out;
     }
-
     @keyframes plus {
         0% {}
 
@@ -116,7 +108,6 @@
             opacity: 0%;
         }
     }
-
     #PlusC {
         font-size: 25px;
         opacity: 0%;
@@ -124,7 +115,7 @@
     }
 
     #title {
-        font-size: 50px;
+        font-size: 35px;
         ;
     }
 
@@ -157,21 +148,21 @@
 
     .Tit {
         font-family: Khinkali, sans-serif;
-        font-size: 40px;
-        color: black;
+        font-size: 34px;
+        color:black;
 
     }
 
     .D1 {
         display: flex;
-        color: black;
+        color:black;
         justify-content: space-evenly;
         flex-direction: row;
     }
 
     .D2 {
         display: flex;
-        color: black;
+        color:black;
         justify-content: space-evenly;
         flex-direction: column;
     }
@@ -193,7 +184,7 @@
 
     p {
         font-family: Khinkali, sans-serif;
-        color: black;
+        color:black;     
     }
 
     .Gvezeli {
@@ -277,7 +268,7 @@
 
     .br {
         line-height: 0.3;
-    }
+    }   
 
     .Nixsoncola {
         width: 150px;
@@ -290,114 +281,66 @@
     }
 
     .Welington {
-        width: 150px;
+              width: 150px;
         height: 100px;
     }
-
-    .Hotdog {
+.Hotdog{
         width: 125px;
         height: 75px;
-    }
-
-    .ice {
-        width: 150px;
+}
+.ice{
+          width: 150px;
         height: 150px;
-    }
-
-    #cps {
+}
+#cps{
+    color: black;
+    font-size: 15px;
+}
+#Record{
         color: black;
-        font-size: 15px;
-    }
+    font-size: 15px;
+}
+.Cursor1{
+    width:30px;
+    height:30px;
+    filter: drop-shadow(0 0 1px #000000);
+}
+.Cursor2{
+    width:40px;
+    height:40px;
+    filter: drop-shadow(0 0 3px #ff6f00);
+}
+.div1x{
+    align-items: center;
 
-    #Record {
-        color: black;
-        font-size: 15px;
-    }
-
-    .Cursor1 {
-        width: 30px;
-        height: 30px;
-        filter: drop-shadow(0 0 1px #000000);
-    }
-
-    .Cursor2 {
-        width: 40px;
-        height: 40px;
-        filter: drop-shadow(0 0 3px #ff6f00);
-    }
-
-    .div1x {
-        align-items: center;
-
-    }
-
-    .div1x {
-        width: 120px;
-    }
-
-    .Milkshake {
-        height: 180px;
-        width: 190px;
-    }
-
-    .btn {
-        font-size: 15px;
-    }
-
-    .Xalva {
-        width: 160px;
-        height: 100px;
-    }
-
-    .C {
-        width: 130px;
-        height: 80px;
-    }
-
-    .Donut {
-        width: 120px;
-        height: 120px;
-    }
-
-    .Gummibear {
-        width: 130px;
-        height: 130px;
-    }
-
-    .three {
-        display: flex;
-        flex-direction: column;
-        width: 40%;
-    }
-
-    .div5 {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .div6 {
-        display: flex;
-        justify-content: space-evenly;
-        flex-direction: row;
-        width: 20%;
-    }
-
-    .div4 {
-        border: #000000 solid 3px;
-        border-radius: 4%;
-        width: 30%;
-    }
-
-    .cpsupg {
-        border-radius: 5%;
-    }
-
-    .cliupg {
-        border-radius: 5%;
-    }
-    .div12{
+}
+.div1x{
+    width: 120px;
+}
+.Milkshake{
+    height: 180px;
+    width: 190px;
+}
+.btn{
+    font-size: 15px;
+}
+.Xalva{
+    width: 160px;
+    height: 100px;
+}
+.C{
+    width: 130px;
+    height: 80px;
+}
+.Donut{
+    width: 120px;
+    height: 120px;
+}
+.Gummibear{
+    width: 130px;
+    height: 130px;
+}
+ .div12{
         width: 100%;
         position: fixed;
         bottom: 0;

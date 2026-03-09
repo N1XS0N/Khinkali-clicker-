@@ -2,12 +2,15 @@ const cliupg = document.querySelector(".cliupg")
 const cpsupg = document.querySelector(".cpsupg")
 const cliupg1 = document.querySelector(".cliupg1")
 const cpsupg1 = document.querySelector(".cliupg2")
+const Back2 = document.querySelector(".back2")
 const upgrade = document.querySelector(".three")
+const upgradebtn = document.querySelector(".upg")
 const Khinkali = document.querySelector(".Khinkali")
 const Khachapuri = document.querySelector(".Khachapuri")
 const Kharcho = document.querySelector(".Kharcho")
 const Gvezeli = document.querySelector(".Gvezeli")
 const Pilmeni = document.querySelector(".Pilmeni")
+const BTN=document.querySelector(".BTN2")
 const Cake = document.querySelector(".Cake")
 const CakeN = document.querySelector(".CakeNum")
 const GummiBear = document.querySelector(".Gummibear")
@@ -82,9 +85,6 @@ let ChefMode = false
 let whattodisplay = "0"
 const CpsText = document.querySelector("#cps")
 let Cps = 0
-if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
- window.href.location="index_OG.html"
-}
 let SentString = ""
 let IsAlphaColor = false
 let IsGrayscale = false
@@ -127,11 +127,11 @@ let prices = {
 const img = document.querySelector(".KhinkaliMain")
 const p2 = document.querySelector("#PlusC")
 const Back = document.querySelector(".Back")
-const one = document.querySelector(".Main2")
+const one = document.querySelector("#one")
 const two = document.querySelector("#two")
 let Candystyle = 0
 two.style.display = "none"
-//upgrade.style.display = "none"
+upgrade.style.display = "none"
 window.onbeforeunload = function (event) {
   event.preventDefault()
 }
@@ -491,6 +491,12 @@ let skins = {
     Message:"Dragonfruit"
   },
 }
+upgradebtn.addEventListener("click", function () {
+  one.style.display = "none"
+  two.style.display = "none"
+  upgrade.style.display = "inline"
+  Logo.href = "Khinkali.png"
+})
 cliupg.addEventListener("click", function () {
   if (clicks >= prices["Clicksbonus"][upgcost]) {
     prices["Clicksbonus"]["Earn"] = Number(prices["Clicksbonus"]["Earn"] * 2)
@@ -523,6 +529,10 @@ cpsupg.addEventListener("click", function () {
 
 
   }
+})
+Back2.addEventListener("click", function () {
+  one.style.display = "inline"
+  upgrade.style.display = "none"
 })
 Khachapuri.addEventListener("click", function () {
   Isowned()
@@ -720,6 +730,7 @@ function click() {
   setTimeout(function () {
     num.classList.remove('plus2')
   }, 200)
+  Isowned()
 }
 function Isowned() {
   for (i in skins) {
