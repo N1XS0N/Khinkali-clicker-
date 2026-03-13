@@ -2,7 +2,7 @@
     /*N1XS0N(NK) 2026 */
     @font-face {
         font-family: Khinkali;
-        src: url("GAMEOVERCRE1.TTF");
+        src: url("PTSANS-BOLD.TTF");
     }
     #idX {
         font-size: 20px;
@@ -111,6 +111,7 @@
     #PlusC {
         font-size: 25px;
         opacity: 0%;
+        position: relative;
 
     }
 
