@@ -2,6 +2,10 @@ const cliupg = document.querySelector(".cliupg")
 const cpsupg = document.querySelector(".cpsupg")
 const cliupg1 = document.querySelector(".cliupg1")
 const cpsupg1 = document.querySelector(".cliupg2")
+const Rainupg = document.querySelector(".Rainupg")
+const Rainupg1 = document.querySelector(".Rainupg2")
+const BW = document.querySelector(".BW")
+const BW1 = document.querySelector(".BW2")
 const Back2 = document.querySelector(".back2")
 const upgrade = document.querySelector(".three")
 const upgradebtn = document.querySelector(".upg")
@@ -122,6 +126,12 @@ let prices = {
   Clicksbonus: {
     upgcost: 100,
     Earn: 1,
+  },
+  RainBow:{
+    upgcost: 100000,
+  },
+  Bw:{
+    upgcost:200000,
   }
 }
 const img = document.querySelector(".KhinkaliMain")
@@ -497,6 +507,37 @@ upgradebtn.addEventListener("click", function () {
   upgrade.style.display = "inline"
   Logo.href = "Khinkali.png"
 })
+Rainupg.addEventListener("click",function () {
+   if (clicks >= prices["RainBow"][upgcost]) {
+    if(IsAlphaColor==true){
+      IsAlphaColor=false
+      Rainupg1.innerHTML="Mode:Off"
+    }
+    else{
+      IsAlphaColor=true
+      Rainupg1.innerHTML="Mode:On"
+      if(IsGrayscale){
+      BW1.innerHTML="Mode:Off"
+      IsGrayscale=false
+    }
+    }
+  }
+})
+BW.addEventListener("click",function () {
+     if (clicks >= prices["Bw"][upgcost]) {
+    if(IsGrayscale==true){
+      IsGrayscale=false
+      BW1.innerHTML="Mode:Off"
+    }
+    else{
+      IsGrayscale=true
+      BW1.innerHTML="Mode:On"
+      if(IsAlphaColor){
+        IsAlphaColor=false
+      Rainupg1.innerHTML="Mode:Off"}
+    }
+  }
+})
 cliupg.addEventListener("click", function () {
   if (clicks >= prices["Clicksbonus"][upgcost]) {
     prices["Clicksbonus"]["Earn"] = Number(prices["Clicksbonus"]["Earn"] * 2)
@@ -667,6 +708,12 @@ Dragonfruit.addEventListener("click", function () {
   Isowned()
   buying(DragonfruitN, "Dragonfruit")
 })
+img.addEventListener("mouseenter",function(){
+  img.classList.add("Hover2")
+})
+img.addEventListener("mouseleave",function(){
+  img.classList.remove("Hover2")
+})
 function buying(Label, Objectname) {
   if (skins[Objectname][owned]) {
     Label.innerHTML = Objectname
@@ -680,7 +727,7 @@ function buying(Label, Objectname) {
   }
 }
 function click() {
-  
+    img.classList.remove("Hover2")
   if (clicks > 999) {
     let z = new Intl.NumberFormat('en-US', {
       notation: 'compact',
@@ -755,30 +802,7 @@ function Isowned() {
 }
 function Cheat() {
   let string = input.value.replaceAll(" ", "").toUpperCase()
-  switch (string) {
-    case "ALPHACOLOR":
-      IsGrayscale = false
-      if (IsAlphaColor) {
-        IsAlphaColor = false
-      }
-      else {
-        IsAlphaColor = true
-      }
-      input.value = ""
-      break;
-    case "GRAYSCALE":
-      IsAlphaColor = false
-      if (IsGrayscale) {
-        IsGrayscale = false
-      }
-      else {
-        IsGrayscale = true
-      }
-      break;
-    default:
-      Addcheats(string)
-      break;
-  }
+  Addcheats(string)
 }
 function Addcheats(inputvalue) {
   let Str = inputvalue
