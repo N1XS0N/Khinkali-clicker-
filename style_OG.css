@@ -46,6 +46,8 @@ img:hover {
     }
 button:hover {
   cursor: pointer;
+    background-color:rgb(215, 215, 215);
+  
 }
     .Back {
         font-size: 17px;
@@ -55,6 +57,7 @@ button:hover {
     }
 .Back:hover {
   cursor: pointer;
+  background-color:rgb(215, 215, 215);
 }
     input {
         font-size: 15px;
@@ -103,20 +106,23 @@ scale: 1
 
 
     }
-
+audio{
+    display: none;
+}
     .plus {
-        animation: plus 300ms ease-in-out;
+        animation: plus 200ms ease-in-out;
     }
  .plus2 {
         animation: p-2 200ms ease-in-out;
     }
     .Hover2{
-        animation: p-2 200ms ease-in-out;
+        animation: p-2 700ms ease-in-out;
     }
     @keyframes plus {
-        0% {}
+        0% {opacity: 0%;position:relative;}
 
         50% {
+            position:relative;
             scale: 1.2;
             opacity: 100%;
 
@@ -125,6 +131,7 @@ scale: 1
         100% {
             scale: 1;
             opacity: 0%;
+
         }
     }
     #PlusC {
@@ -140,7 +147,7 @@ scale: 1
     }
 
     #Count {
-        font-size: 35px;
+        font-size: 39px;
     }
 
     .div1 {

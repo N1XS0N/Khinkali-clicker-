@@ -1,4 +1,5 @@
 const cliupg = document.querySelector(".cliupg")
+var soundEffect = new Audio('TechoBOOM.mp3')
 const cpsupg = document.querySelector(".cpsupg")
 const cliupg1 = document.querySelector(".cliupg1")
 const cpsupg1 = document.querySelector(".cliupg2")
@@ -11,6 +12,12 @@ const upgrade = document.querySelector(".three")
 const upgradebtn = document.querySelector(".upg")
 const Khinkali = document.querySelector(".Khinkali")
 const Khachapuri = document.querySelector(".Khachapuri")
+const Tea=document.querySelector(".Tea")
+const TeaN=document.querySelector(".TeaNum")
+const Water=document.querySelector(".Water")
+const WaterN=document.querySelector(".WANum")
+const Coffee=document.querySelector(".Coffe")
+const CoffeeN=document.querySelector(".COffeNum")
 const Kharcho = document.querySelector(".Kharcho")
 const Gvezeli = document.querySelector(".Gvezeli")
 const Pilmeni = document.querySelector(".Pilmeni")
@@ -102,6 +109,7 @@ let Width = "width"
 let used = "InUse"
 let upgcost = "upgcost"
 let adder = 1
+let GETOUT=false
 let Cheats = {
   HACKER: {
     c: 500,
@@ -154,6 +162,13 @@ window.addEventListener("keyup", function (event) {
   if (event.key == "c") {
     ChefMode = true
   }
+  if (event.key == "g") {
+    if(!GETOUT){
+      GETOUT=true
+  }
+  else{
+    GETOUT=false
+  }}
 })
 window.addEventListener("wheel", function () {
   if (ChefMode) {
@@ -413,7 +428,7 @@ let skins = {
   Cake: {
     Owned: false,
     url: "CAKE.png",
-    cost: 10000000,
+    cost: 100000000,
     width: "150px",
     height: "150px",
      var1:Cake,
@@ -500,6 +515,27 @@ let skins = {
     var2:Dragonfruit,
     Message:"Dragonfruit"
   },
+    Coffee: {
+    Owned: false,
+    url: "Coffee.png",
+    cost: 4000000,
+    height: "150px",
+    width: "150px",
+  },
+   Water: {
+    Owned: false,
+    url: "Water.png",
+    cost: 10,
+    height: "150px",
+    width: "150px",
+  },
+  Tea:{
+    Owned: false,
+    url: "Tea.png",
+    cost: 7000000,
+    width: "150px",
+    height:"150px",
+  },
 }
 upgradebtn.addEventListener("click", function () {
   one.style.display = "none"
@@ -540,6 +576,8 @@ BW.addEventListener("click",function () {
 })
 cliupg.addEventListener("click", function () {
   if (clicks >= prices["Clicksbonus"][upgcost]) {
+        var soundEffect3 = new Audio('POWER.mp3')
+  soundEffect3.play()
     prices["Clicksbonus"]["Earn"] = Number(prices["Clicksbonus"]["Earn"] * 2)
     adder += prices["Clicksbonus"]["Earn"]
     prices["Clicksbonus"][upgcost] = Number(prices["Clicksbonus"][upgcost] * 3)
@@ -559,6 +597,8 @@ cliupg.addEventListener("click", function () {
 )
 cpsupg.addEventListener("click", function () {
   if (clicks >= prices["Cps"][upgcost]) {
+        var soundEffect4 = new Audio('POWER.mp3')
+  soundEffect4.play()
     Cps = prices["Cps"]["Earn"]
     prices["Cps"]["Earn"] = Number(prices["Cps"]["Earn"] * 2)
     prices["Cps"][upgcost] = Number(prices["Cps"][upgcost] * 3)
@@ -708,11 +748,27 @@ Dragonfruit.addEventListener("click", function () {
   Isowned()
   buying(DragonfruitN, "Dragonfruit")
 })
+Tea.addEventListener("click", function () {
+  Isowned()
+  buying(TeaN, "Tea")
+})
+Water.addEventListener("click", function () {
+  Isowned()
+  buying(WaterN, "Water")
+})
+Coffee.addEventListener("click", function () {
+  Isowned()
+  buying(CoffeeN, "Coffee")
+})
 img.addEventListener("mouseenter",function(){
   img.classList.add("Hover2")
 })
 img.addEventListener("mouseleave",function(){
   img.classList.remove("Hover2")
+})
+document.addEventListener("mousemove",function(e){
+ X =e.pageX
+ Y =e.pageY
 })
 function buying(Label, Objectname) {
   if (skins[Objectname][owned]) {
@@ -727,6 +783,13 @@ function buying(Label, Objectname) {
   }
 }
 function click() {
+  if(GETOUT){
+    soundEffect=new Audio("Getout.mp3")
+  }
+  else{
+    soundEffect = new Audio('TechoBOOM.mp3')
+  }
+  soundEffect.play()
     img.classList.remove("Hover2")
   if (clicks > 999) {
     let z = new Intl.NumberFormat('en-US', {
@@ -767,15 +830,11 @@ function click() {
     img.classList.add("p")
   }
   setTimeout(function () { img.classList.remove("p") }, 100)
-  if (p2.classList != "plus" && num.classList != "plus2") {
+  if (p2.classList != "plus") {
     p2.classList.add("plus")
-    num.classList.add("plus2")
   }
   setTimeout(function () {
-    p2.classList.remove('plus')
-  }, 300)
-  setTimeout(function () {
-    num.classList.remove('plus2')
+    p2.classList.remove("plus")
   }, 200)
   Isowned()
 }
@@ -805,12 +864,15 @@ function Cheat() {
   Addcheats(string)
 }
 function Addcheats(inputvalue) {
+
   let Str = inputvalue
   for (i in Cheats) {
     if (String(i) == Str) {
       if (Cheats[i][used] == 0) {
         Cheats[i][used] = 1
         clicks += Cheats[i]["c"]
+            var soundEffect2 = new Audio('Wow.mp3')
+  soundEffect2.play()
         input.value = ""
       }
     }
