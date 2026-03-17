@@ -100,10 +100,10 @@ button:hover {
     cursor: pointer;
 }
     @keyframes p-2 {
-        0% { top:+32px;}
+        0% { }
         50%{
    
-        top:-32px;
+
         opacity:100%;
         }
 
