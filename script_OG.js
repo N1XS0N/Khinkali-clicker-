@@ -1,5 +1,13 @@
 const cliupg = document.querySelector(".cliupg")
 var soundEffect = new Audio('TechoBOOM.mp3')
+let X=0
+let Y=0
+let PN=false
+const PNC = document.querySelector(".PN")
+const Credits = document.querySelector("#idX")
+Credits.addEventListener("click",function () {
+  alert("Coded and created by: N1XS0N(N.K) 2025-2026 All photos that are used in this game are free online assets.")
+})
 const cpsupg = document.querySelector(".cpsupg")
 const cliupg1 = document.querySelector(".cliupg1")
 const cpsupg1 = document.querySelector(".cliupg2")
@@ -12,6 +20,10 @@ const upgrade = document.querySelector(".three")
 const upgradebtn = document.querySelector(".upg")
 const Khinkali = document.querySelector(".Khinkali")
 const Khachapuri = document.querySelector(".Khachapuri")
+const Cup=document.querySelector(".CC")
+const CupN=document.querySelector(".CUPNum")
+const Pan=document.querySelector(".PC")
+const PanN=document.querySelector(".PCNum")
 const Tea=document.querySelector(".Tea")
 const TeaN=document.querySelector(".TeaNum")
 const Water=document.querySelector(".Water")
@@ -448,7 +460,7 @@ let skins = {
   Candy: {
     Owned: false,
     url: "Candy1.png",
-    cost: 1700000,
+    cost: 700000,
     width: "130px",
     height: "80px",
      var1:Candy,
@@ -518,7 +530,7 @@ let skins = {
     Coffee: {
     Owned: false,
     url: "Coffee.png",
-    cost: 4000000,
+    cost: 200000,
     height: "150px",
     width: "150px",
   },
@@ -532,9 +544,30 @@ let skins = {
   Tea:{
     Owned: false,
     url: "Tea.png",
-    cost: 7000000,
+    cost: 700000,
     width: "150px",
     height:"150px",
+  },
+  Water: {
+    Owned: false,
+    url: "Water.png",
+    cost: 10,
+    height: "150px",
+    width: "150px",
+  },
+  Cupcake:{
+    Owned: false,
+    url: "Cupcake.png",
+    cost: 500000,
+    width: "120px",
+    height:"120px",
+  },
+    Pancake:{
+    Owned: false,
+    url: "Pancake.png",
+    cost: 500000,
+    width: "180px",
+    height:"180px",
   },
 }
 upgradebtn.addEventListener("click", function () {
@@ -572,6 +605,16 @@ BW.addEventListener("click",function () {
         IsAlphaColor=false
       Rainupg1.innerHTML="Mode:Off"}
     }
+  }
+})
+PNC.addEventListener("click",function() {
+  if(PN){
+    PN=false
+    PNC.innerHTML=`Presice numbers: Off`
+  }
+  else{
+    PN=true
+    PNC.innerHTML=`Presice numbers: On`
   }
 })
 cliupg.addEventListener("click", function () {
@@ -760,6 +803,14 @@ Coffee.addEventListener("click", function () {
   Isowned()
   buying(CoffeeN, "Coffee")
 })
+Cup.addEventListener("click", function () {
+  Isowned()
+  buying(CupN, "Cupcake")
+})
+Pan.addEventListener("click", function () {
+  Isowned()
+  buying(PanN, "Pancake")
+})
 img.addEventListener("mouseenter",function(){
   img.classList.add("Hover2")
 })
@@ -770,6 +821,9 @@ document.addEventListener("mousemove",function(e){
  X =e.pageX
  Y =e.pageY
 })
+ function isMobile() {
+  return window.matchMedia("(max-width: 768px)").matches;
+}
 function buying(Label, Objectname) {
   if (skins[Objectname][owned]) {
     Label.innerHTML = Objectname
@@ -782,7 +836,11 @@ function buying(Label, Objectname) {
     p2.innerHTML = "25px"
   }
 }
+
 function click() {
+ if(isMobile()){
+  img.style.cursor="default"
+ }
   if(GETOUT){
     soundEffect=new Audio("Getout.mp3")
   }
@@ -791,7 +849,7 @@ function click() {
   }
   soundEffect.play()
     img.classList.remove("Hover2")
-  if (clicks > 999) {
+  if (clicks > 999 && !PN) {
     let z = new Intl.NumberFormat('en-US', {
       notation: 'compact',
       maximumFractionDigits: 1
@@ -835,7 +893,7 @@ function click() {
   }
   setTimeout(function () {
     p2.classList.remove("plus")
-  }, 200)
+  }, 300)
   Isowned()
 }
 function Isowned() {
@@ -884,7 +942,7 @@ const addcps = setInterval(function () {
   num.innerHTML = `${whattodisplay}`
   clicks += Cps
   //Number formatting !!!
-  if (clicks > 999) {
+  if (clicks > 999 && !PN) {
     let z1 = new Intl.NumberFormat('en-US', {
       notation: 'compact',
       maximumFractionDigits: 1

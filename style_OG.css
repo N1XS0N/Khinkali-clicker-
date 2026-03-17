@@ -2,13 +2,14 @@
     /*N1XS0N(NK) 2026 */
     @font-face {
         font-family: Khinkali;
-        src: url("PTSANS-BOLD.TTF");
+        src: url("SimplySans-Bold.ttf");
     }
     #idX {
+        font-weight: bold;
         font-size: 20px;
         opacity: 50%;
         color:black;
-        font-family: Khinkali, sans-serif;
+        font-family:Khinkali,sans-serif;
     }
     img {
         width: 150px;
@@ -16,6 +17,7 @@
     }
 img:hover {
   cursor: pointer;
+
 }
     div {
         display: flex;
@@ -59,6 +61,17 @@ button:hover {
   cursor: pointer;
   background-color:rgb(215, 215, 215);
 }
+.BW2{
+    color: white;
+}
+.BW2:Hover{
+    color: rgb(0, 0, 0);
+}
+.BW{background-color: black;border-color: rgb(255, 255, 255);}
+.BW:hover{
+    background-color: rgb(255, 255, 255);
+    border-color: black;
+}
     input {
         font-size: 15px;
         border: 2.5px solid black;
@@ -82,12 +95,20 @@ button:hover {
 
     }
 
+#idX:hover{
+    opacity: 100%;
+    cursor: pointer;
+}
     @keyframes p-2 {
-        0% {}
-        50%{scale: 1.2550}
+        0% { top:+32px;}
+        50%{
+   
+        top:-32px;
+        opacity:100%;
+        }
 
         100% {
-            scale: 1
+            opacity: 0%;
         }}
 
 @keyframes Hover1 {
@@ -97,7 +118,7 @@ button:hover {
 scale: 1
     }
     100%{
-        scale: 1.2;
+        scale: 1.2550;
     }
 }
     
@@ -110,29 +131,10 @@ audio{
     display: none;
 }
     .plus {
-        animation: plus 200ms ease-in-out;
-    }
- .plus2 {
-        animation: p-2 200ms ease-in-out;
+        animation: p-2 300ms ease-in-out;
     }
     .Hover2{
-        animation: p-2 700ms ease-in-out;
-    }
-    @keyframes plus {
-        0% {opacity: 0%;position:relative;}
-
-        50% {
-            position:relative;
-            scale: 1.2;
-            opacity: 100%;
-
-        }
-
-        100% {
-            scale: 1;
-            opacity: 0%;
-
-        }
+        animation: Hover1 700ms ease-in-out;
     }
     #PlusC {
         font-size: 25px;
@@ -165,12 +167,6 @@ audio{
     .div2 {
         display: flex;
         justify-items: center;
-    }
-
-
-    #c {
-        font-family: monospace, 'Courier New', Courier, ;
-        font-size: 13px;
     }
 
     .Tit {
@@ -374,3 +370,10 @@ audio{
         display: flex;
         justify-content: space-evenly;
     }
+.CC{
+    width: 120px;
+    height: 120px;
+}
+.PN{
+    font-size: 15px;
+}
