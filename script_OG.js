@@ -351,8 +351,8 @@ let skins = {
     Owned: false,
     url: "Shawarma.png",
     cost: 3000000,
-    width: "200px",
-    height: "150px",
+    width: "180px",
+    height: "130px",
      var1:Shawarma,
     var2:ShawarmaN,
     Message:"Shawarma",
@@ -391,7 +391,7 @@ let skins = {
     Owned: false,
     url: "Nixson pie.png",
     cost: 20000000,
-    width: "145px",
+    width: "175px",
     height: "105px",
      var1:Pie,
     var2:PieNum,
@@ -481,8 +481,8 @@ let skins = {
     Owned: false,
     url: "Milkshake.webp",
     cost: 5000000,
-    height: "200px",
-    width: "250px",
+    height: "150px",
+    width: "100px",
      var1:Milkshake,
     var2:MilkshakeN,
     Message:"Milkshake"
@@ -530,7 +530,7 @@ let skins = {
     Coffee: {
     Owned: false,
     url: "Coffee.png",
-    cost: 200000,
+    cost: 2000000,
     height: "150px",
     width: "150px",
   },
@@ -539,7 +539,7 @@ let skins = {
     url: "Water.png",
     cost: 10,
     height: "150px",
-    width: "150px",
+    width: "180px",
   },
   Tea:{
     Owned: false,
@@ -548,7 +548,7 @@ let skins = {
     width: "150px",
     height:"150px",
   },
-  Water: {
+  NMW: {
     Owned: false,
     url: "Water.png",
     cost: 10,
@@ -565,9 +565,9 @@ let skins = {
     Pancake:{
     Owned: false,
     url: "Pancake.png",
-    cost: 500000,
-    width: "180px",
-    height:"180px",
+    cost: 200000,
+    width: "150px",
+    height:"150px",
   },
 }
 upgradebtn.addEventListener("click", function () {
@@ -868,10 +868,11 @@ function click() {
     img.style.filter = "grayscale(100%)"
   }
   else {
-    img.style.filter = "none"
+    img.style.filter = "none"   
   }
   //Clicks
   clicks += adder
+
   if (adder > 999) {
     let formatter3 = new Intl.NumberFormat('en-US', {
       notation: 'compact',
@@ -894,6 +895,7 @@ function click() {
   setTimeout(function () {
     p2.classList.remove("plus")
   }, 300)
+
   Isowned()
 }
 function Isowned() {

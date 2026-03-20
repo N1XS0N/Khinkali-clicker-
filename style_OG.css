@@ -12,9 +12,11 @@
         font-family:Khinkali,sans-serif;
     }
     img {
+
         width: 150px;
         height: 150px;
     }
+ 
 img:hover {
   cursor: pointer;
 
@@ -36,9 +38,9 @@ img:hover {
 
     button {
         font-size: 20px;
-        border-radius: 0%;
+        border-radius: 4px;
         font-family: Khinkali, sans-serif;
-        border: 2.5px solid black;
+        border: 4px solid black;
         color:black;
         background-color: white;
         display: flex;
@@ -54,7 +56,7 @@ button:hover {
     .Back {
         font-size: 17px;
         font-family:Khinkali, sans-serif;
-        border: 2.5px solid black;
+        border: 4px solid black;
         background-color: white;
     }
 .Back:hover {
@@ -73,8 +75,9 @@ button:hover {
     border-color: black;
 }
     input {
+        border-radius: 4px;
         font-size: 15px;
-        border: 2.5px solid black;
+        border: 4px solid black;
         font-family: Khinkali, sans-serif;
         color:black;
         margin-right: 3px;
@@ -100,14 +103,14 @@ button:hover {
     cursor: pointer;
 }
     @keyframes p-2 {
-        0% { }
+        0% {}
         50%{
-   
-
+            scale:1.2;
         opacity:100%;
         }
 
         100% {
+            scale: 1.0;
             opacity: 0%;
         }}
 
@@ -241,7 +244,7 @@ audio{
     }
 
     .Nixsonpie {
-        width: 145px;
+        width: 175px;
         height: 105px;
     }
 
@@ -256,8 +259,8 @@ audio{
     }
 
     .Shawarma {
-        width: 170px;
-        height: 120px;
+        width: 180px;
+        height: 130px;
     }
 
     .Elarji {
@@ -376,4 +379,7 @@ audio{
 }
 .PN{
     font-size: 15px;
+}
+.Water{
+    width: 180px;
 }
