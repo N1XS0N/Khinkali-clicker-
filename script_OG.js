@@ -3,6 +3,7 @@ var soundEffect = new Audio('TechoBOOM.mp3')
 let X=0
 let Y=0
 let PN=false
+let Changed=false   
 const PNC = document.querySelector(".PN")
 const Credits = document.querySelector("#idX")
 Credits.addEventListener("click",function () {
@@ -18,6 +19,7 @@ const BW1 = document.querySelector(".BW2")
 const Back2 = document.querySelector(".back2")
 const upgrade = document.querySelector(".three")
 const upgradebtn = document.querySelector(".upg")
+
 const Khinkali = document.querySelector(".Khinkali")
 const Khachapuri = document.querySelector(".Khachapuri")
 const Cup=document.querySelector(".CC")
@@ -26,6 +28,8 @@ const Pan=document.querySelector(".PC")
 const PanN=document.querySelector(".PCNum")
 const Tea=document.querySelector(".Tea")
 const TeaN=document.querySelector(".TeaNum")
+const Ramen=document.querySelector(".R")
+const RamenN=document.querySelector(".RNum")
 const Water=document.querySelector(".Water")
 const WaterN=document.querySelector(".WANum")
 const Coffee=document.querySelector(".Coffe")
@@ -375,7 +379,7 @@ let skins = {
     height: "110px",
      var1:Churckhela,
     var2:ChurckhelaN,
-    Message:"Churckhela",
+    Message:"Churckhela",   
   },
   Coke: {
     Owned: false,
@@ -566,6 +570,20 @@ let skins = {
     Owned: false,
     url: "Pancake.png",
     cost: 200000,
+    width: "150px",
+    height:"150px",
+  },
+      Wasajani:{
+    Owned: false,
+    url: "Khinkali.png",
+    cost: 100000,
+    width: "150px",
+    height:"150px",
+  },
+      Ramen:{
+    Owned: false,
+    url: "Ramen.png",
+    cost: 800000,
     width: "150px",
     height:"150px",
   },
@@ -811,6 +829,14 @@ Pan.addEventListener("click", function () {
   Isowned()
   buying(PanN, "Pancake")
 })
+Ramen.addEventListener("click", function () {
+  Isowned()
+  buying(RamenN, "Ramen")
+})
+Wasajani.addEventListener("click", function () {
+  Isowned()
+  buying(WasajaniN, "Wasajani")
+})
 img.addEventListener("mouseenter",function(){
   img.classList.add("Hover2")
 })
@@ -860,16 +886,23 @@ function click() {
     whattodisplay = String(clicks)
   }
   if (IsAlphaColor) {
+    Changed=false
     Random = Math.floor(Math.random() * 360)
-    img.style.filter = `hue-rotate(${Random}deg)`
+    img.style.filter = `hue-rotate(${Random}deg) drop-shadow(4px 0 0 black) drop-shadow(0 4px 0 black)  drop-shadow(-4px 0 0 black)  drop-shadow(0 -4px 0 black)`
   }
   else if (IsGrayscale) {
     Random = 0
+    Changed=false
     img.style.filter = "grayscale(100%)"
   }
-  else {
-    img.style.filter = "none"   
+  else if(!IsGrayscale && !IsAlphaColor && !Changed) {
+    img.style.filter = "none"
+    Changed=true       
   }
+  if(Changed){
+    img.style.filter="drop-shadow(4px 0 0 black) drop-shadow(0 4px 0 black)  drop-shadow(-4px 0 0 black)  drop-shadow(0 -4px 0 black)"     
+  }
+
   //Clicks
   clicks += adder
 

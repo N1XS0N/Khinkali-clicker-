@@ -383,3 +383,9 @@ audio{
 .Water{
     width: 180px;
 }
+.KhinkaliMain{
+        filter: drop-shadow(4px 0 0 black) 
+          drop-shadow(0 4px 0 black) 
+          drop-shadow(-4px 0 0 black) 
+          drop-shadow(0 -4px 0 black);
+}
