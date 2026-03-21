@@ -833,10 +833,6 @@ Ramen.addEventListener("click", function () {
   Isowned()
   buying(RamenN, "Ramen")
 })
-Wasajani.addEventListener("click", function () {
-  Isowned()
-  buying(WasajaniN, "Wasajani")
-})
 img.addEventListener("mouseenter",function(){
   img.classList.add("Hover2")
 })
