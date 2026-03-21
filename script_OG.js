@@ -28,6 +28,8 @@ const Pan=document.querySelector(".PC")
 const PanN=document.querySelector(".PCNum")
 const Tea=document.querySelector(".Tea")
 const TeaN=document.querySelector(".TeaNum")
+const Wasajani=document.querySelector(".W")
+const WasajaniN=document.querySelector(".WNum")
 const Ramen=document.querySelector(".R")
 const RamenN=document.querySelector(".RNum")
 const Water=document.querySelector(".Water")
@@ -575,8 +577,8 @@ let skins = {
   },
       Wasajani:{
     Owned: false,
-    url: "Khinkali.png",
-    cost: 100000,
+    url: "Wasajani.png",
+    cost: 1000000,
     width: "150px",
     height:"150px",
   },
@@ -832,6 +834,10 @@ Pan.addEventListener("click", function () {
 Ramen.addEventListener("click", function () {
   Isowned()
   buying(RamenN, "Ramen")
+})
+Wasajani.addEventListener("click", function () {
+  Isowned()
+  buying(WasajaniN, "Wasajani")
 })
 img.addEventListener("mouseenter",function(){
   img.classList.add("Hover2")
