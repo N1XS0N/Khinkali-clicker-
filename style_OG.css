@@ -114,16 +114,6 @@ button:hover {
             opacity: 0%;
         }}
 
-@keyframes Hover1 {
-    0%{
-    }
-    50%{
-scale: 1
-    }
-    100%{
-        scale: 1.2550;
-    }
-}
     
     h1 {
         font-size: 15px;
@@ -137,7 +127,7 @@ audio{
         animation: p-2 300ms ease-in-out;
     }
     .Hover2{
-        animation: Hover1 700ms ease-in-out;
+        animation: Hover1 300ms ease-in-out;
     }
     #PlusC {
         font-size: 25px;
@@ -388,4 +378,8 @@ audio{
           drop-shadow(0 4px 0 black) 
           drop-shadow(-4px 0 0 black) 
           drop-shadow(0 -4px 0 black);
+}
+.Banana{
+    height: 90px;
+    width: 180px;
 }

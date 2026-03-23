@@ -1,7 +1,5 @@
 const cliupg = document.querySelector(".cliupg")
 var soundEffect = new Audio('TechoBOOM.mp3')
-let X=0
-let Y=0
 let PN=false
 let Changed=false   
 const PNC = document.querySelector(".PN")
@@ -19,13 +17,16 @@ const BW1 = document.querySelector(".BW2")
 const Back2 = document.querySelector(".back2")
 const upgrade = document.querySelector(".three")
 const upgradebtn = document.querySelector(".upg")
-
 const Khinkali = document.querySelector(".Khinkali")
 const Khachapuri = document.querySelector(".Khachapuri")
 const Cup=document.querySelector(".CC")
 const CupN=document.querySelector(".CUPNum")
 const Pan=document.querySelector(".PC")
 const PanN=document.querySelector(".PCNum")
+const Banana=document.querySelector(".Banana")
+const BananaN=document.querySelector(".BananaNum")
+const Golden=document.querySelector(".G")
+const GN=document.querySelector(".GNum")
 const Tea=document.querySelector(".Tea")
 const TeaN=document.querySelector(".TeaNum")
 const Wasajani=document.querySelector(".W")
@@ -110,7 +111,6 @@ const input = document.querySelector("input")
 const btn = document.querySelector(".btn")
 const shop = document.querySelector(".shop")
 const num = document.querySelector("#Count")
-let ChefMode = false
 let whattodisplay = "0"
 const CpsText = document.querySelector("#cps")
 let Cps = 0
@@ -175,21 +175,6 @@ img.addEventListener("click", () => click()
 )
 window.addEventListener("keyup", function (event) {
   if (event.key == " ") {
-    click()
-  }
-  if (event.key == "c") {
-    ChefMode = true
-  }
-  if (event.key == "g") {
-    if(!GETOUT){
-      GETOUT=true
-  }
-  else{
-    GETOUT=false
-  }}
-})
-window.addEventListener("wheel", function () {
-  if (ChefMode) {
     click()
   }
 })
@@ -589,6 +574,20 @@ let skins = {
     width: "150px",
     height:"150px",
   },
+      Banana:{
+    Owned: false,
+    url: "Banana.png",
+    cost: 300000000,
+    width: "180px",
+    height:"90px",
+  },
+    GoldenApple:{
+    Owned: false,
+    url: "Golden apple.png",
+    cost: 200000000,
+    width: "150px",
+    height:"150px",
+  },
 }
 upgradebtn.addEventListener("click", function () {
   one.style.display = "none"
@@ -839,21 +838,19 @@ Wasajani.addEventListener("click", function () {
   Isowned()
   buying(WasajaniN, "Wasajani")
 })
-img.addEventListener("mouseenter",function(){
-  img.classList.add("Hover2")
+Banana.addEventListener("click", function () {
+  Isowned()
+  buying(BananaN, "Banana")
 })
-img.addEventListener("mouseleave",function(){
-  img.classList.remove("Hover2")
-})
-document.addEventListener("mousemove",function(e){
- X =e.pageX
- Y =e.pageY
+Golden.addEventListener("click", function () {
+  Isowned()
+  buying(GN, "GoldenApple")
 })
  function isMobile() {
   return window.matchMedia("(max-width: 768px)").matches;
 }
 function buying(Label, Objectname) {
-  if (skins[Objectname][owned]) {
+  if (skins[Objectname]["Owned"]) {
     Label.innerHTML = Objectname
     img.src = skins[Objectname][url]
     img.style.height = skins[Objectname][Height]
@@ -869,12 +866,7 @@ function click() {
  if(isMobile()){
   img.style.cursor="default"
  }
-  if(GETOUT){
-    soundEffect=new Audio("Getout.mp3")
-  }
-  else{
     soundEffect = new Audio('TechoBOOM.mp3')
-  }
   soundEffect.play()
     img.classList.remove("Hover2")
   if (clicks > 999 && !PN) {
