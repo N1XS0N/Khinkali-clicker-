@@ -18,8 +18,8 @@
     }
  
 img:hover {
-  cursor: pointer;
-
+ /*cursor: pointer;*/
+   cursor: url('cursor1.png'),pointer;    
 }
     div {
         display: flex;
@@ -103,17 +103,30 @@ button:hover {
     cursor: pointer;
 }
     @keyframes p-2 {
-        0% {}
+        0% {   position: relative;
+            top: +20px;}
         50%{
-            scale:1.2;
+          position: relative;
         opacity:100%;
         }
 
         100% {
-            scale: 1.0;
+            position: relative;
+            top: -20px;     
             opacity: 0%;
         }}
+  @keyframes Reg {
+        0% {  }
+        50%{
 
+       scale: 1.2;   
+            opacity: 100%;
+        }
+
+        100% {
+            scale: 1.0;   
+            opacity: 0%;
+        }}
     
     h1 {
         font-size: 15px;
@@ -124,13 +137,13 @@ audio{
     display: none;
 }
     .plus {
-        animation: p-2 300ms ease-in-out;
+        animation: p-2 700ms ease-in-out;
     }
-    .Hover2{
-        animation: Hover1 300ms ease-in-out;
+    .Reg{
+        animation:Reg 300ms ease-in-out;
     }
     #PlusC {
-        font-size: 25px;
+        font-size: 27px;
         opacity: 0%;
         position: relative;
 
@@ -382,4 +395,7 @@ audio{
 .Banana{
     height: 90px;
     width: 180px;
+}
+html{
+    cursor: url('Khinkali.png'),auto;
 }

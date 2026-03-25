@@ -2,6 +2,7 @@ const cliupg = document.querySelector(".cliupg")
 var soundEffect = new Audio('TechoBOOM.mp3')
 let PN=false
 let Changed=false   
+let whattodisplay2=0
 const PNC = document.querySelector(".PN")
 const Credits = document.querySelector("#idX")
 Credits.addEventListener("click",function () {
@@ -114,6 +115,8 @@ const num = document.querySelector("#Count")
 let whattodisplay = "0"
 const CpsText = document.querySelector("#cps")
 let Cps = 0
+let X=0
+let Y =0
 let SentString = ""
 let IsAlphaColor = false
 let IsGrayscale = false
@@ -160,8 +163,8 @@ let prices = {
     upgcost:200000,
   }
 }
-const img = document.querySelector(".KhinkaliMain")
 const p2 = document.querySelector("#PlusC")
+const img = document.querySelector(".KhinkaliMain")
 const Back = document.querySelector(".Back")
 const one = document.querySelector("#one")
 const two = document.querySelector("#two")
@@ -846,6 +849,10 @@ Golden.addEventListener("click", function () {
   Isowned()
   buying(GN, "GoldenApple")
 })
+img.addEventListener("mousemove",function(e){
+  X=e.pageX
+  Y=e.pageY
+})
  function isMobile() {
   return window.matchMedia("(max-width: 768px)").matches;
 }
@@ -863,9 +870,26 @@ function buying(Label, Objectname) {
 }
 
 function click() {
+let NewObj=document.createElement("p")
+document.body.append(NewObj)
  if(isMobile()){
   img.style.cursor="default"
  }
+ 
+ NewObj.style.fontSize="23px"
+ NewObj.style.color="black"
+ NewObj.style.position="absolute"
+ NewObj.style.opacity="0%"
+ NewObj.style.left=`${X}px`
+ NewObj.style.top=`${Y}px`
+     if (NewObj.classList != "Reg") {
+    NewObj.classList.add("Reg")
+  }
+  setTimeout(function () {
+    document.body.removeChild(NewObj)
+    
+  }, 300)
+
     soundEffect = new Audio('TechoBOOM.mp3')
   soundEffect.play()
     img.classList.remove("Hover2")
@@ -875,9 +899,11 @@ function click() {
       maximumFractionDigits: 1
     })
     whattodisplay = String(z.format(clicks))
+    NewObj.innerHTML="+"+String(z.format(adder))
   }
   else {
     whattodisplay = String(clicks)
+    NewObj.innerHTML="+" + String(adder)
   }
   if (IsAlphaColor) {
     Changed=false
@@ -905,10 +931,6 @@ function click() {
       notation: 'compact',
       maximumFractionDigits: 1
     })
-    p2.innerHTML = `+` + String(formatter3.format(adder))
-  }
-  else {
-    p2.innerHTML = `+` + String(adder)
   }
   num.innerHTML = `${whattodisplay}`
   //Animation
@@ -916,12 +938,6 @@ function click() {
     img.classList.add("p")
   }
   setTimeout(function () { img.classList.remove("p") }, 100)
-  if (p2.classList != "plus") {
-    p2.classList.add("plus")
-  }
-  setTimeout(function () {
-    p2.classList.remove("plus")
-  }, 300)
 
   Isowned()
 }
@@ -976,10 +992,30 @@ const addcps = setInterval(function () {
       notation: 'compact',
       maximumFractionDigits: 1
     })
+     if(Cps>=1){
+      whattodisplay2 = String(z1.format(Cps))
+     p2.innerHTML = `+${whattodisplay2}`
+    if (p2.classList != "plus") {
+    p2.classList.add("plus")
+  }
+  setTimeout(function () {
+    p2.classList.remove("plus")
+  }, 700)
+  }
     whattodisplay = String(z1.format(clicks))
   }
   else {
     whattodisplay = String(clicks)
+    if(Cps>=1){
+      whattodisplay2 = String(Cps)
+     p2.innerHTML = `+${whattodisplay2}`
+    if (p2.classList != "plus") {
+    p2.classList.add("plus")
+  }
+  setTimeout(function () {
+    p2.classList.remove("plus")
+  }, 700)
+  }
   }
 }, 1000)
 //code by N.K (N1XS0N) 2026 
