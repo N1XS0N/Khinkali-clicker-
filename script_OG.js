@@ -849,10 +849,6 @@ Golden.addEventListener("click", function () {
   Isowned()
   buying(GN, "GoldenApple")
 })
-img.addEventListener("mousemove",function(e){
-  X=e.pageX
-  Y=e.pageY
-})
  function isMobile() {
   return window.matchMedia("(max-width: 768px)").matches;
 }
@@ -870,25 +866,17 @@ function buying(Label, Objectname) {
 }
 
 function click() {
-let NewObj=document.createElement("p")
-document.body.append(NewObj)
  if(isMobile()){
   img.style.cursor="default"
  }
  
- NewObj.style.fontSize="23px"
- NewObj.style.color="black"
- NewObj.style.position="absolute"
- NewObj.style.opacity="0%"
- NewObj.style.left=`${X}px`
- NewObj.style.top=`${Y}px`
-     if (NewObj.classList != "Reg") {
-    NewObj.classList.add("Reg")
+    if (p2.classList != "plus") {
+    p2.classList.add("plus")
   }
   setTimeout(function () {
-    document.body.removeChild(NewObj)
-    
+    p2.classList.remove("plus")
   }, 300)
+  
 
     soundEffect = new Audio('TechoBOOM.mp3')
   soundEffect.play()
@@ -899,11 +887,11 @@ document.body.append(NewObj)
       maximumFractionDigits: 1
     })
     whattodisplay = String(z.format(clicks))
-    NewObj.innerHTML="+"+String(z.format(adder))
+   p2.innerHTML="+"+String(z.format(adder))
   }
   else {
     whattodisplay = String(clicks)
-    NewObj.innerHTML="+" + String(adder)
+    p2.innerHTML="+" + String(adder)
   }
   if (IsAlphaColor) {
     Changed=false
@@ -981,6 +969,7 @@ function Addcheats(inputvalue) {
     }
   }
 }
+let z1=0
 //CPS (It runs every sec.)
 const addcps = setInterval(function () {
   CpsText.innerHTML = `CPS:${Cps}`
@@ -988,34 +977,13 @@ const addcps = setInterval(function () {
   clicks += Cps
   //Number formatting !!!
   if (clicks > 999 && !PN) {
-    let z1 = new Intl.NumberFormat('en-US', {
+    z1 = new Intl.NumberFormat('en-US', {
       notation: 'compact',
       maximumFractionDigits: 1
     })
-     if(Cps>=1){
-      whattodisplay2 = String(z1.format(Cps))
-     p2.innerHTML = `+${whattodisplay2}`
-    if (p2.classList != "plus") {
-    p2.classList.add("plus")
-  }
-  setTimeout(function () {
-    p2.classList.remove("plus")
-  }, 700)
-  }
-    whattodisplay = String(z1.format(clicks))
-  }
-  else {
-    whattodisplay = String(clicks)
-    if(Cps>=1){
-      whattodisplay2 = String(Cps)
-     p2.innerHTML = `+${whattodisplay2}`
-    if (p2.classList != "plus") {
-    p2.classList.add("plus")
-  }
-  setTimeout(function () {
-    p2.classList.remove("plus")
-  }, 700)
-  }
-  }
+     whattodisplay = String(z1.format(clicks))
+ }
+  else{
+     whattodisplay = String(clicks)}
 }, 1000)
 //code by N.K (N1XS0N) 2026 

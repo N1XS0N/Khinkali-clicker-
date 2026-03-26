@@ -30,9 +30,10 @@ img:hover {
     body {
         font-weight: bold;
         font-family: Khinkali, sans-serif;
-        background-color: #ffffff;
+    background-image:linear-gradient(to left, rgb(255, 255, 255), rgb(226, 226, 226));
         color: black;
         margin: 0;
+        padding: 0;
         cursor: url('Khinkali.png'), auto
     }
 
@@ -107,13 +108,13 @@ button:hover {
             top: +20px;}
         50%{
           position: relative;
-        opacity:100%;
+              opacity: 100%;
         }
 
         100% {
             position: relative;
-            top: -20px;     
-            opacity: 0%;
+            top: -20px; 
+            opacity: 0%;    
         }}
   @keyframes Reg {
         0% {  }
@@ -137,7 +138,7 @@ audio{
     display: none;
 }
     .plus {
-        animation: p-2 700ms ease-in-out;
+        animation: p-2 300ms ease-in-out;
     }
     .Reg{
         animation:Reg 300ms ease-in-out;
