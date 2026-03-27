@@ -30,11 +30,9 @@ img:hover {
     body {
         font-weight: bold;
         font-family: Khinkali, sans-serif;
-    background-image:linear-gradient(to left, rgb(255, 255, 255), rgb(226, 226, 226));
         color: black;
         margin: 0;
         padding: 0;
-        cursor: url('Khinkali.png'), auto
     }
 
     button {

@@ -131,6 +131,7 @@ let used = "InUse"
 let upgcost = "upgcost"
 let adder = 1
 let GETOUT=false
+let inp=document.querySelector(".Filter")
 let Cheats = {
   HACKER: {
     c: 500,
@@ -866,6 +867,8 @@ function buying(Label, Objectname) {
 }
 
 function click() {
+     soundEffect = new Audio('TechoBOOM.mp3')
+  soundEffect.play()
  if(isMobile()){
   img.style.cursor="default"
  }
@@ -878,8 +881,7 @@ function click() {
   }, 300)
   
 
-    soundEffect = new Audio('TechoBOOM.mp3')
-  soundEffect.play()
+
     img.classList.remove("Hover2")
   if (clicks > 999 && !PN) {
     let z = new Intl.NumberFormat('en-US', {
@@ -933,6 +935,12 @@ function Isowned() {
   for (i in skins) {
     if (clicks >= skins[i][cost] && skins[i][owned] == false) {
       skins[i][owned] = true
+    }
+    else if(skins["GoldenApple"][owned] == false && clicks>=skins["GoldenApple"][cost]){
+      Cps=Cps*2
+    }
+      else if(skins["Banana"][owned] == false && clicks>=skins["GoldenApple"][cost]){
+      Cps=Cps*3
     }
     else if (skins["Candy"][owned] == true) {
       Candystyle = Math.floor(Math.random() * 4)
